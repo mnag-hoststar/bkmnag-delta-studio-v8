@@ -1,0 +1,237 @@
+// ----------------------------------------
+// Duotone: LESS > Widgets > Gallery
+// ----------------------------------------
+//
+// #Conditional Mixins
+// #Whole Gallery
+// #Single Gallery Item
+// #Image
+// #Caption
+//
+// ----------------------------------------
+
+// ------------------------------
+// #Conditional Mixins
+// ------------------------------
+
+// Conditional if the gallery background 
+// is not the same as the page background.
+
+.gallery-widget-background--spacing() when not (@color__gallery--background = @color__body--background) {
+	padding: 2em 0;
+}
+
+// ------------------------------
+// #Whole Gallery
+// ------------------------------
+
+// Color correction for the background.
+// Adding the same background as the forms widget
+// to a content widget if there is one above it.
+
+.widget[data-name="gallery"],
+.widget[data-widget-type="gallery"] {
+	.gallery-widget-background--spacing();
+}
+
+.widget[data-name="gallery"],
+.widget[data-widget-type="gallery"],
+.widget--gallery-background {
+	background: @color__gallery--background;
+}
+
+.widget--gallery-background + .widget[data-name="gallery"],
+.widget--gallery-background + .widget[data-widget-type="gallery"] {
+    padding-top: 1em;
+}
+
+.widget--gallery-background {
+	padding-bottom: 0;
+}
+
+.gallery-list {
+	margin: 0 -8px;
+	font-size: 0;
+	
+	@media @mobile {
+		margin: 0 -6px;
+	}
+}
+
+// ------------------------------
+// #Single Gallery Item
+// ------------------------------
+
+.gallery__gallery-item {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	margin: 0;
+	width: 100%/4;
+	padding-bottom: 100%/4;
+	
+	@media @tablet-horizontal {
+		width: 100%/2;
+		padding-bottom: 100%/2;
+	}
+	
+	@media @mobile {
+		width: 100%/2;
+		padding-bottom: 100%/2;
+	}
+	
+	.responsivecolumns .columns-two-left &,
+	.responsivecolumns .columns-two-right &,
+	.responsivecolumns .columns-three-left &,
+	.responsivecolumns .columns-three-middle &,
+	.responsivecolumns .columns-three-right & {
+		width: 100%/2;
+		padding-bottom: 100%/2;
+	}
+	
+	.responsivecolumns .columns-four-first &,
+	.responsivecolumns .columns-four-second &,
+	.responsivecolumns .columns-four-third &,
+	.responsivecolumns .columns-four-fourth & {
+	
+		@media only screen and (max-width: 1300px) {
+			width: 100%;
+			padding-bottom: 100%;
+		}
+	
+		@media only screen and (max-width: 1200px) {
+			width: 100%/2;
+			padding-bottom: 100%/2;
+		}
+	}
+}
+
+// ------------------------------
+// #Image
+// ------------------------------
+
+.gallery__figure {
+	overflow: hidden;
+    position: absolute;
+	top: 8px;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+	
+	@media @mobile {
+		top: 6px;
+		bottom: 6px;
+		left: 6px;
+		right: 6px;
+	}
+	
+	&:hover {
+		
+		& > .gallery__caption {
+			opacity: 1;
+			background-color: @color__gallery-caption--background;
+		}
+	}
+}
+
+a.gallery__image-link {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+}
+
+// Using the background image instead.
+
+.gallery__image {
+	display: none;
+}
+
+// ------------------------------
+// #Caption
+// ------------------------------
+
+.gallery__caption {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	display: table;
+    margin: 0;
+    overflow: hidden;
+	height: 100%;
+	.transition(opacity);
+}
+
+a.caption-link {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 1.5em;
+	height: 100%;
+    width: 100%;
+	overflow: hidden;
+	text-align: center;
+	font-size: @font__p--font-size;
+
+	.make-font-a-little-smaller(@font__p--font-size);
+	.make-font-smaller(@font__p--font-size);
+	.make-font-a-lot-smaller(@font__p--font-size);
+}
+
+// Image Title
+
+.gallery__image-title {
+	margin: 0 0 0.5em;
+	color: @color__gallery-title--text;
+	line-height: 1.4em;
+}
+
+.gallery__image-description {
+	color: @color__gallery-description--text;
+	line-height: 1.3em;
+}
+
+// ------------------------------
+// #Gallery Open Image
+// ------------------------------
+
+.pswp {
+	width: 100% !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+	.template__content .widget > & {
+		width: auto;
+		max-width: none;
+		margin: 0;
+	}
+	
+	&__button,
+	&__button:focus,
+	&__button:hover {
+		border: none;
+		padding: 0;
+		.box-shadow(none);
+	}
+	
+	&__counter {
+		padding: 0 20px !important;
+		font-size: 16px !important;
+	}
+	
+	&__caption__center {
+		max-width: none !important;
+		padding: 10px 10px 20px !important;
+		text-align: center !important;
+		font-size: 16px !important;
+	}
+}

@@ -1,0 +1,239 @@
+// ----------------------------------------
+// Duotone: LESS > Widgets > Twitter Feed
+// ----------------------------------------
+//
+// #Conditional Mixins
+// #Tweet Item
+// #Avatar
+// #Account Link
+// #Content
+// #Tweet Metadata
+// #Conditionals
+//
+// ----------------------------------------
+
+// ------------------------------
+// #Conditional Mixins
+// ------------------------------
+
+// Conditional if the container background 
+// is not the same as the page background.
+
+.twitter-body-background--spacing() when not (@color__twitter--background = @color__body--background) {
+	padding: 2em 0;
+}
+
+// Conditionals if the container background 
+// is the same as the item background.
+
+.twitter-widget-background--spacing() when (@color__twitter--background = @color__twitter-item--background) {
+	.widget[data-name="twitter"],
+	.widget[data-widget-type="twitter"] {
+		padding: 1em 0;
+	}
+	
+	.twitter__avatar {
+		margin: 1em 1em 0 0;
+	}
+	
+	a.twitter__account-link {
+		padding: 1em 0 0;
+		min-height: 4.6em;
+	}
+	
+	.tweet-content {
+		padding: 1em 0 5em 0;
+	
+		@media @mobile {
+			padding: 1em 0 5.5em 0;
+		}
+	}
+	
+	.tweet-metadata {
+		padding: 1.5em 0;
+
+		@media @mobile {
+			padding: 1.5em 0 2em;
+		}
+	}
+}
+
+.tweet-metadata--spacing() when (@color__twitter--background = @color__twitter-item--background) {
+
+}
+
+// Conditionals for responsive columns 
+// if body background is the same as
+// item background.
+
+.twitter-item-background--columns--spacing() when (@color__twitter-item--background = @color__body--background) {
+	.responsivecolumns {
+	 	.twitter__avatar {
+			margin: 0 1em 0 0;
+		}
+		
+	 	a.twitter__account-link {
+			padding: 0 0 0 4.6em;
+		}
+		
+		.tweet-content {
+			padding: 0 0 5.5em;
+		}
+		
+		.tweet-metadata {
+			padding: 1.5em 0 1em;
+		}
+	}
+}
+
+// ------------------------------
+// #Twitter Widget Container
+// ------------------------------
+
+// Color correction for the background.
+// Adding the same background as the forms widget
+// to a content widget if there is one above it.
+
+.widget[data-name="twitter"],
+.widget[data-widget-type="twitter"] {
+	.twitter-body-background--spacing();
+	.twitter-widget-background--spacing();
+}
+
+.widget[data-name="twitter"],
+.widget[data-widget-type="twitter"],
+.widget--twitter-background {
+	background-color: @color__twitter--background;
+}
+
+.widget--twitter-background + .widget[data-name="twitter"],
+.widget--twitter-background + .widget[data-widget-type="twitter"] {
+    padding-top: 1em;
+}
+
+.widget--twitter-background {
+	padding-bottom: 0;
+}
+
+// ------------------------------
+// #Tweet List
+// ------------------------------
+
+.twitter__tweet-list {
+	.display-flex(flex);
+    .flex-wrap(wrap);
+	.item--margin-size--border();
+	
+	.responsivecolumns & {
+		margin: 0;
+	}
+}
+
+// ------------------------------
+// #Tweet Item
+// ------------------------------
+
+.tweet-item {
+	position: relative;
+	padding: 0;
+	background-color: @color__twitter-item--background;
+	.item--margin-size--2to1-cols();
+	.clearfix();
+	
+	.responsivecolumns & {
+		width: 100%;
+		margin: 0 0 1em;
+	}
+}
+
+// ------------------------------
+// #Avatar
+// ------------------------------
+
+.twitter__avatar {
+	position: static;
+	float: left;
+	margin: 1.5em 1em 0 1.5em;
+}
+
+.twitter__avatar-image {
+	display: block;
+	width: unit(@font__p--line-height*0.1, em)*2;
+	height: unit(@font__p--line-height*0.1, em)*2;
+}
+
+// ------------------------------
+// #Account Link
+// ------------------------------
+
+a.twitter__account-link {
+    display: block;
+	padding: 1.5em 1.5em 0 6.1em;
+	min-height: 5.1em;
+	.heading--4;
+	font-size: @font__p--font-size;
+	
+	.make-font-a-little-smaller(@font__p--font-size);
+	.make-font-smaller(@font__p--font-size);
+	.make-font-a-lot-smaller(@font__p--font-size);
+}
+
+// ------------------------------
+// #Content
+// ------------------------------
+
+.tweet-content {
+	padding: 1em 1.5em 5.5em;
+	.tweet-content--spacing();
+}
+
+// ------------------------------
+// #Tweet Metadata
+// ------------------------------
+
+.tweet-metadata {
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	padding: 1.5em 1.5em 1em;
+	line-height: 1em;
+	font-size: @font__p--font-size;
+	
+	.make-font-a-little-smaller(@font__p--font-size);
+	.make-font-smaller(@font__p--font-size);
+	.make-font-a-lot-smaller(@font__p--font-size);
+	
+	// Twitter link at the end.
+	
+	.via, a {
+		font-family: @font__h4--font-family;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		font-size: 0.7em;
+		color: fade(@color__p--text, 50%);
+	}
+
+    a {
+		border: none;
+    	background-color: transparent;
+        color: fade(@color__p--text, 50%);
+    }
+}
+
+// Timestamp
+
+.twitter__timestamp {
+	display: block;
+	font-family: @font__h4--font-family;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	font-size: 0.8em;
+}
+
+// ------------------------------
+// #Conditionals
+// ------------------------------
+
+.twitter-item-background--columns--spacing();
+.twitter-widget-background--spacing();

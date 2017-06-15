@@ -1,0 +1,498 @@
+// ----------------------------------------
+// Duotone: LESS > Widgets > Forms
+// ----------------------------------------
+//
+// #Conditional Mixins
+// #Global Form Styles
+// #Legend
+// #Form
+// #Label
+// #Text Inputs
+// #Placeholders
+// #Dropdowns
+// #Radio Buttons and Checkboxes
+// #Error Messages
+// 
+// #Sign Up Form
+// #Contact Form
+// #Advanced Contact Form
+//
+// ----------------------------------------
+
+// ------------------------------
+// #Conditional Mixins
+// ------------------------------
+
+// Conditional if the form background 
+// is not the same as the page background.
+
+.form-widget-background--spacing() when not (@color__form--background = @color__body--background) {
+	padding: 2em 0;
+}
+
+// ------------------------------
+// #Global Form Styles
+// ------------------------------
+
+// Color correction for the background.
+// Adding the same background as the forms widget
+// to a content widget if there is one above it.
+
+.widget[data-name="signupform"],
+.widget[data-widget-type="signupform"],
+.widget[data-name="contactform"],
+.widget[data-widget-type="contactform"],
+.widget[data-name="advancedcontactform"],
+.widget[data-widget-type="advancedcontactform"] {
+	.form-widget-background--spacing();
+	
+	.responsivecolumns & {
+		padding-top: 2em;
+		padding-bottom: 2em;
+		
+		&:first-child {
+			padding-top: 0;
+		}
+		
+		&:last-child {
+			padding-bottom: 0;
+
+			@media @mobile {
+				padding-bottom: 2em;
+			}
+		}
+	}
+}
+
+.widget[data-name="signupform"],
+.widget[data-widget-type="signupform"],
+.widget--signupform-background,
+.widget[data-name="contactform"],
+.widget[data-widget-type="contactform"],
+.widget--contactform-background,
+.widget[data-name="advancedcontactform"],
+.widget[data-widget-type="advancedcontactform"],
+.widget--advancedcontactform-background {
+	background-color: @color__form--background;
+}
+
+.widget--signupform-background + .widget[data-name="signupform"],
+.widget--signupform-background + .widget[data-widget-type="signupform"],
+.widget--contactform-background + .widget[data-name="contactform"],
+.widget--contactform-background + .widget[data-widget-type="contactform"],
+.widget--advancedcontactform-background + .widget[data-name="advancedcontactform"],
+.widget--advancedcontactform-background + .widget[data-widget-type="advancedcontactform"] {
+    padding-top: 1em;
+}
+
+.widget--signupform-background,
+.widget--contactform-background,
+.widget--advancedcontactform-background {
+	padding-bottom: 0;
+}
+
+.form {
+	max-width: 100%;
+	margin: 0 auto;
+
+	@media @tablet-horizontal {
+		max-width: 100%;
+	}
+	
+	.responsivecolumns & {
+		max-width: none;
+	}
+}
+
+// ------------------------------
+// #Legend
+// ------------------------------
+
+.form .legend {
+	display: none;
+}
+
+// ------------------------------
+// #Form
+// ------------------------------
+
+.form .form-body {
+}
+
+.form .form-group {
+	margin-bottom: 1em;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+// ------------------------------
+// #Label
+// ------------------------------
+
+.form label {
+	margin: 0 0 0.3em;
+}
+
+input[type="search"],
+input[type="email"],
+input[type="password"],
+.input--single-line,
+.input--search,
+textarea,
+select {
+	height: @font__p--font-size * 2.5;
+}
+
+// ------------------------------
+// #Text Inputs
+// ------------------------------
+
+// All Input Fields
+
+input[type="search"],
+input[type="email"],
+input[type="password"],
+.input--single-line,
+.input--search,
+textarea {
+    padding: 0.4em 0.6em;
+    background-color: #fff;
+    border: 1px solid @color-text--light;
+	height: 3rem;
+    color: @color__p--text;
+	.transition();
+    .border-radius(0);
+    .appearance(none);
+	
+	&:hover {
+    	border: 1px solid @color__p--text;
+	}
+	
+	// Focus style for easier keyboard navigation
+	
+	&:focus {
+    	border: 0.3em solid @color__button--background--hover;
+		.box-shadow(none);
+	}
+}
+
+// Single Line Inputs
+
+input[type="search"],
+input[type="email"],
+input[type="password"],
+.input--single-line,
+.input--search,
+.product-filters .input--search {
+}
+
+// Multiple Lines Inputs
+
+textarea {
+    display: block;
+
+    @media @mobile {
+    }
+}
+
+// ------------------------------
+// #Placeholders
+// ------------------------------
+
+input::-webkit-input-placeholder {
+   color: @color-text--light;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: @color-text--light;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: @color-text--light;
+}
+
+input:-ms-input-placeholder {
+   color: @color-text--light;
+}
+
+input:focus {
+    &::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    &:-moz-placeholder {
+        color: transparent;
+    }
+
+    &::-moz-placeholder {
+        color: transparent;
+    }
+
+    &:-ms-input-placeholder {
+        color: transparent;
+    }
+}
+
+// ------------------------------
+// #Radio Buttons and Checkboxes
+// ------------------------------
+
+.option-list {
+	margin-top: 1em;
+	
+	.label--radio,
+	.label--checkbox {
+		.paragraph;
+		line-height: 1.5em;
+		min-height: 1.5em;
+	}
+
+	.option-item--radio,
+	.option-item--checkbox {
+		position: relative;
+		width: 100%;
+		margin-bottom: unit(@font__p--line-height*0.1, em) / 2;
+		
+		padding: 0;
+
+		label {
+			position: relative;
+			margin-left: 1em * 2.5;
+			.transform-scale(1);
+
+			&:before {
+				content: " ";
+				position: absolute;
+				top: 0.7em;
+				left: -2.5em;
+				width: 1.5em;
+				height: 1.5em;
+				margin-top: -0.8em;
+				background-color: #fff;
+				border: 0.2em solid @color-text--light;
+			}
+
+			&:after {
+				opacity: 0;
+				position: absolute;
+				.transition(opacity, 0.1s);
+			}
+		}
+	}
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0 !important;
+		padding: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+
+		&:checked + label:before {
+			border: 0.2em solid @color-text--faded;
+		}
+
+		&:checked + label:after {
+			opacity: 1;
+		}
+
+		&:focus + label:before,
+		&:focus:checked + label:before {
+			border: 0.3em solid @color__button--background--hover;
+		}
+	}
+
+	.option-item--radio {
+		label {
+			&:before {
+				.border-radius(1em);
+			}
+			&:after {
+				content: " ";
+				.border-radius(1em);
+				background-color: @color__button--background;
+				top: 0.7em;
+				left: -2.5em;
+				width: 1.5em;
+				height: 1.5em;
+				margin-top: -0.8em;
+				.transform-scale(0.5);
+			}
+		}
+	}
+
+	.option-item--checkbox {
+		label {
+			&:after {
+				content: "\f00c";
+				font-family: 'FontAwesome', sans-serif;
+				color: @color__button--background;
+				font-size: 1.5em;
+				top: 0.5em;
+				left: -1.5em;
+				margin-top: -0.6em;
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Dropdowns
+// ------------------------------
+
+// Select Wrap
+
+.select-wrap {
+    position: relative;
+
+    @media @mobile {
+        max-width: 100%;
+    }
+	
+    // Icon
+
+    &:before {
+        content: '\f107';
+        font-family: 'FontAwesome', sans-serif;
+        display: inline-block;
+        height: 1em;
+        line-height: 1em;
+        text-align: center;
+		font-size: 1.5em;
+        color: @color__p--text;
+        position: absolute;
+        right: 0.5em;
+        top: 50%;
+        margin-top: -0.5em;
+
+		@media @mobile {
+			font-size: 2em;
+		}
+    }
+}
+
+// Select
+
+.select {
+    position: relative;
+    display: block;
+	padding: 0 2em 0 0.6em;
+    width: 100%;
+    border: 0.3em solid transparent;
+	background-color: @color-text--lightest;
+    font-size: 1em;
+    color: @color__p--text;
+    .border-radius(0);
+    .appearance(none);
+	.transition();
+
+    @media @mobile {
+		padding: 0 2.7em 0 0.6em;
+    }
+
+    &:hover {
+		border: 0.3em solid transparent;
+		background-color: @color-text--light;
+    }
+
+    &:focus {
+		border: 0.3em solid @color__button--background--hover;
+		background-color: @color-text--lightest;
+	}
+	
+	&:hover:focus {
+		background-color: @color-text--light;
+	}
+}
+
+.select::-ms-expand {
+    display: none;
+}
+
+// ------------------------------
+// #Error Messages
+// ------------------------------
+
+.form {
+    input.error {
+        border: none !important;
+    }
+    textarea.error {
+        border: 1px solid @message-color--error !important;
+    }
+    .form-group {
+        .error {
+            border: 2px solid @message-color--error !important;
+            &:focus {
+				.box-shadow(none);
+            }
+        }
+    }
+}
+
+input.error {
+    &::-webkit-input-placeholder {
+        color: fade(@message-color--error, 60%);
+    }
+
+    &:-moz-placeholder {
+        color: fade(@message-color--error, 60%);
+    }
+
+    &::-moz-placeholder {
+        color: fade(@message-color--error, 60%);
+    }
+
+    &:-ms-input-placeholder {
+        color: fade(@message-color--error, 60%);
+    }
+}
+
+// ------------------------------
+// #Sign Up Form
+// ------------------------------
+
+.signupform {
+	.form-body {
+		display: table;
+		width: 100%;
+	}
+
+	.form-group {
+		display: table-cell;
+		vertical-align: middle;
+		height: 3em;
+		
+		&:first-child {
+			width: 100%;
+			padding-right: 0.5em;
+		}
+
+		label {
+			display: none;
+		}
+		
+		.button {
+			white-space: nowrap;
+		}
+	}
+}
+
+// ------------------------------
+// #Contact Form
+// ------------------------------
+
+.contactform {}
+
+// ------------------------------
+// #Advanced Contact Form
+// ------------------------------
+
+.advancedcontactform {}

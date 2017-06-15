@@ -1,0 +1,335 @@
+// ----------------------------------------
+// Duotone: LESS > Widgets > Widgets
+// ----------------------------------------
+//
+// #Global Widget Styles
+// #Widget with background spacing
+// #Columns
+// #Page Title Widget
+// #Line Widget
+//
+// ----------------------------------------
+
+// -----------------------------
+// #Global Widget Styles
+// -----------------------------
+
+.bk-zone {
+	width: 100%;
+}
+
+.widget--zone-widget,
+.widget {
+	margin-top: 0;
+	margin-bottom: 0;
+    padding: 0.5em 0;
+	min-height: 1em;
+	
+	.responsivecolumns & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.template__content {
+	.widget {
+		> * {
+			.template__content--width();
+		}
+	}
+	
+	.widget[data-name="line"] > *,
+	.widget[data-widget-type="line"] > * {
+		width: auto;
+		max-width: inherit;
+		margin: 1em 0;
+	}
+}
+
+// All page widgets fade in.
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadein {
+	/* Firefox */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadein {
+	/* Safari and Chrome */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes fadein {
+	/* Opera */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.widget--zone-widget {
+	animation: fadein 1s;
+	-moz-animation: fadein 1s;
+	-webkit-animation: fadein 1s;
+	-o-animation: fadein 1s;
+}
+
+// ------------------------------
+// #Widget with background spacing
+// ------------------------------
+
+.widget[data-name="gallery"] + .widget[data-name="image"],
+.widget[data-name="image"] + .widget[data-name="gallery"] {
+	padding: 0 0 2em;
+}
+
+// -----------------------------
+// #Columns
+// -----------------------------
+
+.template__content {
+	.widget[data-name="responsivecolumns"],
+	.widget[data-widget-type="responsivecolumns"] {
+		.responsivecolumns {
+			.widget--zone-widget,
+			.widget {
+			    padding: 1em 0;
+				background-color: transparent;
+				
+				&:first-child {
+					padding-top: 0;
+
+					@media @mobile {
+						padding-top: 1em;
+					}
+				}
+			    
+			    & > * {
+			        width: 100%;
+			    }
+			}
+	
+			.widget[data-name="content"],
+			.widget[data-widget-type="content"] {
+				padding: 0;
+			}
+		}
+				
+		.responsivecolumns .columns-four-first,
+		.responsivecolumns .columns-four-second {
+			.widget--zone-widget,
+			.widget {
+				&:last-child {
+					@media only screen and (max-width: 1200px) {
+						padding-bottom: 2em;
+					}
+
+					@media @mobile {
+						padding-bottom: 1em;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Two columns
+
+.responsivecolumns .columns-two-left,
+.responsivecolumns .columns-two-right {
+	width: 48.5%;
+	margin-right: 3%;
+
+	@media @mobile {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
+.responsivecolumns .columns-two-right {
+	margin-right: 0;
+}
+
+// Three columns
+
+.responsivecolumns .columns-three-left,
+.responsivecolumns .columns-three-middle,
+.responsivecolumns .columns-three-right {
+	width: 31.333%;
+	margin-right: 3%;
+
+	@media @mobile {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
+.responsivecolumns .columns-three-right {
+	margin-right: 0;
+}
+
+// Four Columns
+
+.responsivecolumns .columns-four-first,
+.responsivecolumns .columns-four-second,
+.responsivecolumns .columns-four-third,
+.responsivecolumns .columns-four-fourth {
+	width: 22.75%;
+	margin-right: 3%;
+
+	@media only screen and (max-width: 1200px) {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	@media @mobile {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
+.responsivecolumns .columns-four-fourth {
+	margin-right: 0;
+}
+
+.responsivecolumns .columns-four-second {
+	@media only screen and (max-width: 1200px) {
+		margin-right: 0;
+	}
+}
+
+// Two columns, unevenly distributed
+
+.columns-two-25-75 .responsivecolumns .columns-two-left,
+.columns-two-75-25 .responsivecolumns .columns-two-right {
+	width: 22.75%;
+	margin-right: 3%;
+}
+
+.columns-two-25-75 .responsivecolumns .columns-two-right,
+.columns-two-75-25 .responsivecolumns .columns-two-left {
+	width: 74.25%;
+	margin-right: 3%;
+}
+
+.columns-two-34-66 .responsivecolumns .columns-two-left,
+.columns-two-66-34 .responsivecolumns .columns-two-right {
+	width: 31.333%;
+	margin-right: 3%;
+}
+
+.columns-two-34-66 .responsivecolumns .columns-two-right,
+.columns-two-66-34 .responsivecolumns .columns-two-left {
+	width: 65.668%;
+	margin-right: 3%;
+}
+
+.columns-two-75-25 .responsivecolumns .column,
+.columns-two-25-75 .responsivecolumns .column,
+.columns-two-66-34 .responsivecolumns .column,
+.columns-two-34-66 .responsivecolumns .column {
+	@media only screen and (max-width: 925px) {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	@media @mobile {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
+.columns-two-75-25 .responsivecolumns .columns-two-right,
+.columns-two-25-75 .responsivecolumns .columns-two-right,
+.columns-two-66-34 .responsivecolumns .columns-two-right,
+.columns-two-34-66 .responsivecolumns .columns-two-right {
+	margin-right: 0;
+}
+
+// Three columns, unevenly distributed
+
+.columns-three-25-25-50 .responsivecolumns .columns-three-right,
+.columns-three-50-25-25 .responsivecolumns .columns-three-left {
+	width: 48.5%;
+	margin-right: 3%;
+}
+
+.columns-three-25-25-50 .responsivecolumns .columns-three-left,
+.columns-three-25-25-50 .responsivecolumns .columns-three-middle,
+.columns-three-50-25-25 .responsivecolumns .columns-three-middle,
+.columns-three-50-25-25 .responsivecolumns .columns-three-right {
+	width: 22.75%;
+	margin-right: 3%;
+}
+
+.columns-three-50-25-25 .responsivecolumns .column,
+.columns-three-25-25-50 .responsivecolumns .column {
+	@media only screen and (max-width: 925px) {
+		width: 31.333%;
+		margin-right: 3%;
+	}
+
+	@media @tablet {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+.columns-three-25-25-50 .responsivecolumns .columns-three-right,
+.columns-three-50-25-25 .responsivecolumns .columns-three-right {
+	margin: 0;
+}
+
+
+
+// -----------------------------
+// #Line Widget
+// -----------------------------
+
+.line {
+    line-height: 0;
+}
+
+hr.line__rule {
+	height: 3px;
+	background-color: fade(@color__p--text, 60%);
+}
+
+// -----------------------------
+// #Space Widget
+// -----------------------------
+
+.widget--zone-widget,
+.widget {
+	&[data-name="space"],
+	&[data-widget-type="space"] {
+	}
+}
+
+// -----------------------------
+// #Page Title Widget
+// -----------------------------
+
+.pagetitle-text {
+    h1;
+}

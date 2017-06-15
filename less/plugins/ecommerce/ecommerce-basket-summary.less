@@ -1,0 +1,308 @@
+// ----------------------------------------
+// Duotone: LESS > Plugins > Ecommerce > Basket Summary
+// ----------------------------------------
+// 
+// #Table Styles
+// #Cell Image
+// #Cell Title and Quantity
+// #Cell Quantity, Total and Price
+// #Cell Title
+// #Cell Quantity
+// #Cell Total and Price
+// #Button
+// 
+// ----------------------------------------
+
+// ------------------------------
+// #Table Styles
+// ------------------------------
+
+.summary-table {
+	&, .table-row, .cell, .summary-body {
+		@media @basketsummary-medium {
+			display: block;
+		}
+	}
+
+    .table-row--heading {
+		@media @basketsummary-medium {
+            display: none;
+		}
+    }
+	
+	.table-row {
+		@media @basketsummary-medium {
+			overflow: hidden;
+			border-top: 1px solid @color-text--light;
+			border-bottom: none;
+			padding: 0.5em 0;
+			.clearfix();
+			
+			&:nth-of-type(2) {
+				border-top-width: 0.2em;
+			}
+			
+			&:last-child {
+				border: none;
+				padding: 0;
+			}
+		}
+			
+		&:nth-last-of-type(2) .cell {
+			border: none;
+		}
+	}
+		
+	.cell {
+		padding: 0.5em;
+
+		&:last-child,
+		&:nth-last-of-type(-n+2) {
+			text-align: right;
+
+			@media @basketsummary-medium {
+				text-align: left;
+			}
+		}
+		
+		@media @basketsummary-medium {
+        	border: none;
+		}
+		
+		> * {
+			padding: 0;
+		}
+	}
+}
+
+// ------------------------------
+// #Cell Image
+// ------------------------------
+
+.summary-table .cell--image {
+}
+
+.ecombasketsummary {
+    &__cell.cell--image {
+		width: 10%;
+	
+		@media @layout-width-breakpoint {
+			width: 12%;
+		}
+
+		@media @tablet-horizontal {
+			width: 15%;
+		}
+		
+		@media @basketsummary-medium {
+			float: left;
+			padding-right: 1em;
+			width: 30%;
+		}
+
+		.summary-item-link {
+			display: block;
+			background-image: none !important;
+			text-align: left;
+			
+			@media @tablet-horizontal {
+				text-align: center;
+			}
+
+			.image {
+				display: inline-block;
+				vertical-align: middle;
+				max-width: 100%;
+    			max-height: 80px;
+		
+				@media @basketsummary-medium {
+    				max-height: none;
+				}
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Cell Title and Quantity
+// ------------------------------
+
+.ecombasketsummary {
+	.cell--title, .cell--quantity {
+		@media @basketsummary-medium {
+			padding-left: 30%;
+		}
+	}
+}
+
+// ------------------------------
+// #Cell Quantity, Total and Price
+// ------------------------------
+	
+.ecombasketsummary {
+	.cell--price, .cell--total, .cell--quantity {
+		width: 7em;
+		
+		@media @basketsummary-medium {
+			&:before {
+				content: attr(data-title);
+				display: block;
+				.label-text;
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Cell Title
+// ------------------------------
+
+.ecombasketsummary {
+    &__cell.cell--title {
+        width: auto;
+    }
+
+    &__summary-item-title {
+		line-height: 1.5em;
+    }
+}
+
+// ------------------------------
+// #Cell Quantity
+// ------------------------------
+
+.ecombasketsummary {
+    &__cell.cell--quantity {
+		@media @basketsummary-medium {
+            position: relative;
+			width: auto;
+            .clearfix();
+
+            // Pseudo Label - LESS Framework
+
+            &:before {
+                display: block;
+            }
+        }
+    }
+	
+	&__quantity-wrap {
+		background-color: transparent;
+		min-width: 6em;
+		
+		@media @basketsummary-medium {
+			width: 0;
+		}
+
+		.button--quantity {
+			postion: relative;
+			color: @color__button--background;
+			
+			&:hover {
+				color: @color__button--background--hover;
+			}
+			
+			&, &:hover {
+				width: unit(@font__p--line-height*0.1, em);
+				height: unit(@font__p--line-height*0.1, em);
+				min-height: unit(@font__p--line-height*0.1, em);
+				padding: 0;
+				border: none;
+				font-size: @font__p--font-size;
+				line-height: unit(@font__p--line-height*0.1, em);
+	
+				.make-font-a-little-smaller(@font__p--font-size);
+				.make-font-smaller(@font__p--font-size);
+				.make-font-a-lot-smaller(@font__p--font-size);
+			}
+		}
+		.button.quantity-minus,
+		.button.quantity-plus {
+			&:after {
+				position: absolute;
+				top: 0;
+    			left: 0;
+				margin: 0;
+				padding: 0;
+				border: none;
+				font-family: 'FontAwesome', sans-serif;
+				color: @color__button--text;
+				font-size: @font__p--font-size;
+				line-height: unit(@font__p--line-height*0.1, em)+0.1;
+				width: unit(@font__p--line-height*0.1, em)+0.1;
+	
+				.make-font-a-little-smaller(@font__p--font-size);
+				.make-font-smaller(@font__p--font-size);
+				.make-font-a-lot-smaller(@font__p--font-size);
+			}
+			
+			&:hover:after {
+				color: @color__button--text--hover;
+			}
+		}
+		
+		.button.quantity-minus {
+			&:after {
+				content: "\f068";
+			}
+		}
+		
+		.button.quantity-plus {
+			&:after {
+				content: "\f067";
+			}
+		}
+	}
+	
+	&__quantity-field {
+		line-height: unit(@font__p--line-height*0.1, em);
+	}
+}
+
+// ------------------------------
+// #Cell Total and Price
+// ------------------------------
+
+.ecombasketsummary {
+	&__cell.cell--price,
+	&__cell.cell--total {
+		@media @basketsummary-medium {
+            float: left;
+            width: 30%;
+			padding-left: 0;
+        }
+	}
+	&__cell.cell--price {
+		@media @basketsummary-medium {
+            margin-left: 30%;
+        }
+	}
+}
+
+// ------------------------------
+// #Subtotal Row
+// ------------------------------
+
+.ecombasketsummary {
+    &__cell.cell--order-total {
+        text-align: right;
+        background-color: @color-text--lightest;
+		border-top: 0.2em solid @color-text--light;
+		border-bottom: none;
+    }
+	
+	&__order-total {
+		@media @basketsummary-medium {
+			text-align: right;
+		}
+	}
+}
+
+// ------------------------------
+// #Button
+// ------------------------------
+
+.summary-form {
+    text-align: right;
+	max-width: 100%;
+}

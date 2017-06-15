@@ -1,0 +1,265 @@
+// ----------------------------------------
+// Duotone: LESS > Plugins > Blog > Blog Posts List
+// ----------------------------------------
+//
+// #Conditional Mixins
+// #All posts
+// #Single Article
+// #Image
+// #Content
+// #Footer
+// #Paginatinon
+// #Conditionals
+//
+// ----------------------------------------
+
+// ------------------------------
+// #Conditional Mixins
+// ------------------------------
+
+// Conditional if the Blog Post List background 
+// is the same as the page background.
+
+.blogpostlist-widget-background--spacing() when (@color__blogpostlist--background = @color__body--background) {
+	padding: 2em 0 1em 0;
+}
+
+// Conditional if the Blog Post List background 
+// is not the same as the Blog Article background.
+
+.blogpostlist-article-background--spacing() when (@color__blogpostlist--background = @color__blogpostlist-article--background) {
+	
+	.blogpostlist__post-content {
+		padding: 4em 0 1.5em;
+	
+		.responsivecolumns & {
+			padding: 4em 1.5em 1.5em;
+		}
+	}
+	
+	.blogpostlist__post-footer {
+		padding: 0;
+	
+		.responsivecolumns & {
+			padding: 0 1.5em;
+		}
+	}
+}
+
+// Conditional if the Date Background
+// is the same as the Blog Article background.
+
+.blogpostlist-title-background--spacing() when (@color__blogpostlist-title--background = @color__blogpostlist-article--background) {
+	padding: 0.4em 0;
+}
+
+// ------------------------------
+// #All posts
+// ------------------------------
+
+.widget[data-name="blogpostlist"],
+.widget[data-widget-type="blogpostlist"] {
+	background-color: @color__blogpostlist--background;
+	padding: 2em 0;
+	.blogpostlist-widget-background--spacing();
+}
+
+.blogpostlist__post-items {
+	.display-flex(flex);
+    .flex-wrap(wrap);
+	.item--margin-size--border();
+	
+	.responsivecolumns & {
+		margin: 0;
+	}
+}
+
+// ------------------------------
+// #Single Article
+// ------------------------------
+
+.blogpostlist__post-article {
+	position: relative;
+	.item--margin-size--3to1-cols();
+	background-color: @color__blogpostlist-article--background;
+	.clearfix();
+	
+	@media @mobile {
+		.display-flex(flex);
+		.flex-direction(inherit);
+	}
+	
+	.responsivecolumns & {
+		.display-flex(flex);
+		.flex-direction(inherit);
+		width: 100%;
+		margin: 0 0 1em;
+	}
+}
+
+// ------------------------------
+// #Image
+// ------------------------------
+
+.blogpostlist {
+    &__post-image {
+        position: relative;
+        overflow: hidden;
+        height: 0;
+		padding-bottom: 56.25%;
+		
+		@media @mobile {
+			float: left;
+			height: 100%;
+			width: 25%;
+    		padding-bottom: 0;
+		}
+		
+		.responsivecolumns & {
+			float: left;
+			height: 100%;
+			width: 25%;
+    		padding-bottom: 0;
+		}
+    }
+	
+    &__image-link {
+        background-position: center center;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+		.transition(all, 0.3s);
+    }
+
+    // Using the background image instead.
+
+    &__image {
+        display: none;
+    }
+}
+
+// ------------------------------
+// #Content
+// ------------------------------
+
+.blogpostlist__post-content {
+	margin: 0;
+	padding: 4em 1.5em 1.5em;
+	font-size: @font__p--font-size;
+
+	.make-font-a-little-smaller(@font__p--font-size);
+	.make-font-smaller(@font__p--font-size);
+	.make-font-a-lot-smaller(@font__p--font-size);
+	
+	@media @mobile {
+		padding: 4em 1.5em 1.5em;
+	}
+		
+	.responsivecolumns & {
+		padding: 4em 1.5em 1.5em;
+	}
+}
+
+.blogpostlist__post-title {
+	.heading--3;
+	padding: 0;
+}
+
+a.blogpostlist__title-link {
+	color: @color__blogpostlist-title--text;
+}
+
+// Post Excerpt
+	
+.blogpostlist__post-excerpt p {
+	margin: 0.5em 0;
+}
+
+// Read more
+
+a.blogpostlist__read-more {
+	a;
+}
+
+// This style only activates if the article has an image.
+
+.blogpostlist__post-image ~ .blogpostlist__post-content {
+	@media @mobile {
+		width: 75%;
+	}
+		
+	.responsivecolumns & {
+		width: 75%;
+	}
+}
+
+// ------------------------------
+// #Footer
+// ------------------------------
+
+.blogpostlist__post-footer {
+	position: absolute;
+	top: 0;
+    left: 0;
+    right: 0;
+	padding: 0 1.5em;
+	font-size: @font__p--font-size;
+
+	.make-font-a-little-smaller(@font__p--font-size);
+	.make-font-smaller(@font__p--font-size);
+	.make-font-a-lot-smaller(@font__p--font-size);
+
+	.timestamp {
+		display: inline-block;
+		margin: 1.5em 0 0;
+		background: @color__blogpostlist-title--background;
+		.timestamp-styles;
+		.blogpostlist-title-background--spacing();
+		
+		@media @mobile {
+			margin: 1em 0 0;
+		}
+		
+		.responsivecolumns & {
+			margin: 1em 0 0;
+		}
+	}
+}
+
+// This style only activates if the article has an image.
+
+.blogpostlist__post-image ~ .blogpostlist__post-footer {
+	margin-top: 56.25%;
+	
+	@media @mobile {
+		left: 25%;
+		margin-top: 0;
+	}
+		
+	.responsivecolumns & {
+		left: 25%;
+		margin-top: 0;
+	}
+}
+
+// ------------------------------
+// #Paginatinon
+// ------------------------------
+
+.blogpostlist__post-list-footer {
+	.responsivecolumns & {
+		display: none;
+	}
+}
+
+// For the rest of the pagination,
+// see less/plugins/plugins.less.
+
+// ------------------------------
+// #Conditionals
+// ------------------------------
+
+.blogpostlist-article-background--spacing();

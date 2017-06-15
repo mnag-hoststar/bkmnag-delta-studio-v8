@@ -1,0 +1,135 @@
+// ----------------------------------------
+// Duotone: LESS > Widgets > Embeds
+// ----------------------------------------
+//
+// #Google Maps
+// #Soundcloud
+// #YouTube
+// #Disqus
+// #Embed
+// #LinkedIn Profile
+// #LinkedIn Company Profile
+//
+// ----------------------------------------
+
+// -----------------------------
+// #Google Maps
+// -----------------------------
+
+.widget[data-name="map"] .map,
+.widget[data-widget-type="map"] .map {
+	background-color: @color__container--background;
+	width: auto;
+	max-width: none;
+}
+
+// -----------------------------
+// #Soundcloud
+// -----------------------------
+
+// -----------------------------
+// #YouTube, Vimeo
+// -----------------------------
+
+.embed-wrap--video {
+    position: relative;
+    padding-bottom: 0;
+    padding-top: 0;
+    height: auto;
+	
+	iframe {
+		position: static;
+		top: auto;
+    	left: auto;
+	}
+}
+
+// This also counts for when a YouTube or Vimeo Movie is embedded.
+
+iframe[src*="youtube"],
+.embed-content iframe[src*="vimeo"] {
+	width: 100%;
+	height: 780px;
+	
+	@media only screen and (max-width: 1750px) {
+    	height: 44vw;
+	}
+	
+	@media @tablet {
+    	height: 49.6vw;
+	}
+	
+	.responsivecolumns .columns-two-left &,
+	.responsivecolumns .columns-two-right & {
+		height: 378px;
+	
+		@media only screen and (max-width: 1750px) {
+    		height: 21.2vw;
+		}
+		
+		@media @tablet {
+			height: 23.6vw;
+		}
+	
+		@media @mobile {
+			height: 49.6vw;
+		}
+	}
+	
+	.responsivecolumns .columns-three-left &,
+	.responsivecolumns .columns-three-middle &,
+	.responsivecolumns .columns-three-right & {
+		height: 245px;
+	
+		@media only screen and (max-width: 1750px) {
+    		height: 13.9vw;
+		}
+		
+		@media @tablet {
+			height: 15.6vw;
+		}
+	
+		@media @mobile {
+			height: 49.6vw;
+		}
+	}
+	
+	.responsivecolumns .columns-four-first &,
+	.responsivecolumns .columns-four-second &,
+	.responsivecolumns .columns-four-third &,
+	.responsivecolumns .columns-four-fourth & {
+		height: 177px;
+	
+		@media only screen and (max-width: 1750px) {
+    		height: 10.1vw;
+		}
+	
+		@media only screen and (max-width: 1200px) {
+    		height: 21.2vw;
+		}
+	
+		@media @tablet {
+			height: 23.6vw;
+		}
+	
+		@media @mobile {
+			height: 49.6vw;
+		}
+	}
+}
+
+// -----------------------------
+// #Disqus
+// -----------------------------
+
+// -----------------------------
+// #Embed
+// -----------------------------
+
+// -----------------------------
+// #LinkedIn Profile
+// -----------------------------
+
+// -----------------------------
+// #LinkedIn Company Profile
+// -----------------------------

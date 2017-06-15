@@ -1,0 +1,231 @@
+// ----------------------------------------
+// Duotone: LESS > Widgets > Buttons
+// ----------------------------------------
+//
+// #Button
+// #Tweet Button
+// #Click to Call
+// #Dropbox
+// #Facebook Like
+// #Paypal
+// #Social Icons
+//
+// ----------------------------------------
+
+// -----------------------------
+// #Button
+// -----------------------------
+
+button,
+.button,
+a.button,
+.link-button,
+.tweet .button,
+.clicktocall .phone-number-link {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+	border: 0.3em solid @color__button--border;
+	padding: 0.5em 1.5em;
+	min-height: @button-height;
+    .appearance(none);
+    .border-radius(0);
+	.transition();
+    background-color: @color__button--background;
+	font-family: @font__button--font-family;
+	font-weight: @font__button--font-weight;
+	line-height: unit(@font__button--line-height*0.1, em);
+	letter-spacing: @font__button--letter-spacing;
+    color: @color__button--text;
+    text-transform: uppercase;
+	font-size: @font__button--font-size;
+
+	.make-font-a-little-smaller(@font__button--font-size);
+	.make-font-smaller(@font__button--font-size);
+	.make-font-a-lot-smaller(@font__button--font-size);
+	
+    &:hover {
+	    padding: 0.5em 1.5em;
+		min-height: @button-height;
+		.box-shadow(0px 10px 20px 0px fade(@color__p--text, 30%));
+		border: 0.3em solid @color__button--background--hover;
+        background-color: @color__button--background--hover;
+    	color: @color__button--text--hover;
+    }
+	
+	// Focus style for easier keyboard navigation
+	
+	&:focus {
+    	border: 0.3em solid @color__button--background--hover;
+	}
+	
+	// Active style for when you press a button down
+	
+	&:active {
+		.box-shadow(none);
+		border: 0.3em solid @color__button--background;
+	}
+	
+	&[disabled] {
+		cursor: default;
+		opacity: 0.25;
+		
+		&:hover {
+			.box-shadow(none);
+		}
+	}
+}
+
+.link-button,
+.tweet .button,
+.clicktocall .phone-number-link,
+.dropbox .button,
+.paypalbuynow .button {
+	&:before,
+	&:after {
+		font-size: @font__button--font-size*1.5;
+		font-weight: 400;
+	
+		.make-font-a-little-smaller(@font__button--font-size*1.5);
+		.make-font-smaller(@font__button--font-size*1.5);
+		.make-font-a-lot-smaller(@font__button--font-size*1.5);
+	}
+	
+	&:before {
+		margin-right: 0.5em;
+		left: 1em;
+	}
+	
+	&:after {
+		margin-left: 0.5em;
+		right: 1em;
+	}
+}
+
+a.button,
+.link-button,
+.tweet .button,
+.clicktocall .phone-number-link {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.dropbox .button {
+	padding-left: 3.8em;
+	word-break: normal;
+	
+	&:before {
+		position: absolute;
+		display: block;
+		margin: 0;
+	}
+}
+
+.widget[data-name="filedownload"] button {
+    margin-right: 0.5em;
+}
+
+// -----------------------------
+// #Tweet Button
+// -----------------------------
+
+// -----------------------------
+// #Click to Call
+// -----------------------------
+
+.clicktocall .label {
+    margin-left: -0.5em;
+}
+
+// -----------------------------
+// #Dropbox
+// -----------------------------
+
+.dropbox {
+	display: table;
+}
+
+.dropbox__button,
+.dropbox__label {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.dropbox__label {
+	width: 100%;
+	padding-left: 1em;
+}
+
+// -----------------------------
+// #Facebook Like
+// -----------------------------
+
+
+// -----------------------------
+// #Paypal
+// -----------------------------
+
+
+// -----------------------------
+// #Social Icons
+// -----------------------------
+
+// The List of Social Icons
+
+.social-item {
+	margin: 0.5em 0.5em 0.5em 0;
+    padding: 0;
+    background-color: @color__button--background;
+    width: 2.5em;
+    height: 2.5em;
+	
+	&:hover {
+        background-color: @color__button--background--hover;
+	}
+	
+	&:last-child {
+		margin-right: 0;
+	}
+	
+	.template__footer-container-left & {
+		margin: 0.5em 0.5em 0.5em 0;
+	
+		@media @mobile {
+			margin: 0.5em 0.25em;
+		}
+	}
+	
+	.template__footer-container-right & {
+		margin: 0.5em 0 0.5em 0.5em;
+	
+		@media @mobile {
+			margin: 0.5em 0.25em;
+		}
+	}
+}
+
+.social-link {
+	display: block;
+	text-align: center;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	// Icon
+
+	&:before {
+		display: block;
+		margin: 0 auto;
+		padding: 0;
+		line-height: 2em;
+		font-size: 1.2em;
+		color: @color__button--text;
+	}
+}
+
+// The name of the button is not displayed.
+
+.socialicons__social-name {
+	display: none;
+}

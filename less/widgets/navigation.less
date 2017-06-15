@@ -1,0 +1,529 @@
+// ----------------------------------------
+// Duotone: LESS > Widgets > Navigation
+// ----------------------------------------
+//
+// #Logo & Company Name
+// #Navigation
+// #Navigation Toggle Button
+// #Navigation Body
+// #Navigation List
+// #Navigation Items
+//
+// ----------------------------------------
+
+// ------------------------------
+// #Logo & Company Name
+// ------------------------------
+
+.widget[data-widget-type="companyname"],
+.widget[data-widget-type="logo"] {
+	
+	// If the header is smaller when scrolling down.
+	
+	.template__header--small & {
+		padding: 0.5em 0;
+	
+		@media @tablet {
+			padding: 0;
+		}
+	}
+}
+
+.template__company {
+	display: table-cell;
+    vertical-align: middle;
+	margin-right: 1em;
+	padding: 0;
+	
+	@media @tablet {
+		margin-right: 4em;
+	}
+	
+	.widget {
+		display: table-cell;
+		vertical-align: middle;
+		padding: 0;
+	}
+}
+
+.logo {
+	padding-right: 1em;
+    font-size: 1em;
+	
+	&__logo-link {
+		.flex-display(flex);
+		.flex-direction(column);
+		.justify-content(center, center);
+	}
+	
+	&__logo-image {
+		transition: inherit;
+		
+		// If the header is smaller when scrolling down.
+		
+		.template__header--small & {
+			max-height: 1em;
+			width: auto !important;
+		}
+		
+		@media @tablet {
+			&, .template__header--small & {
+				max-height: 1.5em;
+				width: auto !important;
+			}
+		}
+	}
+}
+
+.companyname {
+    line-height: 0;
+
+	&__company-link {
+		margin: 0;
+		font-family: @font__companyname--font-family;
+		font-size: @font__companyname--font-size;
+		font-weight: @font__companyname--font-weight;
+		line-height: unit(@font__companyname--line-height*0.1, em);
+		letter-spacing: @font__companyname--letter-spacing;
+		color: @color__companyname--text;
+		text-transform: uppercase;
+    	word-break: normal;
+		word-wrap: normal;
+
+		.make-font-a-little-smaller(@font__companyname--font-size);
+		.make-font-smaller(@font__companyname--font-size);
+		.make-font-a-lot-smaller(@font__companyname--font-size);
+
+		&:hover {
+			text-decoration: none;
+		}
+		
+		// If the header is smaller when scrolling down.
+		
+		.template__header--small & {
+			font-size: @font__companyname--font-size*0.8;
+			
+			.make-font-a-little-smaller(@font__companyname--font-size*0.8);
+			.make-font-smaller(@font__companyname--font-size*0.8);
+			.make-font-a-lot-smaller(@font__companyname--font-size*0.8);
+		}
+		
+		@media @tablet {
+			&, .template__header--small & {
+				font-size: @font__companyname--font-size*0.8;
+				
+				.make-font-a-little-smaller(@font__companyname--font-size*0.8);
+				.make-font-smaller(@font__companyname--font-size*0.8);
+				.make-font-a-lot-smaller(@font__companyname--font-size*0.8);
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Navigation
+// ------------------------------
+
+.template__navigation {
+	display: table-cell;
+    vertical-align: middle;
+	
+	@media @tablet {
+		position: relative;
+		height: 21px;
+		width: 28px;
+	}
+}
+
+.widget[data-widget-type="extendednavigation"] {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	
+	@media @tablet {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	
+	&.open {
+		@media @tablet {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+		}
+	}
+}
+
+.extendednavigation {
+	@media @tablet {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 5px;
+		bottom: 0;
+	}
+}
+
+
+
+
+// ------------------------------
+// #Navigation Toggle Button
+// ------------------------------
+
+// Navigation Toggle Button
+// It only appears on tablet and mobile sizes.
+
+.navigation-toggle {
+	display: none;
+	
+	@media @tablet {
+		
+		// Displays as Icon's Middle Bar
+		
+		&, &:hover, &:focus {
+			z-index: 100;
+			cursor: pointer;
+			background: @color__navigation--text;
+			background-clip: content-box;
+			height: 3px;
+			padding: 0;
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 0;
+			padding: 9px 0;
+    		min-height: 21px;
+    		height: 21px;
+			width: 28px;
+			font-size: 26px;
+			text-indent: 10000px;
+			border: none;
+			.box-shadow(none);
+			.transition(background, 0s, ease-in, 0.05s);
+			overflow: hidden;
+
+			.make-font-a-little-smaller(@font__companyname--font-size);
+			.make-font-smaller(@font__companyname--font-size);
+			.make-font-a-lot-smaller(@font__companyname--font-size);
+		}
+
+		// Top and Bottom Navigation Item Bar
+
+		&:after,
+		&:before,
+		&:hover:after,
+		&:hover:before {
+			content: "";
+			height: 3px;
+			width: 28px;
+			position: absolute;
+			display: block;
+			background-color: @color__navigation--text;
+			margin-right: 0;
+			margin-left: 0;
+			.transition-duration-2items(0.05s, 0.05s);
+			.transition-delay-2items(0.05s, 0s);
+
+			@media @mobile {
+				height: 2px;
+			}
+		}
+
+		// Top Bar
+		
+		&:before,
+		&:hover:before {
+			top: 0;
+		  	.transition-property-2items(top, transform);
+		}
+
+		// Bottom Bar
+		
+		&:after,
+		&:hover:after {
+			bottom: 0;
+			.transition-property-2items(bottom, transform);
+		}
+
+		&:hover {
+			&, &:before, &:after {
+				background-color: @color__navigation--text;
+				border: none;
+			}
+		}
+	}
+
+	// Toggle Button Open
+
+	.open & {
+		@media @tablet {
+			
+			// Middle bar
+			
+			background-color: transparent;
+			
+			// Top and bottom bar
+			
+			&:before,
+			&:after {
+			  .transition-delay-2items(0s, 0.05s);
+			}
+			
+			// Top Bar
+
+			&:before {
+				top: 9px;
+				background: @color__navigation--text;
+				.transform-rotate(45deg);
+
+			}
+			
+			// Bottom Bar
+
+			&:after {
+				bottom: 9px;
+				background: @color__navigation--text;
+				.transform-rotate(-45deg);
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Navigation Body
+// ------------------------------
+
+// Dark overlay on tablet and mobile.
+
+.navigation-body {
+	.transition(opacity, 0s);
+	
+	// This is only shown in Tablet and Mobile
+	
+	@media @tablet {
+		outline: 0;
+		height: 0;
+		width: 0;
+		opacity: 0;
+		
+		// When Navigation is open
+
+		.open & {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: block;
+			opacity: 1;
+			width: auto;
+			overflow: auto;
+			height: auto;
+			height: 100vh;
+			background-color: rgba(0,0,0, 0.9);
+			.transition(opacity, 0.25s);
+		}
+	}
+}
+
+
+// ------------------------------
+// #Navigation List
+// ------------------------------
+
+.navigation-list {
+	padding: 0;
+	line-height: 1em;
+	
+    @media @tablet {
+		display: block;
+		height: auto;
+		max-width: 500px;
+		margin: 3em auto 2em;
+		text-align: center;
+	}
+}
+
+// ------------------------------
+// #Navigation Items
+// ------------------------------
+
+// Navigation Normal Item
+
+.navigation-item {
+	position: relative;
+	margin-bottom: 0;
+	padding: 0;
+	line-height: 1em;
+	
+    @media @tablet {
+		display: block;
+		text-align: center;
+	}
+	
+	.item-name {
+		position: relative;
+		padding: 0 0.5em 0 1em;
+		text-transform: uppercase;
+		font-family: @font__navigation--font-family;
+		font-size: @font__navigation--font-size;
+		font-weight: @font__navigation--font-weight;
+		line-height: unit(@font__navigation--line-height*0.1, em);
+		letter-spacing: @font__navigation--letter-spacing;
+		color: @color__navigation--text;
+	
+		@media @tablet {
+			padding: 0.5em 0;
+		}
+	
+		.make-font-a-little-smaller(@font__navigation--font-size);
+		.make-font-smaller(@font__navigation--font-size);
+		.make-font-a-lot-smaller(@font__navigation--font-size);
+		
+		&:hover {
+			color: @color__navigation--text--hover;
+			
+			@media @tablet {
+				color: @color__navigation--text--hover;
+			}
+		}
+	}
+
+	&.selected > .item-name {
+		color: @color__navigation--text--selected;
+
+		@media @tablet {
+			color: @color__navigation--text--selected;
+		}
+	}
+
+	&.selected:hover > .item-name,
+	&.selected:active > .item-name {
+		.box-shadow(none);
+	}
+}
+
+// Navigation Folder Item
+
+.navigation-item.folder {
+	
+	// Folder Icon
+	
+	> .item-name {
+		padding: 0 0.2em 0 1em;
+		
+		&:after {
+			right: 0.5em;
+			margin-left: 0.3em;
+			width: 1em;
+    		height: 1em;
+			line-height: 1em;
+			font-size: 1.2em;
+			content: "\f107";
+			font-family: 'FontAwesome', sans-serif;
+			text-align: right;
+		}
+	}
+	
+	&.folder-open > .item-name {
+		@media @tablet {	
+			padding: 0 0.2em 0.5em 1em;
+		}
+	}
+	
+	@media @tablet {
+		padding: 0.5em 0;
+	}
+	
+	&.folder-open > .item-name {
+		color: @color__navigation--text--hover;
+	}
+}
+
+// Navigation Folder Submenu
+
+.navigation-list--children {
+	
+	.navigation-item.folder &,
+	.navigation-item.folder:hover &,
+	.navigation-item.folder:active & {
+    	overflow: hidden;
+		opacity: 0;
+    	margin: 0;
+		height: 0;
+		position: absolute;
+		right: 0;
+		left: auto;
+		min-width: 200px;
+		margin: 0;
+		padding: 0.5em 0;
+		background-color: @color__navigation-list--background;
+		overflow: visible;
+		text-align: center;
+		.transition(opacity, 0s);
+
+		@media @tablet {
+			position: static;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	
+	.navigation-item.folder.folder-open & {
+    	overflow: visible;
+		display: block;
+		opacity: 1;
+		height: auto;
+		.transition(opacity);
+
+		@media @tablet {
+			position: static;
+			margin: 0 0 0.5em;
+			padding: 0;
+		}
+	}
+}
+
+// Navigation Folder Submenu Single Item
+
+.navigation-item--child {
+	display: block;
+
+	.item-name {
+		color: @color__navigation-item--text;
+		line-height: 1em;
+		padding: 0.5em 1em;
+
+		@media @tablet {
+			padding: 1em 0;
+		}
+		
+		&:hover {
+			color: @color__navigation-item--text--selected;
+		}
+	}
+
+	// Selected Folder Item
+
+	&.selected .item-name {
+		color: @color__navigation-item--text--selected;
+	}
+}
+
+.navigation-item.folder {
+	
+	// Open Submenu
+	
+	&.folder-open:hover .navigation-list--children,
+	&.folder-open:active .navigation-list--children,
+	&.folder-open .navigation-list--children {
+		opacity: 1;
+	}
+}

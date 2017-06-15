@@ -1,0 +1,267 @@
+// ----------------------------------------
+// Duotone: LESS > Plugins
+// ----------------------------------------
+//
+// #Search Form
+// #Item Price
+// #Tags and Categories
+// #Paginatinon
+// 
+// ----------------------------------------
+
+// ------------------------------
+// #Search Form
+// ------------------------------
+
+.blogsearch,
+.fieldset.ecomproductslist__fieldset--search {
+	.signupform;
+	
+	.form-group {
+		.responsivecolumns .columns-two-left &,
+		.responsivecolumns .columns-two-right &,
+		.responsivecolumns .columns-three-left &,
+		.responsivecolumns .columns-three-middle &,
+		.responsivecolumns .columns-three-right &,
+		.responsivecolumns .columns-four-first &,
+		.responsivecolumns .columns-four-second &,
+		.responsivecolumns .columns-four-third &,
+		.responsivecolumns .columns-four-fourth & {
+			display: block;
+			padding-right: 0;
+			
+			@media @mobile {
+				display: table-cell;
+			}
+			
+			&:first-child {
+				@media @mobile {
+					padding-right: 0.5em;
+				}
+			}
+		}
+	}
+}
+
+.blogsearch__form,
+.ecomproductslist__form {
+	width: 60%;
+	max-width: 1400px;
+    margin: 0 auto;
+	
+	@media @tablet-horizontal {
+		width: @layout-width-desktop;
+	}
+	
+	@media @tablet {
+		width: @layout-width-tablet;
+	}
+
+	.responsivecolumns & {
+		width: 100%;
+	}
+}
+
+// Styles only for the Ecommerce Product List.
+
+.product-filters .input--search {
+	height: @button-height;
+}
+
+// Clear search button.
+
+.button.button--clear {
+	display: none;
+}
+
+// ------------------------------
+// #Item Price
+// ------------------------------
+
+.item-price {
+    display: inline-block;
+	background-color: @color-text--lightest;
+    margin: 0.5em 0;
+    padding: 0.4em 0.5em;
+    line-height: 1em;
+}
+
+// ------------------------------
+// #Tags and Categories
+// ------------------------------
+
+.post-category,
+.post-tags {
+	padding: 0;
+}
+
+.post-category *,
+.post-tags * {
+	word-break: normal;
+}
+
+.product-attribute-title {
+	display: block;
+	.label-text;
+	padding: 0;
+}
+
+.tag-list,
+.dietary-list {
+	.clearfix();
+	
+	li {
+		float: left;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.tag-list,
+.tag-item,
+.dietary-list {
+	display: block;
+	line-height: 1em;
+    margin: 0;
+	padding: 0;
+}
+
+a.category-link,
+a.tag-link,
+.dietary-item {
+	display: inline-block;
+	background: fade(@color__button--background, 75%);
+	margin: 0.4em 0.8em 0.4em 0;
+	padding: 0.6em;
+	line-height: 1em;
+	letter-spacing: @font__h4--letter-spacing;
+	text-transform: uppercase;
+	font-size: @font__h4--font-size*0.8;
+	font-family: @font__h4--font-family;
+	color: @color__button--text;
+	
+	.make-font-a-little-smaller(@font__h4--font-size, 0.7);
+	.make-font-smaller(@font__h4--font-size, 0.7);
+	.make-font-a-lot-smaller(@font__h4--font-size, 0.7, 0.6);
+	
+	&:hover {
+		background: fade(@color__button--background, 75%);
+	}
+	
+	@media @tablet {
+		padding: 0.8em;
+	}
+	
+	@media @mobile {
+		padding: 1em;
+		line-height: 1em;
+	}
+	
+	.item-count {
+		font-size: @font__h4--font-size*0.8;
+	
+		.make-font-a-little-smaller(@font__h4--font-size, 0.7);
+		.make-font-smaller(@font__h4--font-size, 0.7);
+		.make-font-a-lot-smaller(@font__h4--font-size, 0.7, 0.6);
+	
+		@media @tablet {
+			padding: 0.8em;
+		}
+		
+		@media @mobile {
+			padding: 1em;
+		}
+	}
+}
+
+// ------------------------------
+// #Paginatinon
+// ------------------------------
+
+// Styles for both the Blog Post List
+// and the Ecommerce Product List.
+
+.ecomproductslist,
+.blogpostlist {
+	.pagination-list {
+		.display-flex(flex);
+		margin: 2em 0;
+	}
+
+	.pagination-item {
+		margin: 0;
+		padding: 0;
+	}
+
+	a.button--pagination {
+		.link-button;
+		.transition();
+	}
+}
+
+// Styles only for the Blog Post List.
+
+.blogpostlist {
+	.pagination-list {
+		position: relative;
+		height: @button-height;
+	}
+
+	.control-text {
+		@media @mobile {
+			display: none;
+		}
+	}
+	
+	.pagination-item {
+		&:first-child {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		
+		&:last-child {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	a.button--pagination {
+		&:before,
+		&:after {
+			left: 0;
+    		right: 0;
+			width: auto;
+			text-align: center;
+		}
+		
+		&:before {
+			@media @mobile {
+				margin-right: 0;
+			}
+		}
+		
+		&:after {
+			@media @mobile {
+				margin-left: 0.3em;
+			}
+		}
+	}
+}
+
+// Styles only for the Ecommerce Product List.
+
+.ecomproductslist,
+.ecomfeaturedproducts {
+	.pagination-list {
+		.justify-content(center, center);
+	}
+
+	.pagination-item {
+		margin: 0;
+		padding: 0.4em;
+	}
+}

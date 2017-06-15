@@ -1,0 +1,208 @@
+// ----------------------------------------
+// Duotone: LESS > Main > Theme
+// ----------------------------------------
+// This contains all styles that are not
+// widgets.
+//
+// #Header
+// #Site Styles
+// #Header
+// #Page Styles
+// #Content
+// #Footer
+// #Widget Overlay
+//
+// ----------------------------------------
+
+// ------------------------------
+// #Header
+// ------------------------------
+
+.template__header {
+	display: table;
+	width: 100%;
+	position: fixed;
+	top: 0;
+    left: 0;
+    right: 0;
+	background-color: @color__header--background;
+    z-index: 11000;
+	padding: 0.5em 1em;
+	border-bottom: 0.5em solid @color__header--border;
+	.header-border-removal();
+	.transition();
+		
+	@media @tablet {
+		padding: 1em;
+	}
+	
+	&--small {
+		padding: 0 1em;
+		
+		@media @tablet {
+			padding: 1em;
+		}
+	}
+}
+
+// ------------------------------
+// #Site Styles
+// ------------------------------
+
+* {
+	.box-sizing();
+	margin: 0;
+    padding: 0;
+	
+	&:focus {
+		outline: none;
+	}
+}
+
+html, body {
+	min-height: 100%;
+	min-height: 100vh;
+	word-break: break-word;
+	word-wrap: break-word;
+	font-family: @font__p--font-family;
+	font-size: @font__p--font-size;
+	font-weight: @font__p--font-weight;
+	line-height: unit(@font__p--line-height*0.1, em);
+	letter-spacing: @font__p--letter-spacing;
+    background-color: @color__body--background;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	text-rendering: optimizeLegibility !important;
+	
+	.make-font-a-little-smaller(@font__p--font-size);
+	.make-font-smaller(@font__p--font-size);
+	.make-font-a-lot-smaller(@font__p--font-size);
+	
+	// iOS fix of VH unit
+    width: -webkit-calc(100% - 0px);
+}
+
+html {
+	position: relative;
+}
+
+body {
+	.display-flex(flex);
+  	.flex-direction(column);
+	.justify-content(space-between, justify);
+}
+
+// HTML5 Semantic Elements
+article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+	display: block;
+}
+
+// ------------------------------
+// #Page Styles
+// ------------------------------
+
+.page {
+	padding-bottom: 15em;
+}
+
+// ------------------------------
+// #Content
+// ------------------------------
+
+// Main
+
+.template__content {
+	padding-top: @font__companyname--font-size * (@font__companyname--line-height*0.1)*2 + @font__navigation--font-size * (@font__navigation--line-height*0.1)*2;
+	
+	@media @tablet {
+		padding-top: @font__companyname--font-size * (@font__companyname--line-height*0.1)*3;
+	}
+	
+	.page--home & {
+		padding-top: 0 !important;
+	}
+}
+
+// Container
+
+.container { }
+
+// ------------------------------
+// #Footer
+// ------------------------------
+
+.template__footer {
+	position: absolute;
+	bottom: 0;
+    width: 100%;
+    background-color: @color__footer--background;
+    text-align: center;
+    border-top: 0.5em solid @color__footer--border;
+	padding: 1em 0;
+	.footer-border-removal();
+		
+	@media @mobile {
+		margin-top: 2em;
+	}
+	
+	.widget {
+		margin: 0;
+		padding: 0;
+	}
+	
+	&-container {
+		.display-flex(flex);
+		.align-items(center, center);
+		.template__content--width();
+		clearfix();
+		
+		@media @mobile {
+			display: block;
+		}
+		
+		&-left {
+			float: left;
+			width: 50%;
+			padding-right: 1em;
+			text-align: left;
+		}
+		
+		&-right {
+			float: right;
+			padding-left: 1em;
+			text-align: right;
+		}
+
+		&-left,
+		&-right {
+			width: 50%;
+			margin: 0.5em 0;
+			
+			@media @mobile {
+				float: none;
+				padding: 0;
+				width: auto;
+				text-align: center;
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Widget Overlay
+// ------------------------------
+
+// The green overlay of the template editor with the
+// move, settings and delete buttons.
+
+.widget-overlay {
+	.widget__item {
+		padding: 0;
+	}
+}
+
+.template__content .widget .widget-overlay {
+	&.hover {
+		width: auto;
+		max-width: none;
+	}
+}
