@@ -2,7 +2,6 @@
 // Duotone: LESS > Widgets > Forms
 // ----------------------------------------
 //
-// #Conditional Mixins
 // #Global Form Styles
 // #Legend
 // #Form
@@ -20,17 +19,6 @@
 // ----------------------------------------
 
 // ------------------------------
-// #Conditional Mixins
-// ------------------------------
-
-// Conditional if the form background 
-// is not the same as the page background.
-
-.form-widget-background--spacing() when not (@color__form--background = @color__body--background) {
-	padding: 2em 0;
-}
-
-// ------------------------------
 // #Global Form Styles
 // ------------------------------
 
@@ -44,7 +32,6 @@
 .widget[data-widget-type="contactform"],
 .widget[data-name="advancedcontactform"],
 .widget[data-widget-type="advancedcontactform"] {
-	.form-widget-background--spacing();
 	
 	.responsivecolumns & {
 		padding-top: 2em;

@@ -2,7 +2,6 @@
 // Duotone: LESS > Plugins > Ecommerce > Product List
 // ----------------------------------------
 //
-// #Conditional Mixins
 // #Product List Container
 // #Title
 // #Product Search and Filters
@@ -17,17 +16,6 @@
 // #Paginatinon
 // 
 // ----------------------------------------
-
-// -----------------------------
-// #Conditional Mixins
-// -----------------------------
-
-// Conditional if the container background 
-// is not the same as the page background.
-
-.productsearch-widget-background--spacing() when not (@color__ecomproductslist-filters--background = @color__body--background) {
-	padding: 2em 0;
-}
 
 // ------------------------------
 // #Product List Container
@@ -64,7 +52,6 @@
 .ecomproductslist__product-filters {
 	background-color: @color__ecomproductslist-filters--background;
 	margin: 2em 0;
-	.productsearch-widget-background--spacing();
 	
 	.responsivecolumns .columns-two-left &,
 	.responsivecolumns .columns-two-right &,
@@ -374,7 +361,6 @@
 // ------------------------------
 // #Featured Product
 // ------------------------------
-
 
 
 // ------------------------------
