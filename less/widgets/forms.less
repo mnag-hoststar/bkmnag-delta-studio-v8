@@ -1,5 +1,5 @@
 // ----------------------------------------
-// Duotone: LESS > Widgets > Forms
+// Delta Studio: LESS > Widgets > Forms
 // ----------------------------------------
 //
 // #Global Form Styles
@@ -146,7 +146,7 @@ input[type="password"],
 textarea {
     padding: 0.4em 0.6em;
     background-color: #fff;
-    border: 1px solid @color-text--light;
+    border: 1px solid @color--light;
 	height: 3rem;
     color: @color__p--text;
 	.transition();
@@ -189,19 +189,19 @@ textarea {
 // ------------------------------
 
 input::-webkit-input-placeholder {
-   color: @color-text--light;
+   color: @color--light;
 }
 
 input:-moz-placeholder { /* Firefox 18- */
-   color: @color-text--light;
+   color: @color--light;
 }
 
 input::-moz-placeholder {  /* Firefox 19+ */
-   color: @color-text--light;
+   color: @color--light;
 }
 
 input:-ms-input-placeholder {
-   color: @color-text--light;
+   color: @color--light;
 }
 
 input:focus {
@@ -258,7 +258,7 @@ input:focus {
 				height: 1.5em;
 				margin-top: -0.8em;
 				background-color: #fff;
-				border: 0.2em solid @color-text--light;
+				border: 0.2em solid @color--light;
 			}
 
 			&:after {
@@ -283,7 +283,7 @@ input:focus {
 		height: 100% !important;
 
 		&:checked + label:before {
-			border: 0.2em solid @color-text--faded;
+			border: 0.2em solid @color--light;
 		}
 
 		&:checked + label:after {
@@ -373,7 +373,7 @@ input:focus {
 	padding: 0 2em 0 0.6em;
     width: 100%;
     border: 0.3em solid transparent;
-	background-color: @color-text--lightest;
+	background-color: @color--lightest;
     font-size: 1em;
     color: @color__p--text;
     .border-radius(0);
@@ -386,16 +386,16 @@ input:focus {
 
     &:hover {
 		border: 0.3em solid transparent;
-		background-color: @color-text--light;
+		background-color: @color--light;
     }
 
     &:focus {
 		border: 0.3em solid @color__button--background--hover;
-		background-color: @color-text--lightest;
+		background-color: @color--lightest;
 	}
 	
 	&:hover:focus {
-		background-color: @color-text--light;
+		background-color: @color--light;
 	}
 }
 
