@@ -30,60 +30,38 @@
 }
 
 .template__company {
-	display: table-cell;
-    vertical-align: middle;
-	margin-right: 1em;
-	padding: 0;
+	max-width: @layout-max-width;
+	width: @layout-width-desktop;
+    margin: 0 auto;
 	
 	@media @tablet {
-		margin-right: 4em;
+		width: @layout-width-tablet;
+    	margin: 0 (100%-@layout-width-tablet)/2;
 	}
 	
 	.widget {
-		display: table-cell;
-		vertical-align: middle;
-		padding: 0;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+		margin-top: 14px;
 	}
 }
 
-.logo {
-	padding-right: 1em;
-    font-size: 1em;
-	
-	&__logo-link {
-		.flex-display(flex);
-		.flex-direction(column);
-		.justify-content(center, center);
-	}
-	
-	&__logo-image {
-		transition: inherit;
-		
-		// If the header is smaller when scrolling down.
-		
-		.template__header--small & {
-			max-height: 1em;
-			width: auto !important;
-		}
-		
-		@media @tablet {
-			&, .template__header--small & {
-				max-height: 1.5em;
-				width: auto !important;
-			}
-		}
-	}
-}
+.logo {}
 
 .companyname {
     line-height: 0;
 
 	&__company-link {
+		display: inline-block;
 		margin: 0;
+		padding: 0 0 10px;
+		border-bottom: 1px solid @color__companyname--text;
+		text-align: center;
 		font-family: @font__companyname--font-family;
 		font-size: @font__companyname--font-size;
 		font-weight: @font__companyname--font-weight;
-		line-height: unit(@font__companyname--line-height*0.1, em);
+		line-height: @font__companyname--line-height;
 		letter-spacing: @font__companyname--letter-spacing;
 		color: @color__companyname--text;
 		text-transform: uppercase;
@@ -125,52 +103,34 @@
 // ------------------------------
 
 .template__navigation {
-	display: table-cell;
-    vertical-align: middle;
+	position: relative;
+	max-width: @layout-max-width;
+	width: @layout-width-desktop;
+    margin: 0 auto;
 	
 	@media @tablet {
-		position: relative;
-		height: 21px;
-		width: 28px;
+		width: 100%;
+    	margin: 0;
 	}
 }
 
 .widget[data-widget-type="extendednavigation"] {
-	margin-top: 0;
-	margin-bottom: 0;
+    position: relative;
 	padding: 0;
+	min-height: 40px;
+    background-color: @color__navigation--background;
+	text-transform: uppercase;
 	
 	@media @tablet {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
 	}
 	
 	&.open {
 		@media @tablet {
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
 		}
 	}
 }
 
-.extendednavigation {
-	@media @tablet {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 5px;
-		bottom: 0;
-	}
-}
-
-
-
+.extendednavigation {}
 
 // ------------------------------
 // #Navigation Toggle Button
@@ -191,27 +151,22 @@
 			cursor: pointer;
 			background: @color__navigation--text;
 			background-clip: content-box;
-			height: 3px;
+			height: 2px;
 			padding: 0;
 			display: block;
 			position: absolute;
-			top: 0;
-			right: 0;
+			top: 10px;
+			right: 5%;
 			margin: 0;
-			padding: 9px 0;
+			padding: 9.5px 0;
     		min-height: 21px;
     		height: 21px;
 			width: 28px;
-			font-size: 26px;
 			text-indent: 10000px;
 			border: none;
 			.box-shadow(none);
 			.transition(background, 0s, ease-in, 0.05s);
 			overflow: hidden;
-
-			.make-font-a-little-smaller(@font__companyname--font-size);
-			.make-font-smaller(@font__companyname--font-size);
-			.make-font-a-lot-smaller(@font__companyname--font-size);
 		}
 
 		// Top and Bottom Navigation Item Bar
@@ -221,7 +176,7 @@
 		&:hover:after,
 		&:hover:before {
 			content: "";
-			height: 3px;
+			height: 2px;
 			width: 28px;
 			position: absolute;
 			display: block;
@@ -264,6 +219,7 @@
 
 	.open & {
 		@media @tablet {
+			top: -30px;
 			
 			// Middle bar
 			
@@ -282,13 +238,12 @@
 				top: 9px;
 				background: @color__navigation--text;
 				.transform-rotate(45deg);
-
 			}
 			
 			// Bottom Bar
 
 			&:after {
-				bottom: 9px;
+				bottom: 10px;
 				background: @color__navigation--text;
 				.transform-rotate(-45deg);
 			}
@@ -304,30 +259,23 @@
 
 .navigation-body {
 	.transition(opacity, 0s);
+	min-height: 1em;
 	
 	// This is only shown in Tablet and Mobile
 	
 	@media @tablet {
-		outline: 0;
+		opacity: 0;
 		height: 0;
 		width: 0;
-		opacity: 0;
 		
 		// When Navigation is open
 
 		.open & {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			display: block;
 			opacity: 1;
-			width: auto;
-			overflow: auto;
 			height: auto;
-			height: 100vh;
-			background-color: rgba(0,0,0, 0.9);
+			width: auto;
+			margin-top: 40px;
+			background-color: @color__navigation--background;
 			.transition(opacity, 0.25s);
 		}
 	}
@@ -339,13 +287,14 @@
 // ------------------------------
 
 .navigation-list {
+	margin: 0;
 	padding: 0;
 	line-height: 1em;
+	font-size: 0;
 	
     @media @tablet {
 		display: block;
 		height: auto;
-		max-width: 500px;
 		margin: 3em auto 2em;
 		text-align: center;
 	}
@@ -370,17 +319,19 @@
 	
 	.item-name {
 		position: relative;
-		padding: 0 0.5em 0 1em;
+		padding: 16px 26px;
+		background: @color__navigation-item--background;
 		text-transform: uppercase;
 		font-family: @font__navigation--font-family;
 		font-size: @font__navigation--font-size;
 		font-weight: @font__navigation--font-weight;
-		line-height: unit(@font__navigation--line-height*0.1, em);
+		line-height: @font__navigation--line-height;
 		letter-spacing: @font__navigation--letter-spacing;
 		color: @color__navigation--text;
 	
 		@media @tablet {
-			padding: 0.5em 0;
+			padding: 12px 40px;
+    		border-bottom: 1px solid @color__navigation-item--background--selected;
 		}
 	
 		.make-font-a-little-smaller(@font__navigation--font-size);
@@ -388,20 +339,14 @@
 		.make-font-a-lot-smaller(@font__navigation--font-size);
 		
 		&:hover {
+			background: @color__navigation-item--background--hover;
 			color: @color__navigation--text--hover;
-			
-			@media @tablet {
-				color: @color__navigation--text--hover;
-			}
 		}
 	}
 
 	&.selected > .item-name {
+		background: @color__navigation-item--background--selected;
 		color: @color__navigation--text--selected;
-
-		@media @tablet {
-			color: @color__navigation--text--selected;
-		}
 	}
 
 	&.selected:hover > .item-name,
@@ -417,29 +362,25 @@
 	// Folder Icon
 	
 	> .item-name {
-		padding: 0 0.2em 0 1em;
+		padding-right: 40px;
 		
 		&:after {
-			right: 0.5em;
-			margin-left: 0.3em;
-			width: 1em;
-    		height: 1em;
-			line-height: 1em;
-			font-size: 1.2em;
-			content: "\f107";
-			font-family: 'FontAwesome', sans-serif;
-			text-align: right;
+			display: block;
+			content: "";
+			position: absolute;
+			right: 18px;
+			top: 46%;
+			border: 0.3em solid transparent;
+			border-top-color: #fff;
 		}
 	}
 	
 	&.folder-open > .item-name {
-		@media @tablet {	
-			padding: 0 0.2em 0.5em 1em;
+		&:after {
+			top: 39%;
+			border-top-color: transparent;
+			border-bottom-color: #fff;
 		}
-	}
-	
-	@media @tablet {
-		padding: 0.5em 0;
 	}
 	
 	&.folder-open > .item-name {
@@ -459,7 +400,6 @@
     	margin: 0;
 		height: 0;
 		position: absolute;
-		right: 0;
 		left: auto;
 		min-width: 200px;
 		margin: 0;
@@ -497,23 +437,20 @@
 	display: block;
 
 	.item-name {
-		color: @color__navigation-item--text;
-		line-height: 1em;
-		padding: 0.5em 1em;
-
-		@media @tablet {
-			padding: 1em 0;
-		}
+		background: darken(@color__navigation-item--background, 5%);
+		color: @color__navigation-item--text--selected;
 		
 		&:hover {
-			color: @color__navigation-item--text--selected;
+			background: @color__navigation-item--background--hover;
+			color: @color__navigation-item--text--hover;
 		}
 	}
 
 	// Selected Folder Item
 
 	&.selected .item-name {
-		color: @color__navigation-item--text--selected;
+		background: @color__navigation-item--background;
+		color: @color__navigation-item--background;
 	}
 }
 

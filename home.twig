@@ -6,26 +6,26 @@
 	
 	<!-- Header -->
 	<header class="template__header">
-		<div class="template__company">
-			{{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
-			{{widget('companyname', 'companyname', {
-				"business": "profile",
-				"showTplWidget":"0"
-			})|raw}}
+		<div class="template__header-bg">
+			<div class="template__company">
+				{{widget('companyname', 'companyname', {
+					"business": "profile",
+					"showTplWidget":"0"
+				})|raw}}
+			</div>
 		</div>
 		<div class="template__navigation">
-			{{widget('extendednavigation', 'extendednavigation', {"align":"right"})|raw}}
+			{{widget('extendednavigation', 'extendednavigation', {"align":"center"})|raw}}
 		</div>
 	</header>
 		
 	<!-- Header Feature -->
 	<div class="header-feature">
 		{{widget('feature', 'featurehome', {
-			"header": "Creating Sound", 
-			"strapline": "Inspiring people to greatness in music.", 
+			"header": "Welcome", 
+			"strapline": "Rejuvenate your body and soul", 
 			"buttonText": "Learn more",
-			"defaultBgImg": asset('images/feature-image.jpg'), 
-			'positionTopPercentage': '50',
+			"defaultBgImg": asset('images/feature-image.jpg'),
 			'showBtn': true
 		})|raw}}
 	</div>
@@ -44,7 +44,6 @@
 
 {% block bodyscripts %}
 <!-- Body Scripts Start -->
-<script src="{{asset('js/header-feature.js')}}"></script>
 <script src="{{asset('js/smooth-scroll.js')}}"></script>
 <!-- Body Scripts End -->
 {% endblock %}
