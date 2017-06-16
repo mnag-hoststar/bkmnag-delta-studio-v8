@@ -1,14 +1,14 @@
 {
-	"name":"Delta Studio",
+    "name":"Delta Studio",
     "widgetVersion": 2,
-	"thumbnail":"deltastudio-thumbnail.png",
-	"screenshot":"deltastudio-screenshot.jpg",
-	"templateType":"standard",
-    "pageTypes": ["home", "404"],
+    "thumbnail":"deltastudio-thumbnail.png",
+    "screenshot":"deltastudio-screenshot.jpg",
+    "templateType":"standard",
+    "pageTypes": ["home"],
     "tags": {
+		"de": ["minimalistisch", "klar", "modern", "kreativ", "Typographie", "einfach", "kontemporär", "flexibel", "Studio", "Portfolio", "Designer", "serifenlos"],
 		"en": ["minimal", "clean", "modern", "creative", "typography", "simple", "contemporary", "flexible", "studio", "portfolio", "designer", "sans-serif"],
-		"es": ["minimalista", "limpio", "moderno", "creativo", "tipográfico", "simple", "contemporaneo", "flexible", "estudio", "portafolio", "diseñador", "sans-serif"],
-		"br": ["minimalista", "limpo", "moderno", "criativo", "tipográfico", "simples", "contemporâneo", "flexível", "estúdio", "portfolio", "designer", "sans-serif"]
+		"fr": ["minimaliste", "claire", "moderne", "créatif", "typographie", "simple", "contemporaire", "flexible", "studio", "portfolio", "designer", "sans-serif"]
 	},
      "images":[
         "images/gallery/1.jpg",
@@ -34,152 +34,146 @@
             "font-size": "50px",
             "font-weight": "300",
             "line-height": "60px",
-            "color": "@color-swatch3",
-            "letter-spacing": "inherit"
+            "letter-spacing": "0",
+            "color": "@color-swatch3"
         },
         "font2": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "30px",
             "font-weight": "400",
             "line-height": "36px",
-            "color": "@color-swatch4",
-            "letter-spacing": "inherit"
+            "letter-spacing": "0",
+            "color": "@color-swatch4"
         },
         "font3": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "22px",
             "font-weight": "700",
             "line-height": "28px",
-            "color": "@color-swatch4",
-            "letter-spacing": "inherit"
+            "letter-spacing": "0",
+            "color": "@color-swatch4"
         },
         "font4": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "18px",
             "font-weight": "700",
             "line-height": "26px",
-            "color": "@color-swatch4",
-            "letter-spacing": "inherit"
+            "letter-spacing": "1px",
+            "color": "@color-swatch4"
         },
         "font5": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "14px",
             "font-weight": "400",
             "line-height": "22px",
-            "color": "@color-swatch5",
-            "letter-spacing": "inherit"
+            "letter-spacing": "0px",
+            "color": "@color-swatch5"
         },
-        "font6": {
+		"font6": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "13px",
             "font-weight": "inherit",
             "line-height": "28px",
+            "letter-spacing": "1px",
             "color": "@color-swatch1",
             "color-hover": "darken(@color-swatch1,5%)",
-            "letter-spacing": "1px",
             "background-color": "@color-swatch3",
             "background-color-hover": "@color-swatch2"
-        },
-        "font7": {
+		},
+		"font7": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "12px",
             "font-weight": "400",
             "line-height": "26px",
-            "color": "@color-swatch1",
             "letter-spacing": "inherit",
+            "color": "@color-swatch1",
             "background-color": "@color-swatch3",
             "background-color-hover": "darken(@color-swatch3,5%)"
-        },
+		},
         "font8": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "50px",
             "font-weight": "300",
             "line-height": "50px",
-            "color": "@color-swatch3",
-            "letter-spacing": "inherit"
+            "letter-spacing": "inherit",
+            "color": "@color-swatch3"
         },
         "font9": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "18px",
             "font-weight": "400",
             "line-height": "36px",
-            "color": "@color-swatch7",
-            "letter-spacing": "inherit"
+            "letter-spacing": "inherit",
+            "color": "@color-swatch7"
         },
         "font10": {
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "30px",
             "font-weight": "400",
             "line-height": "38px",
-            "color": "@color-swatch1",
-            "letter-spacing": "4px"
+            "letter-spacing": "4px",
+            "color": "@color-swatch1"
         }
     },
     "styles": {
-        "colors": {
-            "color__primary": "@color-swatch1",
-            "color__secondary": "@color-swatch2"
-        },
         "site": {
-            "color__body--background": "@color-swatch7",
-            "color__container--background": "fade(@font-swatch5-color, 10%)",
-            "color__link--text": "@color__primary",
+            "color__body--background": "@color-swatch1",
+            "color__container--background": "@color-swatch2",
+            "color__link--text": "@color-swatch3",
             "font__companyname--font-family": "@font-swatch1-font-family",
-            "font__companyname--font-size": "26px",
+            "font__companyname--font-size": "38px",
             "font__companyname--font-weight": "400",
-            "font__companyname--line-height": "12px",
-            "font__companyname--letter-spacing": "unit(0.5px/10, em)",
-            "color__companyname--text": "@color-swatch7"
+            "font__companyname--line-height": "30px",
+            "font__companyname--letter-spacing": "4px",
+            "color__companyname--text": "@color-swatch1"
         },
         "typography": {
             "font__h1--font-family": "@font-swatch1-font-family",
             "font__h1--font-size": "@font-swatch1-font-size",
             "font__h1--font-weight": "@font-swatch1-font-weight",
             "font__h1--line-height": "@font-swatch1-line-height",
-            "font__h1--letter-spacing": "unit(@font-swatch1-letter-spacing/10, em)",
+            "font__h1--letter-spacing": "@font-swatch1-letter-spacing",
             "color__h1--text": "@font-swatch1-color",
             "font__h2--font-family": "@font-swatch2-font-family",
             "font__h2--font-size": "@font-swatch2-font-size",
             "font__h2--font-weight": "@font-swatch2-font-weight",
             "font__h2--line-height": "@font-swatch2-line-height",
-            "font__h2--letter-spacing": "unit(@font-swatch2-letter-spacing/10, em)",
+            "font__h2--letter-spacing": "@font-swatch2-letter-spacing",
             "color__h2--text": "@font-swatch2-color",
             "font__h3--font-family": "@font-swatch3-font-family",
             "font__h3--font-size": "@font-swatch3-font-size",
             "font__h3--font-weight": "@font-swatch3-font-weight",
             "font__h3--line-height": "@font-swatch3-line-height",
-            "font__h3--letter-spacing": "unit(@font-swatch3-letter-spacing/10, em)",
+            "font__h3--letter-spacing": "@font-swatch3-letter-spacing",
             "color__h3--text": "@font-swatch3-color",
             "font__h4--font-family": "@font-swatch4-font-family",
             "font__h4--font-size": "@font-swatch4-font-size",
             "font__h4--font-weight": "@font-swatch4-font-weight",
             "font__h4--line-height": "@font-swatch4-line-height",
-            "font__h4--letter-spacing": "unit(@font-swatch4-letter-spacing/10, em)",
+            "font__h4--letter-spacing": "@font-swatch4-letter-spacing",
             "color__h4--text": "@font-swatch4-color",
             "font__p--font-family": "@font-swatch5-font-family",
             "font__p--font-size": "@font-swatch5-font-size",
             "font__p--font-weight": "@font-swatch5-font-weight",
             "font__p--line-height": "@font-swatch5-line-height",
-            "font__p--letter-spacing": "unit(@font-swatch5-letter-spacing/10, em)",
+            "font__p--letter-spacing": "@font-swatch5-letter-spacing",
             "color__p--text": "@font-swatch5-color"
         },
 		"header": {
-			"color__header--background": "@color__primary",
-			"color__header--border": "@color__primary"
+			"color__header--background": "@color-swatch7"
 		},
 		"footer": {
-			"color__footer--background": "@color__primary",
-			"color__footer--border": "@color__secondary"
+			"color__footer--background": "@color-swatch3"
 		},
         "navigation": {
-            "font__navigation--font-family": "@font-swatch4-font-family",
-            "font__navigation--font-size": "14px",
-            "font__navigation--font-weight": "700",
-            "font__navigation--line-height": "20px",
-            "font__navigation--letter-spacing": "unit(1px/10, em)",
-            "color__navigation--text": "@color-swatch7",
-            "color__navigation--text--hover": "darken(@color-swatch7, 20%)",
-            "color__navigation--text--selected": "darken(@color-swatch7, 20%)",
+            "font__navigation--font-family": "@font-swatch6-font-family",
+            "font__navigation--font-size": "@font-swatch6-font-size",
+            "font__navigation--font-weight": "@font-swatch6-font-weight",
+            "font__navigation--line-height": "@font-swatch6-line-height",
+            "font__navigation--letter-spacing": "@font-swatch6-letter-spacing",
+            "color__navigation--text": "@color-swatch1",
+            "color__navigation--text--hover": "@color-swatch1",
+            "color__navigation--text--selected": "@color-swatch1",
 			"color__navigation-list--background": "@color__secondary",
 			"color__navigation-item--text": "@color-swatch7",
             "color__navigation-item--text--selected": "darken(@color-swatch7, 20%)"

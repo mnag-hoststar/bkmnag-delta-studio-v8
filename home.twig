@@ -1,44 +1,50 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-
-<div class="bk-pt-default">
-<header class="bk-header">
-    <div class="header-bg">
-         <div class="wrapper companyheader clearfix">
-            {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
+<!-- Page Content Start -->
+<section class="page page--home">
+	
+	<!-- Header -->
+	<header class="template__header">
+		<div class="template__company">
+			{{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+			{{widget('companyname', 'companyname', {
+				"business": "profile",
+				"showTplWidget":"0"
+			})|raw}}
+		</div>
+		<div class="template__navigation">
+			{{widget('extendednavigation', 'extendednavigation', {"align":"right"})|raw}}
+		</div>
+	</header>
+		
+	<!-- Header Feature -->
+	<div class="header-feature">
+		{{widget('feature', 'featurehome', {
+			"header": "Creating Sound", 
+			"strapline": "Inspiring people to greatness in music.", 
+			"buttonText": "Learn more",
+			"defaultBgImg": asset('images/feature-image.jpg'), 
+			'positionTopPercentage': '50',
+			'showBtn': true
+		})|raw}}
+	</div>
+	
+	<!-- Zone Content Start -->
+    <div id="main-scroll" class="template__content">
+        <div class="container">
+            {{zone('main')|raw}}
         </div>
     </div>
-    <nav class="wrapper clearfix">
-               {{widget('extendednavigation', 'navigationheader', {"align":"center"})|raw}}
-    </nav>
-</header>
-</div>
-
-
-<section>
-    {{widget('feature', 'featurehome', {"header": "profile", "strapline":"profile", "buttonText":"LOREM IPSUM", "defaultBgImg": asset('images/feature-bg.jpg'), 'positionTopPercentage': '50','showBtn': true})|raw}}
+	<!-- Zone Content End -->
+	
 </section>
+<!-- Page Content End -->
+{% endblock %}
 
-<div class="main wrapper clearfix">
-    {{zone('main')|raw}}
-</div>  
-
-<footer class="bk-footer">
-    <div class="wrapper clearfix">
-        <div class="responsivecolumns columns-two-50-50">
-            <div class="column columns-two-left">
-                {{widget('content', 'footercolumn1content1', {"content":"<h4>Aliquam Sodales</h4>"})|raw}}
-                {{widget('profile', 'footercolumn1profileemail', { 'profileType':'email', 'email':'profile'})|raw}}
-                {{widget('profile', 'footercolumn1profilephone', { 'profileType':'phone', 'phone':'profile'})|raw}}
-            </div>
-            <div class="column columns-two-right">
-                {{widget('content', 'footercolumn2content1', {"content":"<h4>Lorem Ipsum</h4>"})|raw}}
-                {{widget('profile', 'footercolumn2profiletweet', { 'profileType':'twitter', 'tweet':'profile'})|raw}}
-                {{widget('profile', 'footercolumn2profilecopyright', { 'profileType':'copyright', 'copyright':'profile'})|raw}}
-            </div>
-        </div>
-    </div>
-</footer>
-
+{% block bodyscripts %}
+<!-- Body Scripts Start -->
+<script src="{{asset('js/header-feature.js')}}"></script>
+<script src="{{asset('js/smooth-scroll.js')}}"></script>
+<!-- Body Scripts End -->
 {% endblock %}

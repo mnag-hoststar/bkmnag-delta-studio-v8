@@ -1,0 +1,61 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<!-- Page Content Start -->
+<section class="page page--default">
+	
+    <!-- Header -->
+	<header class="template__header">
+		<div class="template__company">
+			{{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+			{{widget('companyname', 'companyname', {
+				"business": "profile",
+				"showTplWidget":"0"
+			})|raw}}
+		</div>
+		<div class="template__navigation">
+			{{widget('extendednavigation', 'extendednavigation', {"align":"right"})|raw}}
+		</div>
+	</header>
+	
+    <!-- Zone Content Start -->
+    <div class="template__content">
+        <div class="container">
+        {{zone('main')|raw}}
+        {{widget('content', 'home-gallery-text', {
+            content: '<p>If you love music, do what you love. Sing, dance, play, live your passion!</p>'
+        })|raw}}
+	
+		{{widget('gallery', 'home-gallery', {
+    		'showTitle': true,
+    		'showDescription': true,
+    		'images':[
+    		{
+				'url':asset('/images/gallery/gallery-image--1.jpg'),
+				'title':'Band together',
+				'description': ''
+    		},
+    		{
+				'url':asset('/images/gallery/gallery-image--2.jpg'),
+				'title':'Throw voices',
+				'description': ''
+    		},
+    		{
+				'url':asset('/images/gallery/gallery-image--3.jpg'),
+				'title':'Play crowds',
+				'description': ''
+    		},
+    		{
+				'url':asset('/images/gallery/gallery-image--4.jpg'),
+				'title':'Turn tables',
+				'description': ''
+    		}
+    	  ]
+    	})|raw}}
+        </div>
+    </div>
+    <!-- Zone Content End -->
+	
+</section>
+<!-- Page Content End -->
+{% endblock %}
