@@ -1,5 +1,5 @@
 // ----------------------------------------
-// Duotone: JS > Navigation
+// Delta Studio: JS > Navigation
 // ----------------------------------------
 
 $(document).ready(function(){
