@@ -203,19 +203,18 @@
             "color__feature-button--text": "@color-swatch7"
         },
         "button": {
-            "color__button--background": "@color-swatch3",
-            "color__button--background--hover": "darken(@color__button--background, 4%)",
-            "color__button--text": "@color-swatch7",
-            "color__button--text--hover": "@color-swatch7",
-            "color__button--border": "@color-swatch3",
-            "font__button--font-family": "@font-swatch4-font-family",
-            "font__button--font-size": "16px",
-            "font__button--font-weight": "700",
-            "font__button--line-height": "@font-swatch4-line-height",
-            "font__button--letter-spacing": "unit(1.5px/10, em)"
+            "color__button--background": "@font-swatch7-background-color",
+            "color__button--background--hover": "@font-swatch7-background-color-hover",
+            "color__button--text": "@font-swatch7-color",
+            "color__button--text--hover": "@color-swatch1",
+            "font__button--font-family": "@font-swatch7-font-family",
+            "font__button--font-size": "@font-swatch7-font-size",
+            "font__button--font-weight": "@font-swatch7-font-weight",
+            "font__button--line-height": "@font-swatch7-line-height",
+            "font__button--letter-spacing": "@font-swatch4-letter-spacing"
         },
         "form": {
-            "color__form--background": "@color__container--background"
+            "color__form--background": "#e1e2e2"
         },
         "image": {
             "color__image--background": "@color__container--background",

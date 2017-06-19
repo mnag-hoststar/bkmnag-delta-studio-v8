@@ -16,10 +16,9 @@ table {
 	border: none;
 	border-collapse: separate;
 	border-spacing: 0;
-	border-top: 0.2em solid @color--light;
+	border-top: 2px solid @color--line;
 	margin: 0;
 	hyphens: auto;
-	.paragraph;
 }
 
 // Table Cell
@@ -27,26 +26,21 @@ table {
 td, th {
 	border: none;
 	background-color: transparent;
+	.paragraph;
 }
 
 th {
 	padding: 0.5em;
-	border-bottom: 0.2em solid @color--light;
+	border-bottom: 2px solid @color--line;
 	.label-text;
 }
 
 td {
-	border-bottom: 1px solid @color--light;
+	border-bottom: 1px solid @color--line;
 	line-height: 1.2em;
 	padding: 1em 0.5em;
 }
 
 tr:last-child td {
-	border-bottom: 0.2em solid @color--light;
-}
-
-// Table Head
-
-table thead td {
-	background-color: @color__primary;
+	border-bottom: 2px solid @color--line;
 }

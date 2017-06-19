@@ -16,6 +16,16 @@
 // #Button
 // -----------------------------
 
+.widget[data-name="button"],
+.widget[data-name="tweet"],
+.widget[data-name="clicktocall"],
+.widget[data-name="filedownload"],
+.widget[data-name="dropbox"],
+.widget[data-name="paypalbuynow"] {
+	margin: 10px auto 15px;
+	padding: 9px 0;
+}
+
 button,
 .button,
 a.button,
@@ -25,16 +35,14 @@ a.button,
     cursor: pointer;
     position: relative;
     display: inline-block;
-	border: 0.3em solid @color__button--border;
-	padding: 0.5em 1.5em;
-	min-height: @button-height;
+	padding: 5px 20px;
     .appearance(none);
     .border-radius(0);
 	.transition();
     background-color: @color__button--background;
 	font-family: @font__button--font-family;
 	font-weight: @font__button--font-weight;
-	line-height: unit(@font__button--line-height*0.1, em);
+	line-height: @font__button--line-height;
 	letter-spacing: @font__button--letter-spacing;
     color: @color__button--text;
     text-transform: uppercase;
@@ -44,26 +52,18 @@ a.button,
 	.make-font-smaller(@font__button--font-size);
 	.make-font-a-lot-smaller(@font__button--font-size);
 	
-    &:hover {
-	    padding: 0.5em 1.5em;
-		min-height: @button-height;
-		.box-shadow(0px 10px 20px 0px fade(@color__p--text, 30%));
-		border: 0.3em solid @color__button--background--hover;
+	// Hover and focus style for easier keyboard navigation
+	
+    &:hover,
+	&:focus {
         background-color: @color__button--background--hover;
     	color: @color__button--text--hover;
     }
-	
-	// Focus style for easier keyboard navigation
-	
-	&:focus {
-    	border: 0.3em solid @color__button--background--hover;
-	}
 	
 	// Active style for when you press a button down
 	
 	&:active {
 		.box-shadow(none);
-		border: 0.3em solid @color__button--background;
 	}
 	
 	&[disabled] {
@@ -176,8 +176,8 @@ a.button,
 	margin: 0.5em 0.5em 0.5em 0;
     padding: 0;
     background-color: @color__button--background;
-    width: 2.5em;
-    height: 2.5em;
+    width: 40px;
+    height: 40px;
 	
 	&:hover {
         background-color: @color__button--background--hover;
@@ -218,8 +218,8 @@ a.button,
 		display: block;
 		margin: 0 auto;
 		padding: 0;
-		line-height: 2em;
-		font-size: 1.2em;
+		line-height: 1.85em;
+    	font-size: 22px;
 		color: @color__button--text;
 	}
 }
