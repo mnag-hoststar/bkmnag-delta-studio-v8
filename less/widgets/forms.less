@@ -6,10 +6,11 @@
 // #Legend
 // #Form
 // #Label
-// #Text Inputs
-// #Placeholders
-// #Dropdowns
-// #Radio Buttons and Checkboxes
+// #Text Input
+// #Placeholder
+// #Dropdown
+// #Radio Button and Checkbox
+// #Button
 // #Error Messages
 // 
 // #Sign Up Form
@@ -22,60 +23,28 @@
 // #Global Form Styles
 // ------------------------------
 
-// Color correction for the background.
-// Adding the same background as the forms widget
-// to a content widget if there is one above it.
+.signupform {
+    padding: 15px;
+}
 
-.widget[data-name="signupform"],
-.widget[data-widget-type="signupform"],
-.widget[data-name="contactform"],
-.widget[data-widget-type="contactform"],
-.widget[data-name="advancedcontactform"],
-.widget[data-widget-type="advancedcontactform"] {
+.contactform,
+.advancedcontactform {
+    padding: 30px;
 	
-	.responsivecolumns & {
-		padding-top: 2em;
-		padding-bottom: 2em;
-		
-		&:first-child {
-			padding-top: 0;
-		}
-		
-		&:last-child {
-			padding-bottom: 0;
-
-			@media @mobile {
-				padding-bottom: 2em;
-			}
-		}
+	@media @mobile {
+    	padding: 15px;
 	}
 }
 
-.widget[data-name="signupform"],
-.widget[data-widget-type="signupform"],
-.widget--signupform-background,
-.widget[data-name="contactform"],
-.widget[data-widget-type="contactform"],
-.widget--contactform-background,
-.widget[data-name="advancedcontactform"],
-.widget[data-widget-type="advancedcontactform"],
-.widget--advancedcontactform-background {
+.signupform,
+.contactform,
+.advancedcontactform {
+	display: block;
 	background-color: @color__form--background;
-}
-
-.widget--signupform-background + .widget[data-name="signupform"],
-.widget--signupform-background + .widget[data-widget-type="signupform"],
-.widget--contactform-background + .widget[data-name="contactform"],
-.widget--contactform-background + .widget[data-widget-type="contactform"],
-.widget--advancedcontactform-background + .widget[data-name="advancedcontactform"],
-.widget--advancedcontactform-background + .widget[data-widget-type="advancedcontactform"] {
-    padding-top: 1em;
-}
-
-.widget--signupform-background,
-.widget--contactform-background,
-.widget--advancedcontactform-background {
-	padding-bottom: 0;
+	
+	@media @mobile {
+		margin: 20px 0;
+	}
 }
 
 .form {
@@ -120,6 +89,8 @@
 
 .form label {
 	margin: 0 0 0.3em;
+	.heading--4;
+	line-height: 2em;
 }
 
 input[type="search"],
@@ -133,7 +104,7 @@ select {
 }
 
 // ------------------------------
-// #Text Inputs
+// #Text Input
 // ------------------------------
 
 // All Input Fields
@@ -144,24 +115,20 @@ input[type="password"],
 .input--single-line,
 .input--search,
 textarea {
-    padding: 0.4em 0.6em;
-    background-color: #fff;
-    border: 1px solid @color--light;
-	height: 3rem;
-    color: @color__p--text;
-	.transition();
+	background-color: #fff;
     .border-radius(0);
-    .appearance(none);
-	
-	&:hover {
-    	border: 1px solid @color__p--text;
-	}
+    padding: 0.3em 1em;
+    margin-right: 0.6em;
+	height: 2.2em;
+    text-indent: 0;
+	.paragraph;
+    border: none;
+    -webkit-appearance: none;
 	
 	// Focus style for easier keyboard navigation
 	
 	&:focus {
-    	border: 0.3em solid @color__button--background--hover;
-		.box-shadow(none);
+		.box-shadow(inset 0 0 0 1px @color__form--border);
 	}
 }
 
@@ -184,8 +151,14 @@ textarea {
     }
 }
 
+// Email Input
+
+input[type="email"] {
+}
+
+
 // ------------------------------
-// #Placeholders
+// #Placeholder
 // ------------------------------
 
 input::-webkit-input-placeholder {
@@ -223,7 +196,7 @@ input:focus {
 }
 
 // ------------------------------
-// #Radio Buttons and Checkboxes
+// #Radio Button and Checkbox
 // ------------------------------
 
 .option-list {
@@ -232,8 +205,6 @@ input:focus {
 	.label--radio,
 	.label--checkbox {
 		.paragraph;
-		line-height: 1.5em;
-		min-height: 1.5em;
 	}
 
 	.option-item--radio,
@@ -258,7 +229,7 @@ input:focus {
 				height: 1.5em;
 				margin-top: -0.8em;
 				background-color: #fff;
-				border: 0.2em solid @color--light;
+				border: 2px solid @color--light;
 			}
 
 			&:after {
@@ -283,7 +254,7 @@ input:focus {
 		height: 100% !important;
 
 		&:checked + label:before {
-			border: 0.2em solid @color--light;
+			border: 2px solid @color--light;
 		}
 
 		&:checked + label:after {
@@ -292,7 +263,7 @@ input:focus {
 
 		&:focus + label:before,
 		&:focus:checked + label:before {
-			border: 0.3em solid @color__button--background--hover;
+			border: 2px solid @color__button--background--hover;
 		}
 	}
 
@@ -331,7 +302,7 @@ input:focus {
 }
 
 // ------------------------------
-// #Dropdowns
+// #Dropdown
 // ------------------------------
 
 // Select Wrap
@@ -374,6 +345,7 @@ input:focus {
     width: 100%;
     border: 0.3em solid transparent;
 	background-color: @color--lightest;
+	border: 2px solid @color--light;
     font-size: 1em;
     color: @color__p--text;
     .border-radius(0);
@@ -384,18 +356,11 @@ input:focus {
 		padding: 0 2.7em 0 0.6em;
     }
 
-    &:hover {
-		border: 0.3em solid transparent;
-		background-color: @color--light;
-    }
-
-    &:focus {
-		border: 0.3em solid @color__button--background--hover;
-		background-color: @color--lightest;
-	}
-	
+    &:hover,
+	&:focus,
 	&:hover:focus {
-		background-color: @color--light;
+		background-color: @color--lighter;
+		border: 2px solid @color__button--background--hover;
 	}
 }
 
@@ -404,7 +369,17 @@ input:focus {
 }
 
 // ------------------------------
-// #Error Messages
+// #Button
+// ------------------------------
+
+.form button {
+	@media @mobile {
+		width: 100%;
+	}
+}
+
+// ------------------------------
+// #Error Message
 // ------------------------------
 
 .form {
@@ -447,27 +422,46 @@ input.error {
 // ------------------------------
 
 .signupform {
+	.form {
+		@media @mobile {
+			position: relative;
+			margin-top: 2em;
+			.paragraph;
+		}
+	}
+	
 	.form-body {
-		display: table;
-		width: 100%;
+		.display-flex(flex);
+		.flex-direction(row);
+		.flex-wrap(nowrap);
+		.align-items(center, center);
 	}
 
 	.form-group {
-		display: table-cell;
-		vertical-align: middle;
-		height: 3em;
+		margin-bottom: 0;
 		
 		&:first-child {
 			width: 100%;
-			padding-right: 0.5em;
+			.display-flex(flex);
+			.align-items(center, center);
 		}
 
 		label {
-			display: none;
+			margin: 0 1em 0 0;
+			white-space: nowrap;
+			
+			@media @mobile {
+				position: absolute;
+    			top: -2em;
+			}
 		}
 		
 		.button {
 			white-space: nowrap;
+			
+			@media @mobile {
+				width: auto;
+			}
 		}
 	}
 }

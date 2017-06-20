@@ -11,34 +11,25 @@
 // #Image
 // ------------------------------
 
-.widget[data-name="image"],
-.widget[data-widget-type="image"],
-.widget--image-background {
-	background: @color__image--background;
-}
-
-.widget--image-background + .widget[data-name="image"],
-.widget--image-background + .widget[data-widget-type="image"] {
-    padding-top: 1em;
-}
-
-.widget--image-background {
-	padding-bottom: 0;
-}
 
 // ------------------------------
 // #Caption
 // ------------------------------
 
 .imagewidget__caption {
-	.image-caption--spacing();
+	margin: 10px 0;
+}
+
+.image-title,
+.image-description {
+	margin: 5px 0;
+	text-align: center;
 }
 
 // Image Title
 
 .image-title {
 	.heading--4;
-	margin: 1.5em 0 0.5em;
 	letter-spacing: @font__h4--letter-spacing/2;
 	color: @color__image-title--text;
 }

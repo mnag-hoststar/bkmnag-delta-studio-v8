@@ -17,10 +17,6 @@
 
 .controls-font-size() {
 	font-size: 25px;
-
-	@media @tablet {
-		font-size: 20px;
-	}
 }
 
 // ------------------------------
@@ -30,48 +26,64 @@
 .widget[data-name="responsiveslideshow"] .responsiveslideshow,
 .widget[data-widget-type="responsiveslideshow"] .responsiveslideshow {
 	position: relative;
-	overflow: hidden;
 	width: auto;
 	max-width: none;
+	margin-bottom: 80px;
+	height: 40%;
 	height: 40vw;
 	padding-bottom: 40%;
+	padding-bottom: 40vw;
 	background-color: @color__slideshow--background;
 	
 	@media @tablet-horizontal {
+		height: 60%;
 		height: 60vw;
 		padding-bottom: 60%;
+		padding-bottom: 60vw;
 	}
 	
 	.responsivecolumns .columns-two-left &,
 	.responsivecolumns .columns-two-right & {
+		height: 30%;
 		height: 30vw;
 		padding-bottom: 30%;
+		padding-bottom: 30vw;
 	
 		@media @tablet-horizontal {
+			height: 40%;
 			height: 40vw;
 			padding-bottom: 40%;
+			padding-bottom: 40vw;
 		}
 	
 		@media @mobile {
+			height: 60%;
 			height: 60vw;
 			padding-bottom: 60%;
+			padding-bottom: 60vw;
 		}
 	}
 	
 	.responsivecolumns .columns-three-left &,
 	.responsivecolumns .columns-three-middle &,
 	.responsivecolumns .columns-three-right & {
+		height: 25%;
 		height: 25vw;
 		padding-bottom: 25%;
+		padding-bottom: 25vw;
 	
 		@media @tablet-horizontal {
+			height: 40%;
 			height: 40vw;
 			padding-bottom: 40%;
+			padding-bottom: 40vw;
 		}
 	
 		@media @mobile {
+			height: 60%;
 			height: 60vw;
 			padding-bottom: 60%;
+			padding-bottom: 60vw;
 		}
 	}
 	
@@ -79,22 +91,30 @@
 	.responsivecolumns .columns-four-second &,
 	.responsivecolumns .columns-four-third &,
 	.responsivecolumns .columns-four-fourth & {
+		height: 20%;
 		height: 20vw;
 		padding-bottom: 20%;
+		padding-bottom: 20vw;
 	
 		@media @tablet-horizontal {
+			height: 30%;
 			height: 30vw;
 			padding-bottom: 30%;
+			padding-bottom: 30vw;
 		}
 	
 		@media @tablet {
+			height: 40%;
 			height: 40vw;
 			padding-bottom: 40%;
+			padding-bottom: 40vw;
 		}
 	
 		@media @mobile {
+			height: 60%;
 			height: 60vw;
 			padding-bottom: 60%;
+			padding-bottom: 60vw;
 		}
 	}
 }
@@ -119,6 +139,8 @@
 	padding: 0;
 	height: 100%;
     width: 100%;
+    line-height: 0;
+    font-size: 0;
 
 	&.current {
 		opacity: 1;
@@ -139,6 +161,8 @@
 	height: 100%;
     width: 100%;
 	min-height: 0;
+	line-height: 0;
+    font-size: 0;
 }
 
 .responsiveslideshow__image {
@@ -151,17 +175,11 @@
 
 .responsiveslideshow .caption {
 	display: block;
-	.display-flex(flex);
-    .flex-direction(column);
-    .justify-content(center, center);
 	position: absolute;
-	top: 0;
 	bottom: 0;
 	margin: 0;
-	padding: 1em 0 2em;
-	background-color: fade(@color__slideshow-caption--background, 80%);
+	background-color: fade(@color__slideshow-caption--background, 20%);
 	text-align: center;
-	.controls-font-size();
 
 	@media @tablet {
 		padding: 2em 0 2.5em;
@@ -170,17 +188,7 @@
 
 .responsiveslideshow__image-title,
 .responsiveslideshow__image-description {
-	margin: 0 auto;
-	max-width: 32em;
-    width: @layout-width-desktop;
-
-	@media @tablet {
-		width: @layout-width-tablet;
-	}
-	
-	.responsivecolumns & {
-    	width: @layout-width-desktop;
-	}
+	text-align: left;
 }
 
 .responsiveslideshow__image-title {
@@ -214,39 +222,26 @@
 .slide-navigation {
 	display: block;
 	position: absolute;
-	top: 0;
+	top: 50%;
     left: 0;
     right: 0;
 	margin: 0;
-	opacity: 0;
-	.transition(opacity);
-	
-	// Controls are only show when the
-	// slideshow is hovered over.
-
-	.widget[data-name="responsiveslideshow"]:hover &,
-	.widget[data-widget-type="responsiveslideshow"]:hover &,
-	.widget[data-name="responsiveslideshow"]:focus &,
-	.widget[data-widget-type="responsiveslideshow"]:focus & {
-		opacity: 1;
-	}
 	
 	// Button
 
 	.button {
 		position: absolute;
 		top: 50%;
-		margin: 0;
+		margin: -1.25em 0 0 0;
 		padding: 0;
-		height: 2.5em;
-		line-height: 1em;
-		width: 2.5em;
+		height: 60px;
+		width: 60px;
 	    border: none;
-		background-color: fade(@color__slideshow-pagination-item--background, 80%);
+		background-color: @color__slideshow-pagination-item--background;
 		.box-shadow(none);
 		.transition(background-color);
 		z-index: 2;
-		.controls-font-size();
+		font-size: 25px;
 		color: @color__slideshow-pagination-item--text;
 		
 		&:before,
@@ -256,6 +251,10 @@
     		margin-left: 0;
 			font-size: 1em;
 		}
+
+		@media @tablet {
+			font-size: 20px;
+		}
 	}
 
 	.control-text {
@@ -263,29 +262,36 @@
 	}
 
 	.previous-button {
-		left: 50%;
-    	margin-left: -3.75em;
-		padding-right: 0em;
+		left: 0;
 
 		// Icon
 		&:before {
+			font-size: 48px;
+			content: '\f104';
+
+			@media @tablet {
+				font-size: 40px;
+			}
 		}
 	}
 
 	.next-button {
-    	right: 50%;
-    	margin-right: -3.75em;
-		padding-left: 0.3em;
+    	right: 0;
 
 		// Icon
 		&:after {
+			font-size: 48px;
+			content: '\f105';
+
+			@media @tablet {
+				font-size: 40px;
+			}
 		}
 	}
 
 	.pause-toggle {
 		left: 50%;
 		margin-left: -1.25em;
-		padding-left: 0.15em;
 
 		// Icon
 		&:before {
@@ -294,6 +300,7 @@
 		// Play Icon
 
 		&.pause:before {
+			.controls-font-size();
 			content: '\f04b';
 		}
 	}
@@ -305,61 +312,47 @@
 
 .responsiveslideshow__slide-pagination {
 	position: absolute;
-	bottom: 0;
+	bottom: -80px;
+	padding-top: 20px;
+    padding-bottom: 40px;
 	width: 100%;
 	z-index: 1;
 
 	.pagination-list {
-		margin-top: 0;
-		padding: 0;
-		text-align: center;
+		display: table;
+		margin: 0 auto;
 	}
 }
 	
 .responsiveslideshow__pagination-item {
+	display: table-cell;
+    vertical-align: middle;
 	position: relative;
-    margin: 0 0 40px;
 	padding: 0 8px;
     height: 0;
 
 	@media @tablet {
-		margin: 0 0 35px;
 		padding: 0 4px;
 	}
 
 	.button {
 		background-color: @color__slideshow-pagination-item--background;
-		width: 18px;
-		height: 18px;
-		min-height: 18px;
+		width: 14px;
+		height: 14px;
 		display: block;
 		overflow: hidden;
 		text-indent: -10000px;
 		.border-radius(50%);
 		padding: 0;
-		border: 0.3em solid @color__slideshow-pagination-item--text;
-
-		@media @tablet {
-			width: 16px;
-			height: 16px;
-			min-height: 16px;
-		}
+		border: 2px solid @color__slideshow-pagination-item--text;
 		
 		&:hover {
-			margin: 0;
-			padding: 0;
 			.box-shadow(none);
+			border-width: 1px;
 		}
 	}
 
 	&.selected .button {
-		top: -1px;
 		background: @color__slideshow-pagination-item--text--selected;
-		border-width: 3px;
-		.transform-scale(1.5);
-
-		@media @tablet {
-			.transform-scale(1.3);
-		}
 	}
 }
