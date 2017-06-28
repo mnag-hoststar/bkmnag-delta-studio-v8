@@ -18,13 +18,25 @@
 .widget[data-name="blogpostlist"],
 .widget[data-widget-type="blogpostlist"] {
 	background-color: @color__blogpostlist--background;
-	padding: 2em 0;
+	padding: 30px;
+	margin-bottom: 30px;
+	
+	@media @mobile {
+		padding: 15px;
+		margin-bottom: 15px;
+	}
 }
 
 .blogpostlist__post-items {
 	.display-flex(flex);
     .flex-wrap(wrap);
-	.item--margin-size--border();
+	margin: -1%;
+	margin-bottom: 30px;
+	
+	@media @mobile {
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
 	
 	.responsivecolumns & {
 		margin: 0;
@@ -41,16 +53,8 @@
 	background-color: @color__blogpostlist-article--background;
 	.clearfix();
 	
-	@media @mobile {
-		.display-flex(flex);
-		.flex-direction(inherit);
-	}
-	
-	.responsivecolumns & {
-		.display-flex(flex);
-		.flex-direction(inherit);
-		width: 100%;
-		margin: 0 0 1em;
+	&:last-child {
+		margin-bottom: 10px;
 	}
 }
 
@@ -66,17 +70,7 @@
 		padding-bottom: 56.25%;
 		
 		@media @mobile {
-			float: left;
-			height: 100%;
-			width: 25%;
-    		padding-bottom: 0;
-		}
-		
-		.responsivecolumns & {
-			float: left;
-			height: 100%;
-			width: 25%;
-    		padding-bottom: 0;
+			padding-bottom: 16%;
 		}
     }
 	
@@ -105,23 +99,11 @@
 .blogpostlist__post-content {
 	margin: 0;
 	padding: 4em 1.5em 1.5em;
-	font-size: @font__p--font-size;
-
-	.make-font-a-little-smaller(@font__p--font-size);
-	.make-font-smaller(@font__p--font-size);
-	.make-font-a-lot-smaller(@font__p--font-size);
-	
-	@media @mobile {
-		padding: 4em 1.5em 1.5em;
-	}
-		
-	.responsivecolumns & {
-		padding: 4em 1.5em 1.5em;
-	}
+	.paragraph;
 }
 
 .blogpostlist__post-title {
-	.heading--3;
+	.heading--2	;
 	padding: 0;
 }
 
@@ -143,15 +125,7 @@ a.blogpostlist__read-more {
 
 // This style only activates if the article has an image.
 
-.blogpostlist__post-image ~ .blogpostlist__post-content {
-	@media @mobile {
-		width: 75%;
-	}
-		
-	.responsivecolumns & {
-		width: 75%;
-	}
-}
+.blogpostlist__post-image ~ .blogpostlist__post-content {}
 
 // ------------------------------
 // #Footer
@@ -162,26 +136,12 @@ a.blogpostlist__read-more {
 	top: 0;
     left: 0;
     right: 0;
+	.paragraph;
 	padding: 0 1.5em;
-	font-size: @font__p--font-size;
-
-	.make-font-a-little-smaller(@font__p--font-size);
-	.make-font-smaller(@font__p--font-size);
-	.make-font-a-lot-smaller(@font__p--font-size);
 
 	.timestamp {
 		display: inline-block;
-		margin: 1.5em 0 0;
-		background: @color__blogpostlist-title--background;
-		.timestamp-styles;
-		
-		@media @mobile {
-			margin: 1em 0 0;
-		}
-		
-		.responsivecolumns & {
-			margin: 1em 0 0;
-		}
+		margin: 2em 0 0;
 	}
 }
 
@@ -189,15 +149,9 @@ a.blogpostlist__read-more {
 
 .blogpostlist__post-image ~ .blogpostlist__post-footer {
 	margin-top: 56.25%;
-	
-	@media @mobile {
-		left: 25%;
-		margin-top: 0;
-	}
 		
-	.responsivecolumns & {
-		left: 25%;
-		margin-top: 0;
+	@media @mobile {
+		margin-top: 16%;
 	}
 }
 

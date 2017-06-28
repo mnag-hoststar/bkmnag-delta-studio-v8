@@ -44,13 +44,13 @@ a.button,
 	font-weight: @font__button--font-weight;
 	line-height: @font__button--line-height;
 	letter-spacing: @font__button--letter-spacing;
+	font-size: @font__button--font-size;
     color: @color__button--text;
     text-transform: uppercase;
-	font-size: @font__button--font-size;
-
-	.make-font-a-little-smaller(@font__button--font-size);
-	.make-font-smaller(@font__button--font-size);
-	.make-font-a-lot-smaller(@font__button--font-size);
+	
+	.make-font-a-little-smaller(@font__button--font-size, @font__button--line-height);
+	.make-font-smaller(@font__button--font-size, @font__button--line-height);
+	.make-font-a-lot-smaller(@font__button--font-size, @font__button--line-height);
 	
 	// Hover and focus style for easier keyboard navigation
 	
@@ -83,42 +83,41 @@ a.button,
 .paypalbuynow .button {
 	&:before,
 	&:after {
-		font-size: @font__button--font-size*1.5;
 		font-weight: 400;
-	
-		.make-font-a-little-smaller(@font__button--font-size*1.5);
-		.make-font-smaller(@font__button--font-size*1.5);
-		.make-font-a-lot-smaller(@font__button--font-size*1.5);
+		font-size: 16px;
+    	line-height: 36px;
 	}
 	
 	&:before {
-		margin-right: 0.5em;
-		left: 1em;
+		position: absolute;
+		left: 20px;
+    	top: 0;
 	}
 	
 	&:after {
-		margin-left: 0.5em;
-		right: 1em;
+		position: absolute;
+		right: 20px;
+    	top: 0;
 	}
 }
 
 a.button,
 .link-button,
 .tweet .button,
-.clicktocall .phone-number-link {
-    display: table-cell;
-    vertical-align: middle;
+.clicktocall .phone-number-link,
+.paypalbuynow .button {
+	position: relative;
+}
+
+.tweet .button,
+.clicktocall .phone-number-link,
+.dropbox .button,
+.paypalbuynow .button {
+    padding-left: 45px;
 }
 
 .dropbox .button {
-	padding-left: 3.8em;
 	word-break: normal;
-	
-	&:before {
-		position: absolute;
-		display: block;
-		margin: 0;
-	}
 }
 
 .widget[data-name="filedownload"] button {
@@ -133,23 +132,9 @@ a.button,
 // #Click to Call
 // -----------------------------
 
-.clicktocall .label {
-    margin-left: -0.5em;
-}
-
 // -----------------------------
 // #Dropbox
 // -----------------------------
-
-.dropbox {
-	display: table;
-}
-
-.dropbox__button,
-.dropbox__label {
-	display: table-cell;
-	vertical-align: middle;
-}
 
 .dropbox__label {
 	width: 100%;

@@ -29,11 +29,16 @@
 	width: auto;
 	max-width: none;
 	margin-bottom: 80px;
-	height: 40%;
-	height: 40vw;
-	padding-bottom: 40%;
-	padding-bottom: 40vw;
+	height: 456px;
+	padding-bottom: 456px;
 	background-color: @color__slideshow--background;
+	
+	@media @layout-width-breakpoint {
+		height: 40%;
+		height: 40vw;
+		padding-bottom: 40%;
+		padding-bottom: 40vw;
+	}
 	
 	@media @tablet-horizontal {
 		height: 60%;
@@ -180,10 +185,6 @@
 	margin: 0;
 	background-color: fade(@color__slideshow-caption--background, 20%);
 	text-align: center;
-
-	@media @tablet {
-		padding: 2em 0 2.5em;
-	}
 }
 
 .responsiveslideshow__image-title,
@@ -195,14 +196,15 @@
 	margin-bottom: 0.5em;
 	color: @color__slideshow-title--text;
 	font-size: @font__p--font-size*1.1;
+	line-height: @font__p--line-height*1.1;
 	line-height: 1.4em;
 	white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 	
-	.make-font-a-little-smaller(@font__p--font-size*1.1);
-	.make-font-smaller(@font__p--font-size*1.1);
-	.make-font-a-lot-smaller(@font__p--font-size*1.1);
+	.make-font-a-little-smaller(@font__p--font-size*1.1, @font__p--line-height*1.1);
+	.make-font-smaller(@font__p--font-size*1.1, @font__p--line-height*1.1);
+	.make-font-a-lot-smaller(@font__p--font-size*1.1, @font__p--line-height*1.1);
 }
 
 .responsiveslideshow__image-description {
@@ -234,8 +236,8 @@
 		top: 50%;
 		margin: -1.25em 0 0 0;
 		padding: 0;
-		height: 60px;
-		width: 60px;
+		height: 2.5em;
+		width: 2.5em;
 	    border: none;
 		background-color: @color__slideshow-pagination-item--background;
 		.box-shadow(none);
@@ -313,7 +315,7 @@
 .responsiveslideshow__slide-pagination {
 	position: absolute;
 	bottom: -80px;
-	padding-top: 20px;
+	padding-top: 30px;
     padding-bottom: 40px;
 	width: 100%;
 	z-index: 1;

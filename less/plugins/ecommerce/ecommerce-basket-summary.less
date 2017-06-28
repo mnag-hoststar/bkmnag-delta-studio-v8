@@ -18,6 +18,8 @@
 // ------------------------------
 
 .summary-table {
+	    border-top: 5px solid @color--line-dark;
+	
 	&, .table-row, .cell, .summary-body {
 		@media @basketsummary-medium {
 			display: block;
@@ -28,33 +30,31 @@
 		@media @basketsummary-medium {
             display: none;
 		}
+			
+		&:nth-last-of-type(2) .cell {
+			border-bottom: none;
+		}
     }
 	
 	.table-row {
 		@media @basketsummary-medium {
 			overflow: hidden;
-			border-top: 1px solid @color--light;
-			border-bottom: none;
+			border-bottom: 1px solid @color--line-dark;
 			padding: 0.5em 0;
 			.clearfix();
 			
-			&:nth-of-type(2) {
-				border-top-width: 0.2em;
-			}
-			
 			&:last-child {
-				border: none;
+				border-bottom: none;
 				padding: 0;
 			}
-		}
-			
-		&:nth-last-of-type(2) .cell {
-			border: none;
 		}
 	}
 		
 	.cell {
-		padding: 0.5em;
+		.paragraph;
+		font-weight: 900;
+		padding: 30px 0.5em;
+		border-bottom: 1px solid @color--line-dark;
 
 		&:last-child,
 		&:nth-last-of-type(-n+2) {
@@ -65,8 +65,17 @@
 			}
 		}
 		
+		&:nth-last-of-type(2) {
+			border-left: 1px solid @color--line;
+			
+			@media @basketsummary-medium {
+				border-left: none;
+			}
+		}
+		
 		@media @basketsummary-medium {
         	border: none;
+			padding: 10px 0.5em;
 		}
 		
 		> * {
@@ -87,11 +96,11 @@
 		width: 10%;
 	
 		@media @layout-width-breakpoint {
-			width: 12%;
+			width: 10%;
 		}
 
 		@media @tablet-horizontal {
-			width: 15%;
+			width: 13%;
 		}
 		
 		@media @basketsummary-medium {
@@ -104,16 +113,12 @@
 			display: block;
 			background-image: none !important;
 			text-align: left;
-			
-			@media @tablet-horizontal {
-				text-align: center;
-			}
 
 			.image {
 				display: inline-block;
 				vertical-align: middle;
 				max-width: 100%;
-    			max-height: 80px;
+    			max-height: 50px;
 		
 				@media @basketsummary-medium {
     				max-height: none;
@@ -129,9 +134,16 @@
 
 .ecombasketsummary {
 	.cell--title, .cell--quantity {
+		
 		@media @basketsummary-medium {
 			padding-left: 30%;
 		}
+	}
+	
+	.summary-item-link {
+		.heading--4;
+		font-weight: 400;
+		color: @color__ecomproductslist-product-title--text;
 	}
 }
 
@@ -141,14 +153,22 @@
 	
 .ecombasketsummary {
 	.cell--price, .cell--total, .cell--quantity {
-		width: 7em;
-		
 		@media @basketsummary-medium {
+			padding-top: 0;
+			
 			&:before {
 				content: attr(data-title);
 				display: block;
-				.label-text;
+				.paragraph;
 			}
+		}
+	}
+	
+	.cell--price {
+		border-left: 1px solid @color--line;
+		
+		@media @basketsummary-medium {
+			border-left: none;
 		}
 	}
 }
@@ -173,6 +193,8 @@
 
 .ecombasketsummary {
     &__cell.cell--quantity {
+		width: 80px;
+		
 		@media @basketsummary-medium {
             position: relative;
 			width: auto;
@@ -182,16 +204,17 @@
 
             &:before {
                 display: block;
+				.paragraph;
             }
         }
     }
 	
 	&__quantity-wrap {
 		background-color: transparent;
-		min-width: 6em;
-		
+		max-width: 150px;
+			
 		@media @basketsummary-medium {
-			width: 0;
+			max-width: 110px;
 		}
 
 		.button--quantity {
@@ -203,37 +226,34 @@
 			}
 			
 			&, &:hover {
-				width: unit(@font__p--line-height*0.1, em);
-				height: unit(@font__p--line-height*0.1, em);
-				min-height: unit(@font__p--line-height*0.1, em);
+				width: 40px;
+				height: 40px;
 				padding: 0;
 				border: none;
-				font-size: @font__p--font-size;
-				line-height: unit(@font__p--line-height*0.1, em);
-	
-				.make-font-a-little-smaller(@font__p--font-size);
-				.make-font-smaller(@font__p--font-size);
-				.make-font-a-lot-smaller(@font__p--font-size);
+				line-height: 0;
+    			font-size: 0;
+			
+				@media @basketsummary-medium {
+					width: 30px;
+					height: 30px;
+				}
 			}
 		}
 		.button.quantity-minus,
 		.button.quantity-plus {
 			&:after {
-				position: absolute;
-				top: 0;
-    			left: 0;
-				margin: 0;
-				padding: 0;
-				border: none;
+				display: block;
 				font-family: 'FontAwesome', sans-serif;
+				font-size: 10px;
 				color: @color__button--text;
-				font-size: @font__p--font-size;
-				line-height: unit(@font__p--line-height*0.1, em)+0.1;
-				width: unit(@font__p--line-height*0.1, em)+0.1;
-	
-				.make-font-a-little-smaller(@font__p--font-size);
-				.make-font-smaller(@font__p--font-size);
-				.make-font-a-lot-smaller(@font__p--font-size);
+				width: 40px;
+    			line-height: 40px;
+    			text-align: center;
+			
+				@media @basketsummary-medium {
+					width: 30px;
+					line-height: 30px;
+				}
 			}
 			
 			&:hover:after {
@@ -255,7 +275,16 @@
 	}
 	
 	&__quantity-field {
-		line-height: unit(@font__p--line-height*0.1, em);
+		background: @color__ecombasket-list--background;
+		min-width: 50px;
+		line-height: 40px;
+		font-weight: 400;
+		text-align: center;
+		color: #222;
+			
+		@media @basketsummary-medium {
+			line-height: 30px;
+		}
 	}
 }
 
@@ -266,6 +295,8 @@
 .ecombasketsummary {
 	&__cell.cell--price,
 	&__cell.cell--total {
+		width: 80px;
+		
 		@media @basketsummary-medium {
             float: left;
             width: 30%;
@@ -286,9 +317,17 @@
 .ecombasketsummary {
     &__cell.cell--order-total {
         text-align: right;
-        background-color: @color--lightest;
-		border-top: 0.2em solid @color--light;
+	    border-top: 5px solid @color--line-dark;
 		border-bottom: none;
+		
+		.order-total {
+			font-weight: 400;
+			color: @color__ecomproductslist-product-title--text;
+			
+			@media @basketsummary-medium {
+				font-size: @font__h4--font-size;
+			}
+		}
     }
 	
 	&__order-total {
@@ -305,4 +344,5 @@
 .summary-form {
     text-align: right;
 	max-width: 100%;
+	padding: 30px 0;
 }

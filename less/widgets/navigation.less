@@ -68,9 +68,9 @@
     	word-break: normal;
 		word-wrap: normal;
 
-		.make-font-a-little-smaller(@font__companyname--font-size);
-		.make-font-smaller(@font__companyname--font-size);
-		.make-font-a-lot-smaller(@font__companyname--font-size);
+		.make-font-a-little-smaller(@font__companyname--font-size, @font__companyname--line-height);
+		.make-font-smaller(@font__companyname--font-size, @font__companyname--line-height);
+		.make-font-a-lot-smaller(@font__companyname--font-size, @font__companyname--line-height);
 
 		&:hover {
 			text-decoration: none;
@@ -80,19 +80,21 @@
 		
 		.template__header--small & {
 			font-size: @font__companyname--font-size*0.8;
+			line-height: @font__companyname--line-height*0.8;
 			
-			.make-font-a-little-smaller(@font__companyname--font-size*0.8);
-			.make-font-smaller(@font__companyname--font-size*0.8);
-			.make-font-a-lot-smaller(@font__companyname--font-size*0.8);
+			.make-font-a-little-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
+			.make-font-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
+			.make-font-a-lot-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
 		}
 		
 		@media @tablet {
 			&, .template__header--small & {
 				font-size: @font__companyname--font-size*0.8;
+				line-height: @font__companyname--line-height*0.8;
 				
-				.make-font-a-little-smaller(@font__companyname--font-size*0.8);
-				.make-font-smaller(@font__companyname--font-size*0.8);
-				.make-font-a-lot-smaller(@font__companyname--font-size*0.8);
+				.make-font-a-little-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
+				.make-font-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
+				.make-font-a-lot-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
 			}
 		}
 	}
@@ -334,9 +336,9 @@
     		border-bottom: 1px solid @color__navigation-item--background--selected;
 		}
 	
-		.make-font-a-little-smaller(@font__navigation--font-size);
-		.make-font-smaller(@font__navigation--font-size);
-		.make-font-a-lot-smaller(@font__navigation--font-size);
+		.make-font-a-little-smaller(@font__navigation--font-size, @font__navigation--line-height);
+		.make-font-smaller(@font__navigation--font-size, @font__navigation--line-height);
+		.make-font-a-lot-smaller(@font__navigation--font-size, @font__navigation--line-height);
 		
 		&:hover {
 			background: @color__navigation-item--background--hover;

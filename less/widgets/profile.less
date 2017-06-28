@@ -23,16 +23,17 @@
 // ------------------------------
 
 .profile {
-     h1, h2, h3, p, a {
-        position: relative;
-        padding: 0;
-        .paragraph;
-		 
+	padding-bottom: 1em;
+	
+	h1, h2, h3, p, a {
+	position: relative;
+	.paragraph;
+
 		.template__footer & {
 			font-family: @font__navigation--font-family;
 			color: @color__navigation--text;
 		}
-    }
+	}
 }
 
 // ------------------------------
@@ -50,24 +51,7 @@
 // Widget outside the profile.
 
 .address p {
-	display: inline;
 	padding: 0;
-	
-	&:after {
-		content: ",";
-	}
-	
-	&:last-child:after {
-		content: "";
-	}
-}
-
-.profile {
-	.address p {
-		&:after {
-			margin-left: -0.2em;
-		}
-	}
 }
 
 // ------------------------------
@@ -101,34 +85,12 @@
 // ------------------------------
 
 .profile {
-	.twitter__tweet-wrap {
-		margin-left: 4.6em;
-	}
-		
-	.twitter__tweet-item {
-		width: 100%;
-		background-color: transparent;
-		margin: 2em 0;
-		padding: 0;
-		
-		&:last-child {
-			margin-bottom: 2em;
-		}
-	}
-	
 	.twitter__avatar {
-		margin: 0 1em 0 0;
+		margin: 30px 30px 0 0;
 	}
 	
-	a.twitter__account-link {
-		padding: 0 0 0.3em;
-		min-height: 0;
-	}
-	
-	.tweet-metadata {
-		position: static;
-    	display: block;
-		padding: 0.5em 0 0 0;
+	.twitter__tweet-wrap {
+		padding: 30px 0;
 	}
 }
 

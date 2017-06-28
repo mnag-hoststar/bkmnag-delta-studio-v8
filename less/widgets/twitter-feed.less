@@ -17,21 +17,19 @@
 .widget[data-name="twitter"],
 .widget[data-widget-type="twitter"] {
 	background-color: @color__twitter--background;
+	margin-bottom: 30px;
+    padding: 30px;
+	
+	@media @mobile {
+    	padding: 15px;
+	}
 }
 
 // ------------------------------
 // #Tweet List
 // ------------------------------
 
-.twitter__tweet-list {
-	.display-flex(flex);
-    .flex-wrap(wrap);
-	.item--margin-size--border();
-	
-	.responsivecolumns & {
-		margin: 0;
-	}
-}
+.twitter__tweet-list {}
 
 // ------------------------------
 // #Tweet Item
@@ -39,31 +37,50 @@
 
 .tweet-item {
 	position: relative;
+    list-style: none;
 	padding: 0;
-	background-color: @color__twitter-item--background;
-	.item--margin-size--2to1-cols();
-	.clearfix();
+    margin-bottom: 30px;
+    min-height: 98px;
+    background-color: @color__twitter-item--background;
 	
-	.responsivecolumns & {
-		width: 100%;
-		margin: 0 0 1em;
+	@media @mobile {
+    	margin-bottom: 15px;
 	}
 }
+
+.twitter__tweet-wrap {
+	padding: 30px;
+    margin-left: 118px;
+	min-height: 162px;
+	
+	@media @mobile {
+		padding: 15px;
+	}
+}
+
 
 // ------------------------------
 // #Avatar
 // ------------------------------
 
 .twitter__avatar {
-	position: static;
-	float: left;
-	margin: 1.5em 1em 0 1.5em;
+	width: 98px;
+    height: 98px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 30px 30px 0;
+	
+	@media @mobile {
+    	margin: 15px 15px 0;
+	}
 }
 
 .twitter__avatar-image {
-	display: block;
-	width: unit(@font__p--line-height*0.1, em)*2;
-	height: unit(@font__p--line-height*0.1, em)*2;
+	width: 100%;
+    height: auto;
+    display: block;
 }
 
 // ------------------------------
@@ -71,15 +88,13 @@
 // ------------------------------
 
 a.twitter__account-link {
-    display: block;
-	padding: 1.5em 1.5em 0 6.1em;
-	min-height: 5.1em;
-	.heading--4;
-	font-size: @font__p--font-size;
-	
-	.make-font-a-little-smaller(@font__p--font-size);
-	.make-font-smaller(@font__p--font-size);
-	.make-font-a-lot-smaller(@font__p--font-size);
+	.paragraph;
+}
+
+span.twitter__account-name {
+    display: inline-block;
+	line-height: 1.6em;
+	border-bottom: 1px solid @color__p--text;
 }
 
 // ------------------------------
@@ -87,8 +102,11 @@ a.twitter__account-link {
 // ------------------------------
 
 .tweet-content {
-	padding: 1em 1.5em 5.5em;
-	.tweet-content--spacing();
+	padding-top: 20px;
+	
+	@media @mobile {
+		padding-top: 15px;
+	}
 }
 
 // ------------------------------
@@ -96,41 +114,19 @@ a.twitter__account-link {
 // ------------------------------
 
 .tweet-metadata {
-	position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-	padding: 1.5em 1.5em 1em;
-	line-height: 1em;
-	font-size: @font__p--font-size;
-	
-	.make-font-a-little-smaller(@font__p--font-size);
-	.make-font-smaller(@font__p--font-size);
-	.make-font-a-lot-smaller(@font__p--font-size);
-	
-	// Twitter link at the end.
-	
+	display: block;
+
+	// Timestamp
+
+	.twitter__timestamp,
 	.via, a {
-		font-family: @font__h4--font-family;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		font-size: 0.7em;
-		color: fade(@color__p--text, 50%);
+		display: inline;
+		font-size: 0.8em;
+        color: fade(@color__p--text, 50%);
 	}
 
     a {
 		border: none;
     	background-color: transparent;
-        color: fade(@color__p--text, 50%);
     }
-}
-
-// Timestamp
-
-.twitter__timestamp {
-	display: block;
-	font-family: @font__h4--font-family;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-	font-size: 0.8em;
 }

@@ -48,18 +48,10 @@ html, body {
 	min-height: 100vh;
 	word-break: break-word;
 	word-wrap: break-word;
-	font-family: @font__p--font-family;
-	font-size: @font__p--font-size;
-	font-weight: @font__p--font-weight;
-	line-height: unit(@font__p--line-height*0.1, em);
-	letter-spacing: @font__p--letter-spacing;
     background-color: @color__body--background;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 	text-rendering: optimizeLegibility !important;
-	
-	.make-font-a-little-smaller(@font__p--font-size);
-	.make-font-smaller(@font__p--font-size);
-	.make-font-a-lot-smaller(@font__p--font-size);
+	.paragraph;
 	
 	// iOS fix of VH unit
     width: -webkit-calc(100% - 0px);

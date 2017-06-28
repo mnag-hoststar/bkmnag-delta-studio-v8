@@ -49,9 +49,9 @@ h1, .heading--1 {
 	letter-spacing: @font__h1--letter-spacing;
 	color: @color__h1--text;
 	
-	.make-font-a-little-smaller(@font__h1--font-size);
-	.make-font-smaller(@font__h1--font-size);
-	.make-font-a-lot-smaller(@font__h1--font-size);
+	.make-font-a-little-smaller(@font__h1--font-size, @font__h1--line-height);
+	.make-font-smaller(@font__h1--font-size, @font__h1--line-height);
+	.make-font-a-lot-smaller(@font__h1--font-size, @font__h1--line-height);
 }
 
 h2, .heading--2 {
@@ -62,9 +62,9 @@ h2, .heading--2 {
 	letter-spacing: @font__h2--letter-spacing;
 	color: @color__h2--text;
 	
-	.make-font-a-little-smaller(@font__h2--font-size);
-	.make-font-smaller(@font__h2--font-size);
-	.make-font-a-lot-smaller(@font__h2--font-size);
+	.make-font-a-little-smaller(@font__h2--font-size, @font__h2--line-height);
+	.make-font-smaller(@font__h2--font-size, @font__h2--line-height);
+	.make-font-a-lot-smaller(@font__h2--font-size, @font__h2--line-height);
 }
 
 h3, .heading--3 {
@@ -75,9 +75,9 @@ h3, .heading--3 {
 	letter-spacing: @font__h3--letter-spacing;
 	color: @color__h3--text;
 	
-	.make-font-a-little-smaller(@font__h3--font-size);
-	.make-font-smaller(@font__h3--font-size);
-	.make-font-a-lot-smaller(@font__h3--font-size);
+	.make-font-a-little-smaller(@font__h3--font-size, @font__h3--line-height);
+	.make-font-smaller(@font__h3--font-size, @font__h3--line-height);
+	.make-font-a-lot-smaller(@font__h3--font-size, @font__h3--line-height);
 }
 
 h4, .heading--4 {
@@ -88,9 +88,9 @@ h4, .heading--4 {
 	letter-spacing: @font__h4--letter-spacing;
 	color: @color__h4--text;
 	
-	.make-font-a-little-smaller(@font__h4--font-size);
-	.make-font-smaller(@font__h4--font-size);
-	.make-font-a-lot-smaller(@font__h4--font-size);
+	.make-font-a-little-smaller(@font__h4--font-size, @font__h4--line-height);
+	.make-font-smaller(@font__h4--font-size, @font__h4--line-height);
+	.make-font-a-lot-smaller(@font__h4--font-size, @font__h4--line-height);
 }
 
 h5, .heading--5 {
@@ -101,9 +101,9 @@ h5, .heading--5 {
 	letter-spacing: @font__p--letter-spacing;
 	color: @color__p--text;
 	
-	.make-font-a-little-smaller(@font__h4--font-size, 0.9);
-	.make-font-smaller(@font__h4--font-size);
-	.make-font-a-lot-smaller(@font__h4--font-size);
+	.make-font-a-little-smaller(@font__h4--font-size, 0.9, 20.8px);
+	.make-font-smaller(@font__h4--font-size, 20.8px);
+	.make-font-a-lot-smaller(@font__h4--font-size, 20.8px);
 }
 
 h6, .heading--6 {
@@ -116,9 +116,9 @@ h6, .heading--6 {
 	color: @color__p--text;
 	font-style: italic;
 	
-	.make-font-a-little-smaller(@font__h4--letter-spacing*0.8);
-	.make-font-smaller(@font__h4--letter-spacing*0.8);
-	.make-font-a-lot-smaller(@font__h4--letter-spacing*0.8);
+	.make-font-a-little-smaller(@font__h4--letter-spacing*0.8, 20.8px);
+	.make-font-smaller(@font__h4--letter-spacing*0.8, 20.8px);
+	.make-font-a-lot-smaller(@font__h4--letter-spacing*0.8, 20.8px);
 }
 
 p, .paragraph, ul, ol, li {
@@ -128,9 +128,9 @@ p, .paragraph, ul, ol, li {
 	line-height: @font__p--line-height;
 	letter-spacing: @font__p--letter-spacing;
 	
-	.make-font-a-little-smaller(@font__p--font-size);
-	.make-font-smaller(@font__p--font-size);
-	.make-font-a-lot-smaller(@font__p--font-size);
+	.make-font-a-little-smaller(@font__p--font-size, @font__p--line-height);
+	.make-font-smaller(@font__p--font-size, @font__p--line-height);
+	.make-font-a-lot-smaller(@font__p--font-size, @font__p--line-height);
 }
 
 // ------------------------------
@@ -176,87 +176,104 @@ label, .label-text {
 
 .widget[data-name="content"] span,
 .widget[data-widget-type="content"] span {
-	font-size: @font__p--font-size;
-	
-	.make-font-a-little-smaller(@font__p--font-size);
-	.make-font-smaller(@font__p--font-size);
-	.make-font-a-lot-smaller(@font__p--font-size);
+	.paragraph;
 }
 
 // ------------------------------
 // #Span
 // ------------------------------
 
+.container span.wysiwyg-font-size-xx-small,
+.container span.wysiwyg-font-size-x-small,
+.container span.wysiwyg-font-size-smaller,
+.container span.wysiwyg-font-size-small,
+.container span..wysiwyg-font-size-medium,
+.container span.wysiwyg-font-size-large,
+.container span.wysiwyg-font-size-larger,
+.container span.wysiwyg-font-size-x-large,
+.container span.wysiwyg-font-size-xx-large {
+	display: block;
+}
+
 .container span.wysiwyg-font-size-xx-small {
 	font-size: 10px;
+	line-height: 10px*1.2;
 	
-	.make-font-a-little-smaller(10px);
-	.make-font-smaller(10px);
-	.make-font-a-lot-smaller(10px);
+	.make-font-a-little-smaller(10px, 10px*1.2);
+	.make-font-smaller(10px, 10px*1.2);
+	.make-font-a-lot-smaller(10px, 10px*1.2);
 }
 
 .container span.wysiwyg-font-size-x-small {
 	font-size: 12px;
+	line-height: 12px*1.2;
 	
-	.make-font-a-little-smaller(12px);
-	.make-font-smaller(12px);
-	.make-font-a-lot-smaller(12px);
+	.make-font-a-little-smaller(12px, 12px*1.2);
+	.make-font-smaller(12px, 12px*1.2);
+	.make-font-a-lot-smaller(12px, 12px*1.2);
 }
 
 .container span.wysiwyg-font-size-smaller {
 	font-size: 14px;
+	line-height: 14px*1.2;
 	
-	.make-font-a-little-smaller(14px);
-	.make-font-smaller(14px);
-	.make-font-a-lot-smaller(14px);
+	.make-font-a-little-smaller(14px, 14px*1.2);
+	.make-font-smaller(14px, 14px*1.2);
+	.make-font-a-lot-smaller(14px, 14px*1.2);
 }
 
 .container span.wysiwyg-font-size-small {
 	font-size: 16px;
+	line-height: 16px*1.2;
 	
-	.make-font-a-little-smaller(16px);
-	.make-font-smaller(16px);
-	.make-font-a-lot-smaller(16px);
+	.make-font-a-little-smaller(16px, 16px*1.2);
+	.make-font-smaller(16px, 16px*1.2);
+	.make-font-a-lot-smaller(16px, 16px*1.2);
 }
 
 .container span..wysiwyg-font-size-medium {
 	font-size: 18px;
+	line-height: 18px*1.2;
 	
-	.make-font-a-little-smaller(18px);
-	.make-font-smaller(18px);
-	.make-font-a-lot-smaller(18px);
+	.make-font-a-little-smaller(18px, 18px*1.2);
+	.make-font-smaller(18px, 18px*1.2);
+	.make-font-a-lot-smaller(18px, 18px*1.2);
 }
 
 .container span.wysiwyg-font-size-large {
 	font-size: 20px;
+	line-height: 20px*1.2;
 	
-	.make-font-a-little-smaller(20px);
-	.make-font-smaller(20px);
-	.make-font-a-lot-smaller(20px);
+	.make-font-a-little-smaller(20px, 20px*1.2);
+	.make-font-smaller(20px, 20px*1.2);
+	.make-font-a-lot-smaller(20px, 20px*1.2);
 }
 
 .container span.wysiwyg-font-size-larger {
 	font-size: 24px;
+	line-height: 24px*1.2;
 	
-	.make-font-a-little-smaller(24px);
-	.make-font-smaller(24px);
-	.make-font-a-lot-smaller(24px);
+	.make-font-a-little-smaller(24px, 24px*1.2);
+	.make-font-smaller(24px, 24px*1.2);
+	.make-font-a-lot-smaller(24px, 24px*1.2);
 }
 
 .container span.wysiwyg-font-size-x-large {
 	font-size: 28px;
+	line-height: 28px*1.2;
 	
-	.make-font-a-little-smaller(28px);
-	.make-font-smaller(28px);
-	.make-font-a-lot-smaller(28px);
+	.make-font-a-little-smaller(28px, 28px*1.2);
+	.make-font-smaller(28px, 28px*1.2);
+	.make-font-a-lot-smaller(28px, 28px*1.2);
 }
 
 .container span.wysiwyg-font-size-xx-large {
 	font-size: 30px;
+	line-height: 30px*1.2;
 	
-	.make-font-a-little-smaller(30px);
-	.make-font-smaller(30px);
-	.make-font-a-lot-smaller(30px);
+	.make-font-a-little-smaller(30px, 30px*1.2);
+	.make-font-smaller(30px, 30px*1.2);
+	.make-font-a-lot-smaller(30px, 30px*1.2);
 }
 
 // ------------------------------
@@ -356,14 +373,10 @@ blockquote {
 		top: 22px;
 		left: 0;
 		width: 100%;
-		font-size: @font__p--font-size;
+		.paragraph;
 		font-family: "Georgia", Times New Roman, serif;
 		font-size: 3.05em;
 		color: @color--light;
-
-		.make-font-a-little-smaller(@font__p--font-size);
-		.make-font-smaller(@font__p--font-size);
-		.make-font-a-lot-smaller(@font__p--font-size);
 	}
 	
 	.responsivecolumns & {

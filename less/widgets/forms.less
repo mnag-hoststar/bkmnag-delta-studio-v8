@@ -43,7 +43,7 @@
 	background-color: @color__form--background;
 	
 	@media @mobile {
-		margin: 20px 0;
+		margin: 30px 0;
 	}
 }
 
@@ -211,7 +211,7 @@ input:focus {
 	.option-item--checkbox {
 		position: relative;
 		width: 100%;
-		margin-bottom: unit(@font__p--line-height*0.1, em) / 2;
+		margin-bottom: unit(@font__p--line-height*0.1, em) / 3;
 		
 		padding: 0;
 
@@ -345,7 +345,7 @@ input:focus {
     width: 100%;
     border: 0.3em solid transparent;
 	background-color: @color--lightest;
-	border: 2px solid @color--light;
+	border: 1px solid @color--light;
     font-size: 1em;
     color: @color__p--text;
     .border-radius(0);
@@ -360,7 +360,7 @@ input:focus {
 	&:focus,
 	&:hover:focus {
 		background-color: @color--lighter;
-		border: 2px solid @color__button--background--hover;
+		border: 1px solid @color__button--background--hover;
 	}
 }
 
@@ -425,7 +425,7 @@ input.error {
 	.form {
 		@media @mobile {
 			position: relative;
-			margin-top: 2em;
+			margin-top: 1.5em;
 			.paragraph;
 		}
 	}
@@ -438,7 +438,7 @@ input.error {
 	}
 
 	.form-group {
-		margin-bottom: 0;
+		margin: 0;
 		
 		&:first-child {
 			width: 100%;
@@ -452,7 +452,7 @@ input.error {
 			
 			@media @mobile {
 				position: absolute;
-    			top: -2em;
+    			top: -1.5em;
 			}
 		}
 		
