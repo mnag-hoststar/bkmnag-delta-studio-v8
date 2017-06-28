@@ -47,7 +47,9 @@
 	}
 }
 
-.logo {}
+.logo {
+	display: none;
+}
 
 .companyname {
     line-height: 0;
@@ -119,6 +121,7 @@
 .widget[data-widget-type="extendednavigation"] {
     position: relative;
 	padding: 0;
+	width: auto;
 	min-height: 40px;
     background-color: @color__navigation--background;
 	text-transform: uppercase;
@@ -374,6 +377,10 @@
 			top: 46%;
 			border: 0.3em solid transparent;
 			border-top-color: #fff;
+
+			@media @tablet {
+				right: 5%;
+			}
 		}
 	}
 	
@@ -439,8 +446,8 @@
 	display: block;
 
 	.item-name {
-		background: darken(@color__navigation-item--background, 5%);
-		color: @color__navigation-item--text--selected;
+		background: darken(@color__navigation-item--background, 2%);
+		color: @color__navigation-item--text;
 		
 		&:hover {
 			background: @color__navigation-item--background--hover;
