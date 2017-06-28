@@ -37,6 +37,8 @@
 	.box-sizing();
 	margin: 0;
     padding: 0;
+	word-wrap: break-word;
+	hyphens: none;
 	
 	&:focus {
 		outline: none;
@@ -46,8 +48,6 @@
 html, body {
 	min-height: 100%;
 	min-height: 100vh;
-	word-break: break-word;
-	word-wrap: break-word;
     background-color: @color__body--background;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 	text-rendering: optimizeLegibility !important;
