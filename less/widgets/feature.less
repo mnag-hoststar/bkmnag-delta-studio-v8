@@ -38,11 +38,6 @@
     background-size: cover;
     background-repeat: no-repeat;
 	min-height: 500px;
-
-    @media @tablet {
-		min-height: 100%;
-		min-height: 100vh;
-    }
 	
 	&:before {
 		content: "";
@@ -103,14 +98,6 @@
 	@media @tablet-height {
 		font-size: @font__feature-headline--font-size*0.7;
 	}
-	
-	@media @mobile {
-		font-size: @font__feature-headline--font-size*0.5;
-	}
-	
-	@media @mobile-height {
-		font-size: @font__feature-headline--font-size*0.5;
-	}
 }
 
 // ------------------------------
@@ -136,14 +123,6 @@
 	
 	@media @tablet-height {
 		font-size: @font__feature-strapline--font-size*0.7;
-	}
-	
-	@media @mobile {
-		font-size: @font__feature-strapline--font-size*0.5;
-	}
-	
-	@media @mobile-height {
-		font-size: @font__feature-strapline--font-size*0.5;
 	}
 }
 
