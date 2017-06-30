@@ -180,7 +180,7 @@
 			"color__navigation-item--background--hover": "@color-swatch2",
 			"color__navigation-item--background--selected": "@color-swatch2",
 			"color__navigation-item--text": "@color-swatch1",
-            "@color__navigation-item--text--hover": "@color-swatch1",
+            "color__navigation-item--text--hover": "@color-swatch1",
             "color__navigation-item--text--selected": "darken(@color-swatch1, 40%)"
         },
         "feature": {
