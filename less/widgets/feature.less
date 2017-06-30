@@ -69,9 +69,13 @@
 
 .feature__content-inner-wrap {
     position: relative;
-    text-align: right;
 	display: table-cell;
 	vertical-align: middle;
+    text-align: right;
+	
+	@media @mobile {
+		text-align: center;
+	}
 }
 
 // ------------------------------
@@ -79,6 +83,7 @@
 // ------------------------------
 
 .feature__headline {
+	margin: 0 -@font__feature-headline--letter-spacing;
     text-transform: uppercase;
 	font-family: @font__feature-headline--font-family;
 	font-size: @font__feature-headline--font-size;
@@ -105,6 +110,7 @@
 // ------------------------------
 
 .feature__strapline {
+	margin: 0 -@font__feature-headline--letter-spacing;
     padding: 0;
 	font-family: @font__feature-strapline--font-family;
 	font-size: @font__feature-strapline--font-size;
@@ -136,7 +142,6 @@
     color: @color__feature-button--text;
 	
     &:hover {
-    	margin: 2em 0;
         background-color: @color__feature-button--background--hover;
     }
 	

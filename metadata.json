@@ -124,7 +124,7 @@
             "font__companyname--font-size": "30px",
             "font__companyname--font-weight": "400",
             "font__companyname--line-height": "38px",
-            "font__companyname--letter-spacing": "8px",
+            "font__companyname--letter-spacing": "5px",
             "color__companyname--text": "@color-swatch1"
         },
         "typography": {

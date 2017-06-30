@@ -55,7 +55,7 @@
 
 	&__company-link {
 		display: inline-block;
-		margin: 82px 0 102px;
+		margin: 62px 0 70px;
 		padding: 0 0 10px;
 		border-bottom: 1px solid @color__companyname--text;
 		text-align: center;
@@ -75,6 +75,15 @@
 
 		&:hover {
 			text-decoration: none;
+		}
+		
+		@media @mobile {
+			margin: 32px 0 70px;
+		}
+		
+		.companyname__company-text {
+			margin: 0 -@font__companyname--letter-spacing 0 0;
+    		display: block;
 		}
 		
 		// If the header is smaller when scrolling down.
