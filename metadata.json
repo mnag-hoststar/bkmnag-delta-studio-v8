@@ -1,8 +1,8 @@
 {
     "name":"Delta Studio V8",
     "widgetVersion": 2,
-    "thumbnail":"deltastudio-thumbnail.png",
-    "screenshot":"deltastudio-screenshot.jpg",
+    "thumbnail":"delta-studio-thumbnail.png",
+    "screenshot":"delta-studio-screenshot.jpg",
     "templateType":"standard",
     "pageTypes": ["home"],
     "tags": {
