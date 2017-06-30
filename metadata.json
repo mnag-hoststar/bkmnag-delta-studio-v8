@@ -193,13 +193,12 @@
             "font__feature-strapline--font-family": "@font-swatch2-font-family",
             "font__feature-strapline--font-size": "18px",
             "font__feature-strapline--font-weight": "400",
-            "font__feature-strapline--line-height": "36px",
+            "font__feature-strapline--line-height": "22px",
             "font__feature-strapline--letter-spacing": "inherit",
             "color__feature-strapline--text": "@color-swatch7",
-            "color__feature-button--border": "@color-swatch3",
-            "color__feature-button--background": "@color-swatch3",
-            "color__feature-button--background--hover": "@color-swatch3",
-            "color__feature-button--text": "@color-swatch7"
+            "color__feature-button--background": "@font-swatch7-background-color",
+            "color__feature-button--background--hover": "@font-swatch7-background-color-hover",
+            "color__feature-button--text": "@font-swatch7-color"
         },
         "button": {
             "color__button--background": "@font-swatch7-background-color",

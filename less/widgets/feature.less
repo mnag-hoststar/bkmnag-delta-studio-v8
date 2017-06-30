@@ -25,7 +25,7 @@
 		padding: 0;
 		max-width: none;
 		width: auto;
-		height: 500px;
+		min-height: 500px;
     }
 }
 
@@ -37,7 +37,7 @@
 	position: relative;
     background-size: cover;
     background-repeat: no-repeat;
-	height: 500px;
+	min-height: 500px;
 
     @media @tablet {
 		min-height: 100%;
@@ -63,9 +63,8 @@
 	width: 90%;
 	max-width: 960px;
 	margin: 0 auto;
-    padding: 0;
+    padding: 2em 0;
 	display: table;
-	width: 100%;
 	height: 500px;
 }
 
@@ -75,7 +74,7 @@
 
 .feature__content-inner-wrap {
     position: relative;
-    text-align: left;
+    text-align: right;
 	display: table-cell;
 	vertical-align: middle;
 }
@@ -89,23 +88,20 @@
 	font-family: @font__feature-headline--font-family;
 	font-size: @font__feature-headline--font-size;
 	font-weight: @font__feature-headline--font-weight;
-	line-height: unit(@font__feature-headline--line-height*0.1, em);
+	line-height: @font__feature-headline--line-height;
 	letter-spacing: @font__feature-headline--letter-spacing;
     color: @color__feature-headline--text;
 	
 	@media @layout-width-breakpoint {
 		font-size: @font__feature-headline--font-size*0.8;
-		font-size: unit(@font__feature-headline--font-size*0.08, vw);
 	}
 	
 	@media @tablet {
 		font-size: @font__feature-headline--font-size*0.7;
-		font-size: unit(@font__feature-headline--font-size*0.07, vw);
 	}
 	
 	@media @tablet-height {
 		font-size: @font__feature-headline--font-size*0.7;
-		font-size: unit(@font__feature-headline--font-size*0.07, vw);
 	}
 	
 	@media @mobile {
@@ -122,27 +118,24 @@
 // ------------------------------
 
 .feature__strapline {
-    padding: 0 0 2em;
+    padding: 0;
 	font-family: @font__feature-strapline--font-family;
 	font-size: @font__feature-strapline--font-size;
 	font-weight: @font__feature-strapline--font-weight;
-	line-height: unit(@font__feature-strapline--line-height*0.1, em);
+	line-height: @font__feature-strapline--line-height;
 	letter-spacing: @font__feature-strapline--letter-spacing;
     color: @color__feature-strapline--text;
 	
 	@media @layout-width-breakpoint {
 		font-size: @font__feature-strapline--font-size*0.8;
-		font-size: unit(@font__feature-strapline--font-size*0.08, vw);
 	}
 	
 	@media @tablet {
 		font-size: @font__feature-strapline--font-size*0.7;
-		font-size: unit(@font__feature-strapline--font-size*0.07, vw);
 	}
 	
 	@media @tablet-height {
 		font-size: @font__feature-strapline--font-size*0.7;
-		font-size: unit(@font__feature-strapline--font-size*0.07, vw);
 	}
 	
 	@media @mobile {
@@ -159,15 +152,13 @@
 // ------------------------------
 
 .feature__button {
-    margin: 2em 0;
+    margin: 1em 0;
     background-color: @color__feature-button--background;
-    border: 0.3em solid @color__feature-button--border;
     color: @color__feature-button--text;
 	
     &:hover {
     	margin: 2em 0;
         background-color: @color__feature-button--background--hover;
-	    border: 0.3em solid @color__feature-button--border;
     }
 	
 	&:active {
