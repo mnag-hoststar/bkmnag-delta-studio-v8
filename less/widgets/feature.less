@@ -59,8 +59,7 @@
 	max-width: 960px;
 	margin: 0 auto;
     padding: 2em 0;
-	display: table;
-	height: 500px;
+	min-height: 500px;
 }
 
 // ------------------------------
@@ -69,9 +68,11 @@
 
 .feature__content-inner-wrap {
     position: relative;
-	display: table-cell;
-	vertical-align: middle;
+	.flex-display(flex);
+	.flex-direction(column);
+	.justify-content(center, center);
     text-align: right;
+	height: 100%;
 	
 	@media @mobile {
 		text-align: center;
@@ -140,6 +141,11 @@
     margin: 1em 0;
     background-color: @color__feature-button--background;
     color: @color__feature-button--text;
+	.align-self(flex-end, end);
+	
+	@media @mobile {
+		.align-self(center, center);
+	}
 	
     &:hover {
         background-color: @color__feature-button--background--hover;

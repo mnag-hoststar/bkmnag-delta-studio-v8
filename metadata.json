@@ -175,8 +175,6 @@
             "color__navigation--text--hover": "@color-swatch1",
             "color__navigation--text--selected": "@color-swatch1",
             "color__navigation--background": "@color-swatch3",
-			"color__navigation-list--background": "@color-swatch3",
-			"color__navigation-item--background": "@color-swatch3",
 			"color__navigation-item--background--hover": "@color-swatch2",
 			"color__navigation-item--background--selected": "@color-swatch2",
 			"color__navigation-item--text": "@color-swatch1",
@@ -244,11 +242,11 @@
             "color__blogpostlist-article--background": "@color-swatch1",
             "color__blogpostlist-title--text": "@color-swatch3",
             "color__blogpost-article--background": "#e1e2e2",
-            "color__blogpost-title--text": "@color-swatch3"
+            "color__blogpost-title--text": "@color__h1--text"
         },
         "ecommerce": {
-            "color__ecomproductslist-product-title--text": "@color-swatch2",
-            "color__ecomproduct-title--text": "@color-swatch2",
+            "color__ecomproductslist-product-title--text": "@color__h4--text",
+            "color__ecomproduct-title--text": "@color__h2--text",
             "color__ecombasket-list--background": "@color-swatch6"
         }
     }

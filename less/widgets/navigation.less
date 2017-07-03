@@ -325,8 +325,6 @@
 	margin-bottom: 0;
 	padding: 0;
 	line-height: 1em;
-	font-size: 0;
-	letter-spacing: 0;
 	
     @media @tablet {
 		display: block;
@@ -336,7 +334,6 @@
 	.item-name {
 		position: relative;
 		padding: 16px 26px;
-		background: @color__navigation-item--background;
 		text-transform: uppercase;
 		font-family: @font__navigation--font-family;
 		font-size: @font__navigation--font-size;
@@ -424,7 +421,6 @@
 		min-width: 200px;
 		margin: 0;
 		padding: 0.5em 0;
-		background-color: @color__navigation-list--background;
 		overflow: visible;
 		text-align: center;
 		.transition(opacity, 0s);
@@ -457,7 +453,6 @@
 	display: block;
 
 	.item-name {
-		background: darken(@color__navigation-item--background, 2%);
 		color: @color__navigation-item--text;
 		
 		&:hover {
@@ -469,8 +464,7 @@
 	// Selected Folder Item
 
 	&.selected .item-name {
-		background: @color__navigation-item--background;
-		color: @color__navigation-item--background;
+		color: @color__navigation-item--background--selected;
 	}
 }
 
