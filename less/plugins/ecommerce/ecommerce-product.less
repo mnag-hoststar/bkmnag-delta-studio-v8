@@ -170,6 +170,15 @@
 			position: static;
 		}
 	}
+	
+	.ecom-product-go-to-checkout-btn {
+		.button;
+		
+		@media @mobile {
+			width: 100%;
+			text-align: center;
+		}
+	}
 }
 
 // ------------------------------
@@ -177,9 +186,10 @@
 // ------------------------------
 
 .product-attributes {
+	.ecomproduct__product-category,
 	.ecomproduct__product-tags {
 		width: 100%;
-		padding: 0.5em 0;
+		padding: 15px 0;
 		border-top: 1px solid @color--line;
 	}
 }

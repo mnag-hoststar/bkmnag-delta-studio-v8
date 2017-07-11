@@ -17,34 +17,9 @@
 .fieldset.ecomproductslist__fieldset--search {
 	.signupform;
 	
-	.form-group {
-		.responsivecolumns .columns-two-left &,
-		.responsivecolumns .columns-two-right &,
-		.responsivecolumns .columns-three-left &,
-		.responsivecolumns .columns-three-middle &,
-		.responsivecolumns .columns-three-right &,
-		.responsivecolumns .columns-four-first &,
-		.responsivecolumns .columns-four-second &,
-		.responsivecolumns .columns-four-third &,
-		.responsivecolumns .columns-four-fourth & {
-			display: block;
-			padding-right: 0;
-			
-			@media @mobile {
-				display: table-cell;
-			}
-			
-			&:first-child {
-				@media @mobile {
-					padding-right: 0.5em;
-				}
-			}
-		}
-	}
-	
-	label {
+	input[type="search"] {
 		@media @mobile {
-			display: none;
+			margin-right: 0;
 		}
 	}
 }
@@ -147,7 +122,6 @@ a.tag-link,
 .blogpostlist {
 	.pagination-list {
 		.display-flex(flex);
-		min-height: 36px;
 	}
 
 	.pagination-item {
@@ -159,21 +133,7 @@ a.tag-link,
 	a.button--pagination {
 		.link-button;
 		
-		&.button--previous {
-			padding-left: 50px;
-			
-			@media @mobile {
-				padding-left: 20px;
-			}
-		}
 		
-		&.button--next {
-			padding-right: 50px;
-			
-			@media @mobile {
-				padding-right: 20px;
-			}
-		}
 		
 		&:before,
 		&:after {
@@ -186,11 +146,11 @@ a.tag-link,
 		}
 		
 		&:before {
-			margin-right: 2px;
+			margin-right: 0.5em;
 		}
 		
 		&:after {
-			margin-left: 2px;
+			margin-left: 0.5em;
 		}
 	}
 }
@@ -199,7 +159,8 @@ a.tag-link,
 
 .blogpostlist {
 	.pagination-list {
-		position: relative;
+		display: block;
+		overflow: auto;
 	}
 
 	.control-text {
@@ -209,16 +170,20 @@ a.tag-link,
 	}
 	
 	.pagination-item {
+		margin-top: 10px;
+		margin-bottom: 20px;
+		
+		@media @mobile {
+			margin-top: 15px;
+			margin-bottom: 0;
+		}
+		
 		&:first-child {
-			position: absolute;
-			top: 0;
-			left: 0;
+			float: left;
 		}
 		
 		&:last-child {
-			position: absolute;
-			top: 0;
-			right: 0;
+			float: right;
 		}
 	}
 }

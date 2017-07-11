@@ -13,10 +13,10 @@
 
 .ecomcategorieslist__category-list {
 	.clearfix();
-	margin: 0.5em -1% 30px;
+	margin: 0.5em -@item--margin-size 30px;
 
     @media @tablet {
-		margin: 1em -1% 0.5em;
+		margin: 1em -@item--margin-size 0.5em;
     }
 	
 	@media @mobile {
@@ -98,37 +98,6 @@ a.ecomcategorieslist__category-link {
 	.make-font-a-little-smaller(@font__button--font-size, 1em);
 	.make-font-smaller(@font__button--font-size, 1em);
 	.make-font-a-lot-smaller(@font__button--font-size, 1em);
-
-    @media @tablet {
-		margin: 0;
-		padding-right: 3em;
-    }
-
-    @media @mobile {
-		padding-right: 3.5em;
-    }
-	
-	.responsivecolumns .columns-two-left &,
-	.responsivecolumns .columns-two-right & {
-		margin: 0;
-		padding-right: 3em;
-		
-		@media @layout-width-breakpoint {
-			padding-right: 3.5em;
-		}
-	}
-	
-	.responsivecolumns .columns-three-left &,
-	.responsivecolumns .columns-three-middle &,
-	.responsivecolumns .columns-three-right &,
-	.responsivecolumns .columns-four-first &,
-	.responsivecolumns .columns-four-second &,
-	.responsivecolumns .columns-four-third &,
-	.responsivecolumns .columns-four-fourth & {
-		padding-right: 3.5em;
-	}
 }
 
-.ecomcategorieslist__item-count {
-	display: none;
-}
+.ecomcategorieslist__item-count {}

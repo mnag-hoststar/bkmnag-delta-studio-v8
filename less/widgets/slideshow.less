@@ -15,10 +15,6 @@
 // #Slideshow Mixins
 // ------------------------------
 
-.controls-font-size() {
-	font-size: 25px;
-}
-
 // ------------------------------
 // #Slideshow
 // ------------------------------
@@ -246,6 +242,7 @@
 		.transition(background-color);
 		z-index: 2;
 		font-size: 25px;
+		text-align: center;
 		color: @color__slideshow-pagination-item--text;
 		
 		&:before,
@@ -271,10 +268,12 @@
 		// Icon
 		&:before {
 			font-size: 48px;
+			line-height: 48px;
 			content: '\f104';
 
 			@media @tablet {
 				font-size: 40px;
+			    line-height: 40px;
 			}
 		}
 	}
@@ -285,10 +284,12 @@
 		// Icon
 		&:after {
 			font-size: 48px;
+			line-height: 48px;
 			content: '\f105';
 
 			@media @tablet {
 				font-size: 40px;
+			    line-height: 40px;
 			}
 		}
 	}
@@ -299,13 +300,13 @@
 
 		// Icon
 		&:before {
+        	font-size: 25px;
+        	line-height: 25px;
 		}
 
-		// Play Icon
+		// Play Icon only
 
-		&.pause:before {
-			.controls-font-size();
-			content: '\f04b';
+		&:before {
 		}
 	}
 }

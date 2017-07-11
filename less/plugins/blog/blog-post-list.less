@@ -18,30 +18,29 @@
 .widget[data-name="blogpostlist"],
 .widget[data-widget-type="blogpostlist"] {
 	background-color: @color__blogpostlist--background;
-	padding: 30px;
+	padding: 30px 30px 10px;
 	margin-bottom: 30px;
 	
 	@media @mobile {
-		padding: 15px;
+		padding: 15px 15px 10px;
 		margin-bottom: 15px;
 	}
 	
-	.background-same-color-no-padding(@color__blogpostlist--background);
+	.background-same-color-no-padding(@color__blogpostlist--background, @color__body--background);
 }
 
 .blogpostlist__post-items {
 	.display-flex(flex);
     .flex-wrap(wrap);
-	margin: -1%;
-	margin-bottom: 30px;
+	margin: 0 -@item--margin-size;
 	
 	@media @mobile {
 		margin-top: 0;
-		margin-bottom: 15px;
 	}
-	
+		
 	.responsivecolumns & {
 		margin: 0;
+		display: block;
 	}
 }
 
@@ -51,15 +50,37 @@
 
 .blogpostlist__post-article {
 	position: relative;
-	.item--margin-size--3to1-cols();
+    width: 100%/3-@item--margin-size*2;
+	margin: 0 @item--margin-size 20px;
 	background-color: @color__blogpostlist-article--background;
 	.clearfix();
 	
-	&:last-child {
-		margin-bottom: 10px;
-	}
+    @media @tablet-horizontal {
+		width: 100%/2-@item--margin-size*2;
+    }
 	
-	.background-same-color-no-padding-blog(@color__blogpostlist--background);
+    @media @mobile {
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 15px;
+    }
+	
+	&:last-child {
+		margin-bottom: 20px;
+	
+		@media @mobile {
+			margin-bottom: 0;
+		}
+	}
+		
+	.responsivecolumns & {
+		margin: 0 0 15px;
+		width: 100%;
+	
+		@media @mobile {
+			margin: 0 0 15px;
+		}
+	}
 }
 
 // ------------------------------
@@ -74,6 +95,10 @@
 		padding-bottom: 56.25%;
 		
 		@media @mobile {
+			padding-bottom: 16%;
+		}
+		
+		.responsivecolumns & {
 			padding-bottom: 16%;
 		}
     }
@@ -102,12 +127,14 @@
 
 .blogpostlist__post-content {
 	margin: 0;
-	padding: 4em 1.5em 1.5em;
-	.paragraph;
+	padding: 15px 15px 0;
+	.background-same-color-no-padding(@color__blogpostlist-article--background, @color__blogpostlist--background);
 }
 
 .blogpostlist__post-title {
 	.heading--2	;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	padding: 0;
 }
 
@@ -118,7 +145,8 @@ a.blogpostlist__title-link {
 // Post Excerpt
 	
 .blogpostlist__post-excerpt p {
-	margin: 0.5em 0;
+	display: inline;
+	margin: 0;
 }
 
 // Read more
@@ -136,28 +164,13 @@ a.blogpostlist__read-more {
 // ------------------------------
 
 .blogpostlist__post-footer {
-	position: absolute;
-	top: 0;
-    left: 0;
-    right: 0;
-	.paragraph;
-	padding: 0 1.5em;
-
-	.timestamp {
-		display: inline-block;
-		margin: 2em 0 0;
-	}
+	padding: 0 15px 15px;
+	.background-same-color-no-padding(@color__blogpostlist-article--background, @color__blogpostlist--background);
 }
 
 // This style only activates if the article has an image.
 
-.blogpostlist__post-image ~ .blogpostlist__post-footer {
-	margin-top: 56.25%;
-		
-	@media @mobile {
-		margin-top: 16%;
-	}
-}
+.blogpostlist__post-image ~ .blogpostlist__post-footer {}
 
 // ------------------------------
 // #Paginatinon

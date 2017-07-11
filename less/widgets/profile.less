@@ -28,11 +28,16 @@
 	h1, h2, h3, p, a {
 	position: relative;
 	.paragraph;
+	}
+}
 
-		.template__footer & {
-			font-family: @font__navigation--font-family;
-			color: @color__navigation--text;
-		}
+.template__footer .widget[data-name="profile"],
+.template__footer .widget[data-widget-type="profile"] {
+	width: 100%;
+	
+	.profile {
+		font-family: @font__p--font-family;
+		color: @color__p--text;
 	}
 }
 
@@ -87,13 +92,7 @@
 .profile {
 	.tweet-item {
 		background-color: @color__body--background;
-	}
-	.twitter__avatar {
-		margin: 30px 30px 0 0;
-	}
-	
-	.twitter__tweet-wrap {
-		padding: 30px 0;
+		padding: 0;
 	}
 }
 

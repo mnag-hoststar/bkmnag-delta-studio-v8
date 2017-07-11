@@ -46,7 +46,9 @@ a.button,
 	letter-spacing: @font__button--letter-spacing;
 	font-size: @font__button--font-size;
     color: @color__button--text;
+	word-break: break-all;
     text-transform: uppercase;
+	text-align: left;
 	
 	.make-font-a-little-smaller(@font__button--font-size, @font__button--line-height);
 	.make-font-smaller(@font__button--font-size, @font__button--line-height);
@@ -81,39 +83,6 @@ a.button,
 .clicktocall .phone-number-link,
 .dropbox .button,
 .paypalbuynow .button {
-	&:before,
-	&:after {
-		font-weight: 400;
-		font-size: 16px;
-    	line-height: 36px;
-	}
-	
-	&:before {
-		position: absolute;
-		left: 20px;
-    	top: 0;
-	}
-	
-	&:after {
-		position: absolute;
-		right: 20px;
-    	top: 0;
-	}
-}
-
-a.button,
-.link-button,
-.tweet .button,
-.clicktocall .phone-number-link,
-.paypalbuynow .button {
-	position: relative;
-}
-
-.tweet .button,
-.clicktocall .phone-number-link,
-.dropbox .button,
-.paypalbuynow .button {
-    padding-left: 45px;
 }
 
 .dropbox .button {
@@ -136,20 +105,17 @@ a.button,
 // #Dropbox
 // -----------------------------
 
-.dropbox__label {
-	width: 100%;
-	padding-left: 1em;
+.dropbox .button {
+	word-break: break-all;
 }
 
 // -----------------------------
 // #Facebook Like
 // -----------------------------
 
-
 // -----------------------------
 // #Paypal
 // -----------------------------
-
 
 // -----------------------------
 // #Social Icons

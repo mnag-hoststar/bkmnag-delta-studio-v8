@@ -50,7 +50,7 @@
 // ------------------------------
 
 .ecomproductslist__product-filters {
-	margin: 2em 0;
+	margin: 0 0 30px;
 	
 	.responsivecolumns .columns-two-left &,
 	.responsivecolumns .columns-two-right &,
@@ -83,7 +83,7 @@
 	
 .ecomproductslist__fieldset--filters,
 .ecomfeaturedproducts__fieldset--filters {
-	margin: 1em -0.5em 0;
+	margin: 1em -@item--margin-size 0;
 	
 	.form-body {
 		display: table;
@@ -114,7 +114,7 @@
 		width: auto;
 		display: table-cell;
     	width: 100%/3;
-    	padding: 0 0.5em;
+    	padding: 0 @item--margin-size;
 		
 		@media @mobile {
 			display: block;
@@ -191,11 +191,7 @@
 		}
 	
 		.responsivecolumns .columns-two-left &,
-		.responsivecolumns .columns-two-right & {
-			@media @layout-width-breakpoint {
-				margin: 0 -@item--margin-size;
-			}
-		}
+		.responsivecolumns .columns-two-right &,
 		.responsivecolumns .columns-three-left &,
 		.responsivecolumns .columns-three-middle &,
 		.responsivecolumns .columns-three-right &,
@@ -203,7 +199,11 @@
 		.responsivecolumns .columns-four-second &,
 		.responsivecolumns .columns-four-third &,
 		.responsivecolumns .columns-four-fourth & {
-			margin: 0 -@item--margin-size;
+			margin: 0;
+			
+			@media @mobile {
+				margin: 0 -@item--margin-size;
+			}
 		}
 	}
 }

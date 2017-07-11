@@ -20,14 +20,15 @@
 	background-color: @color__button--background;
 	font-size: 0;
 	letter-spacing: 0;
+	line-height: 0;
 	
 	&:hover {
 		background-color: @color__button--background--hover;
 	}
 	
 	&:before {
-    	margin: 0 0.3em 0 0;
-		font-size: 20px;
+    	margin: 0 0 0 10px;
+		font-size: @font__button--font-size*1.2;
 	}
 }
 
@@ -35,7 +36,17 @@
 .ecombasket__item-count {
     display: inline-block;
 	padding: 0 0.5em;
-	font-size: @font__p--font-size;
+	font-family: @font__button--font-family;
+	font-weight: @font__button--font-weight;
+	line-height: @font__button--line-height;
+	letter-spacing: @font__button--letter-spacing;
+	font-size: @font__button--font-size;
+    color: @color__button--text;
+	
+    &:hover,
+	&:focus {
+    	color: @color__button--text--hover;
+    }
 	.transition();
 }
 
@@ -47,7 +58,6 @@
 	.ecombasket {
 		.basket-body {
 			display: table;
-			padding-top: 5em;
 			width: 100%;
 		}
 		
@@ -64,13 +74,15 @@
 			position: relative;
 			margin: 0;
     		padding: 0;
+			list-style: none;
 
 			> * {
 				display: table-cell;
 				vertical-align: middle;
-				padding-top: 0.5em;
-				padding-bottom: 0.5em;
+				padding-top: 10px;
+				padding-bottom: 15px;
 				border-bottom: 1px solid @color--line-dark;
+				text-align: left;
 			}
 				
 			&:last-child > * {
@@ -81,30 +93,33 @@
 		// The item image.
 		
 		.basket-item-image {
-			padding-right: 1em;
+			padding-right: 30px;
+			
+			.image-link {
+				width: 50px;
+				height: 80px;
+				line-height: 80px;
+			}
+
 		}
 		
 		// Item details.
 		
 		.basket-item-details {
 			width: 100%;
-			padding-right: 3em;
+			padding-right: 60px;
 		}
 		
 		.basket-item-name {
     		display: block;
 			padding-bottom: 0.5em;
+			.heading--4;
+			font-weight: 400;
 		}
 		
 		.item-quantity,
 		.basket-item-price {
 			padding: 0;
-			font-size: @font__p--font-size*0.9;
-			line-height: @font__p--line-height*0.8;
-
-			.make-font-a-little-smaller(@font__p--font-size*0.8, @font__p--line-height*0.8);
-			.make-font-smaller(@font__p--font-size*0.8, @font__p--line-height*0.8);
-			.make-font-a-lot-smaller(@font__p--font-size*0.8, @font__p--line-height*0.8);
 		}
 		
 		.basket-item-price {
@@ -118,20 +133,18 @@
 			position: absolute;
 			right: 0;
 			top: 50%;
-			margin-top: unit(@font__p--line-height*0.1, em)/-2;
-			width: unit(@font__p--line-height*0.1, em);
-			height: unit(@font__p--line-height*0.1, em);
+			margin-top: -20px;
+			width: 40px;
+			height: 40px;
 			min-height: inherit;
 			padding: 0 !important;
 			border: none;
 			font-size: 16px;
+			text-align: center;
 
 			&:before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				margin-right: 0;
-				font-size: 20px;
+				margin: 0;
+				font-size: 13px;
 			}
 		}
 		

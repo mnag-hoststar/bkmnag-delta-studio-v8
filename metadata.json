@@ -73,7 +73,7 @@
             "font-family": "\"Roboto\", Geneva, \"Lucida Console\", sans-serif",
             "font-size": "13px",
             "font-weight": "inherit",
-            "line-height": "28px",
+            "line-height": "18px",
             "letter-spacing": "1px",
             "color": "@color-swatch1",
             "color-hover": "darken(@color-swatch1,5%)",
@@ -211,7 +211,7 @@
         },
         "form": {
             "color__form--background": "@color__container--background",
-            "color__form--border": "#d0d0d0"
+            "color__form--border": "darken(@color__container--background, 10%)"
         },
         "image": {
 			"color__image-title--text": "@color__h1--text",

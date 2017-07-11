@@ -54,10 +54,8 @@
     line-height: 0;
 
 	&__company-link {
-		display: inline-block;
-		margin: 62px 0 70px;
-		padding: 0 0 10px;
-		border-bottom: 1px solid @color__companyname--text;
+		display: block;
+		padding: 62px 0 70px;
 		text-align: center;
 		font-family: @font__companyname--font-family;
 		font-size: @font__companyname--font-size;
@@ -78,12 +76,14 @@
 		}
 		
 		@media @mobile {
-			margin: 32px 0 40px;
+			padding: 32px 0 40px;
 		}
 		
 		.companyname__company-text {
+    		display: inline-block;
 			margin: 0 -@font__companyname--letter-spacing 0 0;
-    		display: block;
+			padding: 0 0 10px;
+			border-bottom: 1px solid @color__companyname--text;
 		}
 		
 		// If the header is smaller when scrolling down.
@@ -333,7 +333,7 @@
 	
 	.item-name {
 		position: relative;
-		padding: 16px 26px;
+		padding: 21px 26px;
 		text-transform: uppercase;
 		font-family: @font__navigation--font-family;
 		font-size: @font__navigation--font-size;
@@ -384,11 +384,16 @@
 			right: 18px;
 			top: 46%;
 			border: 0.3em solid transparent;
-			border-top-color: #fff;
+			border-top-color: @color__navigation--text;
 
 			@media @tablet {
 				right: 5%;
 			}
+		}
+		
+		&:hover:after,
+		&:active:after {
+			border-top-color: @color__navigation--text--hover;
 		}
 	}
 	
@@ -396,7 +401,12 @@
 		&:after {
 			top: 39%;
 			border-top-color: transparent;
-			border-bottom-color: #fff;
+			border-bottom-color: @color__navigation--text--selected;
+		}
+		
+		&:hover:after,
+		&:active:after {
+			border-bottom-color: @color__navigation--text--selected;
 		}
 	}
 	
@@ -453,10 +463,11 @@
 	display: block;
 
 	.item-name {
+		background: darken(@color__navigation--background, 5%);
 		color: @color__navigation-item--text;
 		
 		&:hover {
-			background: @color__navigation-item--background--hover;
+			background: darken(@color__navigation--background, 5%);
 			color: @color__navigation--text--hover;
 		}
 	}
@@ -464,7 +475,7 @@
 	// Selected Folder Item
 
 	&.selected .item-name {
-		color: @color__navigation-item--background--selected;
+		color: @color__navigation-item--text--selected;
 	}
 }
 
