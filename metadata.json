@@ -211,7 +211,7 @@
         },
         "form": {
             "color__form--background": "@color__container--background",
-            "color__form--border": "darken(@color__container--background, 10%)"
+            "color__form--border": "@color__container--background"
         },
         "image": {
 			"color__image-title--text": "@color__h1--text",
