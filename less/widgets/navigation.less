@@ -15,20 +15,6 @@
 // #Logo & Company Name
 // ------------------------------
 
-.widget[data-widget-type="companyname"],
-.widget[data-widget-type="logo"] {
-	
-	// If the header is smaller when scrolling down.
-	
-	.template__header--small & {
-		padding: 0.5em 0;
-	
-		@media @tablet {
-			padding: 0;
-		}
-	}
-}
-
 .template__company {
 	max-width: @layout-max-width;
 	width: @layout-width-desktop;
@@ -84,28 +70,6 @@
 			margin: 0 -@font__companyname--letter-spacing 0 0;
 			padding: 0 0 10px;
 			border-bottom: 1px solid @color__companyname--text;
-		}
-		
-		// If the header is smaller when scrolling down.
-		
-		.template__header--small & {
-			font-size: @font__companyname--font-size*0.8;
-			line-height: @font__companyname--line-height*0.8;
-			
-			.make-font-a-little-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-			.make-font-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-			.make-font-a-lot-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-		}
-		
-		@media @tablet {
-			&, .template__header--small & {
-				font-size: @font__companyname--font-size*0.8;
-				line-height: @font__companyname--line-height*0.8;
-				
-				.make-font-a-little-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-				.make-font-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-				.make-font-a-lot-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-			}
 		}
 	}
 }
