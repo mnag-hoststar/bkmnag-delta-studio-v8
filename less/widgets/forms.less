@@ -75,21 +75,19 @@
 // ------------------------------
 
 .form label {
-	margin: 0;
-	.heading--4;
-	white-space: nowrap;
-	margin-right: 0.6em;
+	display: block;
+	margin: 0 0.6em 15px 0;
+	.paragraph;
+    line-height: 13.2px;
+    font-family: Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
 	
 	@media @mobile {
-		white-space: normal;
 		margin-bottom: 5px;
-		margin-right: 0;
 	}
 	
 	.responsivecolumns & {
-		white-space: normal;
 		margin-bottom: 5px;
-		margin-right: 0;
 	}
 }
 
@@ -118,18 +116,20 @@ textarea {
 	background-color: #fff;
     .border-radius(0);
     padding: 0.3em 1em;
-    margin-right: 0.6em;
-	height: 2.2em;
+    margin-right: 0;
+	height: 40px;
     text-indent: 0;
 	.paragraph;
+	line-height: 40px;
     border: none;
     -webkit-appearance: none;
 	.box-shadow(inset 0 0 0 1px @color__form--border);
 	
-	// Focus style for easier keyboard navigation
+	// Hover and focus style for easier keyboard navigation
 	
+	&:hover,
 	&:focus {
-		.box-shadow(inset 0 0 0 1px darken(@color__form--border, 10%));
+		.box-shadow(inset 0 0 0 1px darken(@color__form--border, 20%));
 	}
 	
 	.background-same-color-no-padding-form(@color__form--background, @color__body--background);
@@ -426,7 +426,6 @@ input.error {
 // ------------------------------
 
 .signupform {
-	padding: 15px;
 	
 	.form {
 		@media @mobile {
@@ -436,18 +435,6 @@ input.error {
 	}
 	
 	.form-body {
-		.display-flex(flex);
-		.flex-direction(row);
-		.flex-wrap(nowrap);
-		.align-items(center, center);
-		
-		@media @mobile {
-			display: block;
-		}
-		
-		.responsivecolumns & {
-			display: block;
-		}
 	}
 
 	.form-group {
@@ -455,8 +442,6 @@ input.error {
 		
 		&:first-child {
 			width: 100%;
-			.display-flex(flex);
-			.align-items(center, center);
 		
 			@media @mobile {
 				display: block;

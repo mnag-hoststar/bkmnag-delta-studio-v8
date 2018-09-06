@@ -19,13 +19,13 @@
 // ------------------------------
 
 .template__header {
-	padding: 0px;
-    background-color: @color__navigation--background;
-	
-	&-bg {
-		width: 100%;
-		background-color: @color__header--background;
-	}
+	position: fixed;
+	top: 0;
+    background-color: @color__header--background;
+	padding: 30px;
+	width: 100%;
+	text-align: right;
+	z-index: 10000;
 }
 
 // ------------------------------
@@ -38,6 +38,7 @@
     padding: 0;
 	word-wrap: break-word;
 	hyphens: none;
+	.transition;
 	
 	&:focus {
 		outline: none;
@@ -69,14 +70,6 @@ body {
 // HTML5 Semantic Elements
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
 	display: block;
-}
-
-// ------------------------------
-// #Page Styles
-// ------------------------------
-
-.page {
-	padding-bottom: 15em;
 }
 
 // ------------------------------

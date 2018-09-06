@@ -35,7 +35,9 @@ a.button,
     cursor: pointer;
     position: relative;
     display: inline-block;
-	padding: 5px 20px;
+    padding: 0 40px;
+    height: 40px;
+    min-width: 120px;
     .appearance(none);
     .border-radius(0);
 	.transition();
@@ -123,15 +125,21 @@ a.button,
 
 // The List of Social Icons
 
+.social-list {
+	text-align: center;
+}
+
 .social-item {
+	cursor: pointer;
 	margin: 0.5em 0.5em 0.5em 0;
     padding: 0;
-    background-color: @color__button--background;
-    width: 40px;
-    height: 40px;
-	
+    background-color: none;
+    width: 32px;
+    height: 32px;
+	color: @color__p--text;
+
 	&:hover {
-        background-color: @color__button--background--hover;
+		color: darken(@color__p--text, 20%);
 	}
 	
 	&:last-child {
@@ -170,8 +178,12 @@ a.button,
 		margin: 0 auto;
 		padding: 0;
 		line-height: 1.85em;
-    	font-size: 22px;
-		color: @color__button--text;
+    	font-size: 16px;
+		color: @color__p--text;
+	}
+
+	&:hover:before {
+		color: darken(@color__p--text, 20%);
 	}
 }
 

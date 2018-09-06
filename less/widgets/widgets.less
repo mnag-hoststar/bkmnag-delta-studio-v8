@@ -29,7 +29,13 @@
 }
 
 .template__content {
-	padding: 30px 0;
+	margin: 0 auto;
+	padding: 50px;
+	max-width: 1400px;
+	
+	.container {
+		margin-top: 100px;
+	}
 }
 
 // All page widgets fade in.
@@ -74,6 +80,9 @@
 }
 
 .widget--zone-widget {
+	width: 100%;
+	max-width: none;
+	margin: 0;
 	animation: fadein 1s;
 	-moz-animation: fadein 1s;
 	-webkit-animation: fadein 1s;

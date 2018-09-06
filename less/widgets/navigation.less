@@ -17,46 +17,27 @@
 
 .widget[data-widget-type="companyname"],
 .widget[data-widget-type="logo"] {
-	
-	// If the header is smaller when scrolling down.
-	
-	.template__header--small & {
-		padding: 0.5em 0;
-	
-		@media @tablet {
-			padding: 0;
-		}
-	}
-}
-
-.template__company {
-	max-width: @layout-max-width;
-	width: @layout-width-desktop;
-    margin: 0 auto;
-	
-	@media @tablet {
-		width: @layout-width-tablet;
-    	margin: 0 (100%-@layout-width-tablet)/2;
-	}
-	
-	.widget {
-		width: 100%;
-		text-align: center;
-		text-transform: uppercase;
-	}
+	display: inline-block;
+	width: auto;
+	max-width: none;
+	margin: 0;
+	vertical-align: middle;
+	text-transform: uppercase;
+	line-height: 0;
 }
 
 .logo {
-	display: none;
+	a img {
+		max-height: 40px;
+		width: auto !important;
+	}
 }
 
 .companyname {
+	margin-left: 12px;
     line-height: 0;
 
-	&__company-link {
-		display: block;
-		padding: 62px 0 70px;
-		text-align: center;
+	a {
 		font-family: @font__companyname--font-family;
 		font-size: @font__companyname--font-size;
 		font-weight: @font__companyname--font-weight;
@@ -74,39 +55,6 @@
 		&:hover {
 			text-decoration: none;
 		}
-		
-		@media @mobile {
-			padding: 32px 0 40px;
-		}
-		
-		.companyname__company-text {
-    		display: inline-block;
-			margin: 0 -@font__companyname--letter-spacing 0 0;
-			padding: 0 0 10px;
-			border-bottom: 1px solid @color__companyname--text;
-		}
-		
-		// If the header is smaller when scrolling down.
-		
-		.template__header--small & {
-			font-size: @font__companyname--font-size*0.8;
-			line-height: @font__companyname--line-height*0.8;
-			
-			.make-font-a-little-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-			.make-font-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-			.make-font-a-lot-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-		}
-		
-		@media @tablet {
-			&, .template__header--small & {
-				font-size: @font__companyname--font-size*0.8;
-				line-height: @font__companyname--line-height*0.8;
-				
-				.make-font-a-little-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-				.make-font-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-				.make-font-a-lot-smaller(@font__companyname--font-size*0.8, @font__companyname--line-height*0.8);
-			}
-		}
 	}
 }
 
@@ -115,35 +63,26 @@
 // ------------------------------
 
 .template__navigation {
-	position: relative;
-	max-width: @layout-max-width;
-	width: @layout-width-desktop;
-    margin: 0 auto;
+	.transition(all, 600ms, cubic-bezier(0.215, 0.61, 0.355, 1));
+	position: fixed;
+	left: -320px;
+	top: 0;
+	bottom: 0;
+	width: 320px;
+    background-color: @color__navigation--background;
 	
-	@media @tablet {
-		width: 100%;
-    	margin: 0;
+	&.open {
+		left: 0;
 	}
 }
 
 .widget[data-widget-type="extendednavigation"] {
     position: relative;
-	padding: 0;
+	padding: 30px 15px;
 	width: auto;
 	min-height: 40px;
-    background-color: @color__navigation--background;
 	text-transform: uppercase;
-	
-	@media @tablet {
-	}
-	
-	&.open {
-		@media @tablet {
-		}
-	}
 }
-
-.extendednavigation {}
 
 // ------------------------------
 // #Navigation Toggle Button
@@ -153,143 +92,40 @@
 // It only appears on tablet and mobile sizes.
 
 .navigation-toggle {
-	display: none;
+	z-index: 100;
+	position: absolute;
+	top: 30px;
+	right: -80px;
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+	background: @color__navigation--text;
+	background-clip: content-box;
+	display: block;
+	font-size: 0;
+	opacity: 0.5;
 	
-	@media @tablet {
-		
-		// Displays as Icon's Middle Bar
-		
-		&, &:hover, &:focus {
-			z-index: 100;
-			cursor: pointer;
-			background: @color__navigation--text;
-			background-clip: content-box;
-			height: 2px;
-			padding: 0;
-			display: block;
-			position: absolute;
-			top: 10px;
-			right: 5%;
-			margin: 0;
-			padding: 9.5px 0;
-    		min-height: 21px;
-    		height: 21px;
-			width: 28px;
-			text-indent: 10000px;
-			border: none;
-			.box-shadow(none);
-			.transition(background, 0s, ease-in, 0.05s);
-			overflow: hidden;
-		}
-
-		// Top and Bottom Navigation Item Bar
-
-		&:after,
-		&:before,
-		&:hover:after,
-		&:hover:before {
-			content: "";
-			height: 2px;
-			width: 28px;
-			position: absolute;
-			display: block;
-			background-color: @color__navigation--text;
-			margin-right: 0;
-			margin-left: 0;
-			.transition-duration-2items(0.05s, 0.05s);
-			.transition-delay-2items(0.05s, 0s);
-
-			@media @mobile {
-				height: 2px;
-			}
-		}
-
-		// Top Bar
-		
-		&:before,
-		&:hover:before {
-			top: 0;
-		  	.transition-property-2items(top, transform);
-		}
-
-		// Bottom Bar
-		
-		&:after,
-		&:hover:after {
-			bottom: 0;
-			.transition-property-2items(bottom, transform);
-		}
-
-		&:hover {
-			&, &:before, &:after {
-				background-color: @color__navigation--text;
-				border: none;
-			}
-		}
+	&:hover {
+		opacity: 1;
 	}
-
-	// Toggle Button Open
-
-	.open & {
-		@media @tablet {
-			top: -30px;
-			
-			// Middle bar
-			
-			background-color: transparent;
-			
-			// Top and bottom bar
-			
-			&:before,
-			&:after {
-			  .transition-delay-2items(0s, 0.05s);
-			}
-			
-			// Top Bar
-
-			&:before {
-				top: 9px;
-				background: @color__navigation--text;
-				.transform-rotate(45deg);
-			}
-			
-			// Bottom Bar
-
-			&:after {
-				bottom: 10px;
-				background: @color__navigation--text;
-				.transform-rotate(-45deg);
-			}
-		}
-	}
-}
-
-// ------------------------------
-// #Navigation Body
-// ------------------------------
-
-// Dark overlay on tablet and mobile.
-
-.navigation-body {
-	.transition(opacity, 0s);
-	min-height: 1em;
 	
-	// This is only shown in Tablet and Mobile
-	
-	@media @tablet {
-		opacity: 0;
-		height: 0;
-		width: 0;
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 40px;
+		height: 40px;
+		content: '';
+		background-image: url("../images/ic-nav.svg");
+		background-size: 40px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-color: transparent;
 		
-		// When Navigation is open
-
 		.open & {
-			opacity: 1;
-			height: auto;
-			width: auto;
-			margin-top: 40px;
-			background-color: @color__navigation--background;
-			.transition(opacity, 0.25s);
+			.transform-rotate(45deg);
 		}
 	}
 }
@@ -305,13 +141,6 @@
 	line-height: 1em;
 	font-size: 0;
 	letter-spacing: 0;
-	
-    @media @tablet {
-		display: block;
-		height: auto;
-		margin: 3em auto 2em;
-		text-align: center;
-	}
 }
 
 // ------------------------------
@@ -321,19 +150,14 @@
 // Navigation Normal Item
 
 .navigation-item {
-	position: relative;
-	margin-bottom: 0;
-	padding: 0;
-	line-height: 1em;
-	
-    @media @tablet {
-		display: block;
-		text-align: center;
-	}
+	display: block;
+	margin: 0;
+	padding: 10px 0;
+	text-align: left;
 	
 	.item-name {
 		position: relative;
-		padding: 21px 26px;
+		padding: 0 20px;
 		text-transform: uppercase;
 		font-family: @font__navigation--font-family;
 		font-size: @font__navigation--font-size;
@@ -342,23 +166,16 @@
 		letter-spacing: @font__navigation--letter-spacing;
 		color: @color__navigation--text;
 	
-		@media @tablet {
-			padding: 12px 40px;
-    		border-bottom: 1px solid @color__navigation-item--background--selected;
-		}
-	
 		.make-font-a-little-smaller(@font__navigation--font-size, @font__navigation--line-height);
 		.make-font-smaller(@font__navigation--font-size, @font__navigation--line-height);
 		.make-font-a-lot-smaller(@font__navigation--font-size, @font__navigation--line-height);
 		
 		&:hover {
-			background: @color__navigation-item--background--hover;
 			color: @color__navigation--text--hover;
 		}
 	}
 
 	&.selected > .item-name {
-		background: @color__navigation-item--background--selected;
 		color: @color__navigation--text--selected;
 	}
 
@@ -375,7 +192,6 @@
 	// Folder Icon
 	
 	> .item-name {
-		padding-right: 40px;
 		
 		&:after {
 			display: block;
@@ -385,10 +201,6 @@
 			top: 46%;
 			border: 0.3em solid transparent;
 			border-top-color: @color__navigation--text;
-
-			@media @tablet {
-				right: 5%;
-			}
 		}
 		
 		&:hover:after,
@@ -426,7 +238,7 @@
 		opacity: 0;
     	margin: 0;
 		height: 0;
-		position: absolute;
+		position: static;
 		left: auto;
 		min-width: 200px;
 		margin: 0;
@@ -434,26 +246,17 @@
 		overflow: visible;
 		text-align: center;
 		.transition(opacity, 0s);
-
-		@media @tablet {
-			position: static;
-			margin: 0;
-			padding: 0;
-		}
 	}
 	
 	.navigation-item.folder.folder-open & {
+		position: static;
+		margin: 0 0 0.5em;
+		padding: 0;
     	overflow: visible;
 		display: block;
 		opacity: 1;
 		height: auto;
 		.transition(opacity);
-
-		@media @tablet {
-			position: static;
-			margin: 0 0 0.5em;
-			padding: 0;
-		}
 	}
 }
 
