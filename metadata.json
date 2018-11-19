@@ -1,8 +1,8 @@
 {
-	"name":"Skyline 2.0",
+	"name":"Delta Studio 2.0",
     "widgetVersion": 2,
-	"thumbnail":"thumbnail.png",
-	"screenshot":"skyline-screenshot.jpg",
+	"thumbnail":"delta-studio-thumbnail.png",
+	"screenshot":"delta-studio-screenshot.jpg",
 	"templateType":"standard",
 	"pageTypes": ["home", "gallery"],
     "tags": {
